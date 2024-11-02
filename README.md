@@ -1,31 +1,8 @@
+# React + Vite
 
-## Dashboard_🚀_UI
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+Currently, two official plugins are available:
 
-Dashboard_UI_ is your ultimate toolkit for creating stunning, customizable dashboard interfaces. Packed with modular components, and pre-built templates.
-
-
-This project empowers developers to quickly assemble responsive and interactive dashboards for any application. With seamless copy-and-paste code, customizable themes, 
-
----
-
-Elevate your project with Dashboard_🚀_UI and focus on building great experiences, faster!"
-## Features 
-- It easy to build and integrate 
-- professional-quality UI components 
-- Allows users to copy component
-- Analytics and Reporting
-- Live Demos
-
-
-## Contributors
-
-- [@manish-lal12](https://github.com/manish-lal12)
-- [sagarchaurasia176](https://github.com/sagarchaurasia176)
----
-## Tech Stack
-
-**Client:** React, Redux, TailwindCSS , firebase
-
-**Server:** Node, Express
-
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
