@@ -2,7 +2,10 @@ import React from 'react'
 
 const SideMenu = () => {
   return (
-    <div>SideMenu</div>
+    <div className=' bg-slate-800'>
+
+
+    </div>
   )
 }
 

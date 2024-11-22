@@ -4,7 +4,7 @@ import Components from "./core/RightSideBar/ComponentSections";
 
 const Core = () => {
   return (
-    <div>
+    <div className=" bg-slate-900 flex">
       {/* side bar of the next page */}
       <SideMenu />
       {/* components render */}

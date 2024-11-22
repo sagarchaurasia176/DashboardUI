@@ -29,9 +29,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MainSections />} />
           {/* Browse Components */}
-          <Route path="/ui/components" element={<Core />}></Route>
+          <Route path="/components" element={<Core />}></Route>
           {/* custom Components */}
-          <Route path="/ui/components" element={<Core />}></Route>
+          <Route path="/components" element={<Core />}></Route>
         </Routes>
       </div>
     </>
