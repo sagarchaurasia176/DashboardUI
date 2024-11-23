@@ -5,21 +5,25 @@ export const mainHeader = {
 export const HeaderComponents = [
   {
     title: "Components",
+    link: "#",
   },
 
   {
     title: "Templates",
+    link: "#",
   },
   {
     title: "Pricing",
+    link: "#",
   },
   {
     title: "Contact",
+    link: "#",
   },
 ];
 
 export const subHeader = {
-  decp : "We Build Dashboard",
-  next:" For You",
-  para:"Beautifuly Designed Dashboard that you can copy and paste into your own code base !"
-}
+  decp: "We Build Dashboard",
+  next: " For You",
+  para: "Beautifully Designed Dashboard that you can copy and paste into your own code base!",
+};

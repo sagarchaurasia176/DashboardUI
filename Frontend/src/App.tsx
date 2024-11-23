@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HeroSections from "./components/pages/HeroSections";
-import MainSections from "./components/pages/MainSections";
+import LandingPage from "./pages/LandingPage";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css"; // Import the CSS
 import Core from "./Dashboards/Core";
+import ComponentPage from "pages/ComponentPage";
 
-const App = () => {
+const App: React.FC = () => {
   // Initialize LocomotiveScroll
   useEffect(() => {
     const scroll = new LocomotiveScroll({
@@ -19,19 +19,19 @@ const App = () => {
       // Clean up LocomotiveScroll when the component unmounts
       scroll.destroy();
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
 
   return (
     <>
       <div className="bg-slate-950">
         <Navbar />
-        
+
         <Routes>
-          <Route path="/" element={<MainSections />} />
+          <Route path="/" element={<LandingPage />} />
           {/* Browse Components */}
-          <Route path="/components" element={<Core />}></Route>
+          <Route path="/ui/components" element={<Core />}></Route>
           {/* custom Components */}
-          <Route path="/components" element={<Core />}></Route>
+          <Route path="/ui/components" element={<Core />}></Route>
         </Routes>
       </div>
     </>

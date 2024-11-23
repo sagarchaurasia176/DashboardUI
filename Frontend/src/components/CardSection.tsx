@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ManImg from "../../assets/manImg.png";
+// import ManImg from "../../assets/manImg.png";
 import { FaCopy, FaPaste, FaRocket } from "react-icons/fa"; // Example icons
 gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
 
-const CardSections = () => {
+const CardSection = () => {
   useEffect(() => {
     gsap.fromTo(
       ".card-image",
@@ -78,4 +78,4 @@ const CardSections = () => {
   );
 };
 
-export default CardSections;
+export default CardSection;

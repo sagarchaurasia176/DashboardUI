@@ -3,13 +3,12 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { HeaderComponents, mainHeader } from "../apis/HeroData";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
     <div className="">
       <div className="text-center font-bold text-white bg-gradient-to-br from-pink-700 via-pink-500 to-violet-500 p-2">
         {mainHeader.bio}
       </div>
-
 
       {/* Sticky header */}
       <header className=" w-full text-gray-100 body-font  bg-slate-900  top-0 z-50 shadow-md">

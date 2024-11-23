@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { subHeader } from "../../apis/HeroData";
-import { Link } from "react-router-dom";
-const HeroSections = () => {
+import { subHeader } from "../apis/HeroData";
+
+const HeroSection = () => {
   const headingRef = useRef();
   const subHeadingRef = useRef();
   const paraRef = useRef();
@@ -12,7 +12,7 @@ const HeroSections = () => {
 
     // Animation for main heading
     tl.fromTo(
-      headingRef.current,
+      headingRef.current!,
       {
         opacity: 0,
         y: -100,
@@ -40,7 +40,7 @@ const HeroSections = () => {
 
     // Animation for subheading
     tl.fromTo(
-      subHeadingRef.current,
+      subHeadingRef.current!,
       {
         opacity: 0,
         y: 50,
@@ -71,7 +71,7 @@ const HeroSections = () => {
 
     // Animation for paragraph
     tl.fromTo(
-      paraRef.current,
+      paraRef.current!,
       { opacity: 0 },
       { opacity: 1, duration: 1, ease: "power3.out" },
       "-=0.5"
@@ -110,7 +110,6 @@ const HeroSections = () => {
         {/* buttons  */}
         <div className="flex space-x-4 justify-center mt-6">
           {/* Browse Components Button */}
-          <Link to='/components'>
           <button className="flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:from-blue-600 hover:to-indigo-700 transition-all">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -128,11 +127,8 @@ const HeroSections = () => {
             </svg>
             Browse Components
           </button>
-          </Link>
-      
 
           {/* Custom Components Button */}
-          <Link to='/components'>
           <button className="flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold rounded-lg shadow-md hover:from-green-600 hover:to-teal-700 transition-all">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -150,12 +146,10 @@ const HeroSections = () => {
             </svg>
             Custom Components
           </button>
-          </Link>
-
         </div>
       </div>
     </>
   );
 };
 
-export default HeroSections;
+export default HeroSection;
