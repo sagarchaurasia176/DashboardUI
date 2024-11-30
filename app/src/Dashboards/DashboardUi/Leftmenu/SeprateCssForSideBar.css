@@ -1,0 +1,9 @@
+#scroll-containers {
+  overflow: hidden; /* Hide the scrollbar */
+
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+#scroll-containers::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
