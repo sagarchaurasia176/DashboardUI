@@ -1,53 +1,108 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
-import { HeaderComponents, mainHeader } from "../apis/HeroData";
+import { HeaderComponents } from "../apis/HeroData";
 
 const Navbar: React.FC = () => {
-  return (
-    <div className="">
-      <div className="text-center font-bold text-white bg-gradient-to-br from-pink-700 via-pink-500 to-violet-500 p-2">
-        {mainHeader.bio}
-      </div>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
-      {/* Sticky header */}
-      <header className=" w-full text-gray-100 body-font  bg-slate-900  top-0 z-50 shadow-md">
-        <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
-          <Link
-            to="/"
-            className="flex title-font items-center text-gray-100 font-bold mb-4 md:mb-0"
+  return (
+    <header className="w-full fixed   bg-slate-900 text-gray-100  z-50 ">
+      <div className="absolute w-full  border-b-2 border-white   container mx-auto flex items-center justify-between p-3">
+        {/* Logo */}
+        <Link to="/" className="flex items-center font-bold text-xl">
+          <img className="w-8 h-8" src={logo} alt="Logo of Dashboard_UI" />
+          <span className="ml-2">Dashboard_UI</span>
+        </Link>
+
+        {/* Menu for larger screens */}
+        <nav className="hidden md:flex space-x-6">
+          {HeaderComponents.map((item, index) => (
+            <Link
+              key={index}
+              to={item.link || "#"}
+              className={`hover:text-red-200 hover:animate-pulse transition-all ${
+                location.pathname === item.link ? "text-red-500 font-bold" : ""
+              }`}
+            >
+              {item.title}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Demo Button */}
+        <button
+          aria-label="Book Demo"
+          className="hidden md:inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all"
+        >
+          Book Demo
+          <svg
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className="w-4 h-4 ml-2"
+            viewBox="0 0 24 24"
           >
-            <img className="w-6" src={logo} alt="Dashboard Logo" />
-            <span className="ml-3 text-xl">Dashboard_UI</span>
-          </Link>
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            {HeaderComponents.map((item, index) => (
-              <Link
-                key={index}
-                to={item.link || "#"}
-                className="mr-5 hover:text-red-200 hover:animate-pulse transition-all"
-              >
-                {item.title}
-              </Link>
-            ))}
-          </nav>
-          <button className="inline-flex items-center bg-gray-900 text-gray-100 p-2 rounded-lg focus:outline-none hover:bg-gray-700 text-base mt-4 md:mt-0">
-            Book Demo
-            <svg
-              fill="none"
-              stroke="currentColor"
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        {/* Hamburger Menu */}
+        <button
+          aria-label="Toggle Menu"
+          aria-expanded={isMenuOpen}
+          className="md:hidden text-gray-100"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-4 h-4 ml-1"
-              viewBox="0 0 24 24"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden bg-slate-800 transform transition-transform ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <nav className="flex flex-col space-y-2 p-4">
+          {HeaderComponents.map((item, index) => (
+            <Link
+              key={index}
+              to={item.link || "#"}
+              className={`block text-gray-100 hover:text-red-200 transition-all ${
+                location.pathname === item.link ? "text-red-500 font-bold" : ""
+              }`}
+              onClick={() => setIsMenuOpen(false)}
             >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
+              {item.title}
+            </Link>
+          ))}
+        </nav>
+        <div className="flex justify-center p-4">
+          <button
+            aria-label="Book Demo"
+            className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all"
+          >
+            Book Demo
           </button>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 

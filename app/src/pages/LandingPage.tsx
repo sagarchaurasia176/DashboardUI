@@ -8,6 +8,7 @@ import FooterSection from "../components/FooterSection";
 const LandingPage: React.FC = () => {
   return (
     <div>
+      {/* here you can import all your main web page design components  */}
       <HeroSection />
       <CardSection />
       <OfferSection />
