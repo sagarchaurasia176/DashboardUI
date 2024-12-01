@@ -39,9 +39,11 @@ async function highlightCode(code: string) {
     .use(remarkRehype)
     .use(rehypePrettyCode, {
       keepBackground: true,
+      theme: "vesper",
     })
     .use(rehypeStringify)
     .process(wrappedCode);
+  console.log(file.value);
 
-  return String(file);
+  return String(file.value);
 }

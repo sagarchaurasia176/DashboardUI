@@ -9,45 +9,6 @@ const HeroSection = () => {
   const subHeadingRef = useRef(null);
   const paraRef = useRef(null);
 
-  useEffect(() => {
-    // Register the ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Animation timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: headingRef.current,
-        start: "top 70%", // Start the animation when 70% of the heading enters the viewport
-        end: "top 30%",   // End the animation at 30% of the viewport
-        scrub: true,      // Smooth animation based on scroll
-      },
-    });
-
-    // Animate heading
-    tl.fromTo(
-      headingRef.current,
-      { opacity: 0, y: -100 },
-      { opacity: 1, y: 0, duration: 1 }
-    );
-
-    // Animate subheading
-    tl.fromTo(
-      subHeadingRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
-      "-=0.5" // Overlap with previous animation
-    );
-
-    // Animate paragraph
-    tl.fromTo(
-      paraRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: "power3.out" },
-      "-=0.5"
-    );
-
-  }, []);
-
   return (
     <div className="relative h-screen flex flex-col justify-center items-center bg-slate-950">
       <div className="pointer-events-none inset-0 p-6 sm:p-12">

@@ -1,9 +1,12 @@
 import React from "react";
 
 const ButtonCodeSnippet = `
+    <main>
     <div>
-    Submit
+    Test
+    <p>TEst para </p>
     </div>
+    </main>
 `;
 
 export default ButtonCodeSnippet;

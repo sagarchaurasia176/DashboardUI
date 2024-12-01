@@ -7,8 +7,7 @@ import FooterSection from "../components/FooterSection";
 
 const LandingPage: React.FC = () => {
   return (
-    <div>
-      {/* here you can import all your main web page design components  */}
+    <div className="bg-slate-950">
       <HeroSection />
       <CardSection />
       <OfferSection />

@@ -3,32 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import ManImg from "../../assets/manImg.png";
 import { FaCopy, FaPaste, FaRocket } from "react-icons/fa"; // Example icons
-gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
 
 const CardSection = () => {
-  useEffect(() => {
-    gsap.fromTo(
-      ".card-image",
-      {
-        opacity: 0,
-        scale: 0.8,
-        stagger: 0.2, // Starting values
-        scrollTrigger: {
-          trigger: ".card-image", // Trigger the animation when the image comes into view
-          scroller: "#root",
-          start: "top 80%", // Start when the top of the element reaches 80% from the top of the viewport
-          end: "bottom top", // End when the bottom of the element reaches the top of the viewport
-          scrub: true, // Smoothly scrubs the animation as the user scrolls
-        },
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        stagger: 0.3, // Ending values
-      }
-    );
-  }, []);
-
   return (
     <div className="h-screen bg-slate-950 shadow-md p-8">
       {/* Container with Flexbox for two-column layout */}

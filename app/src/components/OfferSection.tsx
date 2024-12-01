@@ -3,28 +3,7 @@ import { FaCode, FaRegObjectGroup, FaBolt, FaShieldAlt } from "react-icons/fa"; 
 import gsap from "gsap"; // Import GSAP
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger plugin
 
-gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
-
 const OfferSection = () => {
-  useEffect(() => {
-    // GSAP animation for the features cards
-    gsap.fromTo(
-      ".feature-card", // Ensure this targets the correct elements
-      {
-        opacity: 0,
-        y: 50, // Start from 50px below
-      },
-      {
-        opacity: 1,
-        y: 4, // End at normal position
-        stagger: 0.1,
-        duration: 1,
-        delay:0.1,
-
-      }
-    );
-  }, []);
-
   return (
     <div>
       <div className="min-h-screen text-white">
