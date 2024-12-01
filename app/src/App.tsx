@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css"; // Import the CSS
-import DashboardMainUi from "./Dashboards/DashboardUi/DashboardMainUi";
+import DashboardMainUi from "./components/Dashboards/DashboardUi/DashboardMainUi";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -15,14 +15,13 @@ const App: React.FC = () => {
       el: document.querySelector("#scroll-container"),
       smooth: true,
     });
-
     // Update LocomotiveScroll on route change
     scroll.update();
-
     return () => {
       scroll.destroy();
     };
   }, [location.pathname]); // Reinitialize on route change
+  
 
   return (
     <div id="scroll-container" data-scroll-container className="bg-slate-950">
