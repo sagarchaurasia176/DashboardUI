@@ -1,11 +1,14 @@
+import ButtonCodeSnippet from "../../playground/button/buttonCodeSnippet";
 import React from "react";
-import ButtonCodeSnippet from "../playground/button/buttonCodeSnippet";
-import Sidebar from "../components/Sidebar";
-import ComponentShowcase from "components/ComponentShowcase";
+import Sidebar from "../../components/Sidebar";
+import ComponentShowcase from "../../components/ComponentShowcase";
 
 const ButtonPage = () => {
   return (
-    <div className="flex bg-black h-screen">
+    <div
+      className="flex bg-black h-screen
+    "
+    >
       <Sidebar />
       <ComponentShowcase
         code={ButtonCodeSnippet.code}
