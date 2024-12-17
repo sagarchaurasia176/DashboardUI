@@ -1,4 +1,3 @@
-
 ## Dashboard_🚀_UI
 
 
@@ -16,6 +15,7 @@ Elevate your project with Dashboard_🚀_UI and focus on building great experien
 - Allows users to copy component
 - Analytics and Reporting
 - Live Demos
+
 
 
 ## Contributors
@@ -36,3 +36,4 @@ Elevate your project with Dashboard_🚀_UI and focus on building great experien
 ![Screenshot 2024-11-21 175731](https://github.com/user-attachments/assets/d73953b2-b0b5-47be-a94b-21f1f36aca18)
 ![Screenshot 2024-11-21 175739](https://github.com/user-attachments/assets/73f54f74-38f4-4cac-887a-bf0a10343cb0)
 ![Screenshot 2024-11-21 175745](https://github.com/user-attachments/assets/57afdc0a-05a8-4c17-a549-6067a366ae11)
+![Screenshot 2024-12-17 171846](https://github.com/user-attachments/assets/fb1464b9-ec9d-4703-9bdf-9be894841f5f)
