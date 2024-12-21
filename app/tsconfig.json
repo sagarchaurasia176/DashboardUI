@@ -1,8 +1,8 @@
 {
-  "compilerOptions": {
+    "compilerOptions": {
     "target": "es6",
     "moduleResolution": "node",
-    "module": "ES6",
+    "module": "esnext",
     "declaration": false,
     "noLib": false,
     "emitDecoratorMetadata": true,
@@ -19,7 +19,11 @@
     "listFiles": false,
     "noEmitHelpers": true,
     "jsx": "react-jsx",
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["./src"]
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+      "types": ["node","vite/client"],
+    },
+  "include": ["./src"],
 }

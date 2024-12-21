@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   return (
     <div className="relative h-screen flex flex-col justify-center items-center bg-slate-950">
-      <div className="pointer-events-none inset-0 p-6 sm:p-12">
+      <div className="pointer-events-none inset-0 sm:p-12">
         {/* Main Heading */}
         <h1
           ref={headingRef}
@@ -23,15 +23,15 @@ const HeroSection = () => {
         {/* Subheading */}
         <h2
           ref={subHeadingRef}
-          className="text-4xl animate-bounce sm:text-6xl text-center font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-teal-400 to-green-500 py-3"
+          className="text-5xl lg:text-[6rem] animate-bounce sm:text-6xl text-center  font-extrabold relative z-20 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-teal-400 to-green-500 py-3"
         >
           {subHeader.next}
         </h2>
 
         {/* Paragraph */}
-        <p
+        <p id="texts-typer"
           ref={paraRef}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 font-thin text-center text-xl sm:text-2xl mt-4"
+          className=" text-transparent bg-clip-text bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500  font-medium text-center text-xl sm:text-2xl mt-4"
         >
           {subHeader.para}
         </p>

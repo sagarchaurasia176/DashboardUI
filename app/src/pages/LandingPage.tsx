@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "../components/HeroSection";
 import CardSection from "../components/CardSection";
 import OfferSection from "../components/OfferSection";
@@ -7,7 +7,7 @@ import FooterSection from "../components/FooterSection";
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="bg-slate-950">
+    <div className=" bg-slate-900">
       <HeroSection />
       <CardSection />
       <OfferSection />

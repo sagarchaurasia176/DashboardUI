@@ -1,18 +1,48 @@
-import React, { useEffect } from "react";
-import { FaCode, FaRegObjectGroup, FaBolt, FaShieldAlt } from "react-icons/fa"; // Import icons from react-icons
+import React, { useEffect, useRef } from "react";
+import {
+  FaCode,
+  FaRegObjectGroup,
+  FaBolt,
+  FaShieldAlt,
+  FaMobileAlt,
+  FaChartLine,
+} from "react-icons/fa"; // Import icons from react-icons
 import gsap from "gsap"; // Import GSAP
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger plugin
+import offerImage from "../assets/manImg.png"; // Import the image
+// to used gsap we basically used the useGSAP hook
+import { useGSAP } from "@gsap/react";
+
+// Register the ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const OfferSection = () => {
+  const cardMovesWithScrollTrigger = useRef(null);
+
+  // scroll trigger
+  useGSAP(() => {
+    const triggerElem = cardMovesWithScrollTrigger.current;
+    gsap.to(cardMovesWithScrollTrigger.current, {
+      scale:1,
+      duration: 2,
+      ease: "power4.out",
+    });
+  });
+
+  // return the JSX
   return (
     <div>
-      <div className="min-h-screen text-white">
-        <section className="py-20 w-full">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">
+      <div className="p-2 text-white">
+        <section className=" flex justify-center  items-center">
+          {/* main div */}
+          <div className="max-w-6xl text-center  px-4">
+            <h2 className="text-5xl font-bold mb-12 text-center">
               Why Choose Dashboard_UI?
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div
+              ref={cardMovesWithScrollTrigger}
+              className="grid md:grid-cols-2 lg:grid-cols-2 gap-9 mr-4"
+            >
               {[
                 {
                   icon: FaCode,
@@ -30,9 +60,10 @@ const OfferSection = () => {
                   description: "Fast-loading, efficient dashboard solutions",
                 },
                 {
-                  icon: FaShieldAlt,
-                  title: "Secure & Reliable",
-                  description: "Built with best practices for data protection",
+                  icon: FaMobileAlt,
+                  title: "Responsive Design",
+                  description:
+                    "Optimized for all devices, ensuring a seamless experience",
                 },
               ].map((feature, index) => (
                 <div
