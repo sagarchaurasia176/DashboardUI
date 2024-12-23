@@ -17,6 +17,6 @@ if (rootElement) {
       </BrowserRouter>
     </StrictMode>
   );
-} else {\
+} else {
   console.error("Failed to find the root element");
 }
