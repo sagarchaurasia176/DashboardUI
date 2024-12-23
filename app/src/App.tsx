@@ -22,14 +22,6 @@ import {
 } from "./pages/index";
 
 const App: React.FC = () => {
-  // useEffect(() => {
-  //   const scroll = new LocomotiveScroll({
-  //     el: document.querySelector('#root'),
-  //     smooth: true
-  //   });
-  //   // initializeShreyFollower(); // Initialize Shrey follower
-  // }, []);
-  
   return (
     <>
       <div className="">

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import firebase from "firebase/app";
 import { app, auth } from "./FirebaseConfig";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
+import toast from 'react-hot-toast';
+
 
 // Goolge Auth 
 const GoogleAuth = () => {

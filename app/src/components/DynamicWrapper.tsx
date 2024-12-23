@@ -20,7 +20,7 @@ const DynamicWrapper: React.FC<DynamicComponentProps> = ({
 
   useEffect(() => {
     const importComponent = async () => {
-      let importedComponent: React.FC<any | null>;
+      let importedComponent: React.FC<any> | null;
       try {
         // dynamic imports of components storybook based on ComponentName
         switch (ComponentName) {
@@ -69,7 +69,7 @@ const DynamicWrapper: React.FC<DynamicComponentProps> = ({
     <div>No Component provided</div>;
   }
 
-  return <PreviewComponent {...props} />;
+  return PreviewComponent ? <PreviewComponent {...props} /> : <div>No Component provided</div>;
 };
 
 export default DynamicWrapper;

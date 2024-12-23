@@ -6,7 +6,9 @@ import { BrowserRouter } from "react-router-dom";
 // import { GlobalStateManage } from './context/GloablaStateManage';
 // context api
 createRoot(document.getElementById("root")).render(
+  <StrictMode>
   <BrowserRouter>
       <App />
   </BrowserRouter>
+  </StrictMode>
 );
