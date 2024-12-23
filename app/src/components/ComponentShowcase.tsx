@@ -94,6 +94,7 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
                 className="px-4 py-2 bg-yellow-500 text-white rounded-md flex items-center hover:bg-yellow-700"
                 onClick={handleCopy}
               >
+
                 {isCopied ? (
                   <span id="success-icon" className="inline-flex items-center">
                     <svg
@@ -128,9 +129,14 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
                   </span>
                 )}
               </button>
+
+
             </div>
             <br />
-            <div className="overflow-y-auto h-[60vh]">
+            
+            
+            
+            <div className="overflow-y-auto  max-h-[25rem] lg:h-auto md:h-auto">
               {userView === "Preview" ? (
                 // Add logic to embed HTML for previewing component
                 <DynamicWrapper ComponentName={name} />
