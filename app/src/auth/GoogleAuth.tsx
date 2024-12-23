@@ -25,9 +25,9 @@ const GoogleAuth = () => {
 
   return(
     <>
-    <button className=" flex items-center justify-center rounded-1xl text-black rounded-lg bg-slate-300 p-2 " onClick={()=>singInWithGoogle()}>
+    <button className=" flex items-center justify-center rounded-1xl text-black rounded-lg bg-slate-800 p-2 " onClick={()=>singInWithGoogle()}>
     <FaGoogle className=" mr-2"/>
-    Sing In
+    Sign In
     </button>
     </>
   )
