@@ -6,12 +6,16 @@ import { Toaster } from "react-hot-toast";
 // import { GlobalState } from "context/GloablaStateManage";
 // import { GlobalStateManage } from './context/GloablaStateManage';
 // context api
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-
-  <BrowserRouter>
-    <Toaster/>
-      <App />
-  </BrowserRouter>
-  </StrictMode>
-);
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <BrowserRouter>
+        <Toaster />
+        <App />
+      </BrowserRouter>
+    </StrictMode>
+  );
+} else {
+  console.error("Failed to find the root element");
+}
