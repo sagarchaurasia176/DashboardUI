@@ -1,6 +1,6 @@
 import ComponentShowcase from "../../components/ComponentShowcase";
 import Sidebar from "../../components/Sidebar";
-import NavbarCode from "../../playground/navbar/navbarCodeSnippet";
+import NavbarCode from "../../playground/navbar/navbarCode";
 
 const NavbarPage = () => {
   return (

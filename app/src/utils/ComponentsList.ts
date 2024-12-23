@@ -1,4 +1,4 @@
-export const ComponentsList = [
+const ComponentsList = [
   {
     name: "Bar Chart",
     href: "/components/barchart",
@@ -38,70 +38,4 @@ export const AdditionalList = [
     name: "Card",
     href: "/components/card",
   },
-  {
-    name: "Button",
-    href: "/components/button",
-  },
-  {
-    name: "Navbar",
-    href: "/components/navbar",
-  },
-  {
-    name: "Footer",
-    href: "/components/footer",
-  },
-  {
-    name: "Card",
-    href: "/components/card",
-  },
-  {
-    name: "Button",
-    href: "/components/button",
-  },
-  {
-    name: "Navbar",
-    href: "/components/navbar",
-  },
-  {
-    name: "Footer",
-    href: "/components/footer",
-  },
-  {
-    name: "Card",
-    href: "/components/card",
-  },
-  {
-    name: "Button",
-    href: "/components/button",
-  },
-  {
-    name: "Navbar",
-    href: "/components/navbar",
-  },
-  {
-    name: "Footer",
-    href: "/components/footer",
-  },
-  {
-    name: "Card",
-    href: "/components/card",
-  },
-  {
-    name: "Button",
-    href: "/components/button",
-  },
-  {
-    name: "Navbar",
-    href: "/components/navbar",
-  },
-  {
-    name: "Footer",
-    href: "/components/footer",
-  },
-  {
-    name: "Card",
-    href: "/components/card",
-  },
-
-  
 ];

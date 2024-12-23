@@ -2,6 +2,7 @@ const barChartCode = {
   name: "Bar Chart",
   code: `
   import { AgCharts } from "ag-charts-react";
+  import { useState } from "react";
 
   const BarChart = () => {
     const [options, setOptions] = useState({
@@ -19,6 +20,7 @@ const barChartCode = {
     });
 
     return <AgCharts options={options} />;
+    export default BarChart;
   };
   `,
   description:
