@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 // import { GlobalStateManage } from './context/GloablaStateManage';
 // context api
 const rootElement = document.getElementById("root");
+// another way to resovled the issue
 if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
@@ -16,6 +17,6 @@ if (rootElement) {
       </BrowserRouter>
     </StrictMode>
   );
-} else {
+} else {\
   console.error("Failed to find the root element");
 }
