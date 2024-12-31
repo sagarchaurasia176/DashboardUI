@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { TemplatesDetails, TemplatesBio } from "../apis/Templates";
+import { useLocation } from "react-router-dom";
 
 // Declare the global interface for Razorpay
 declare global {
@@ -35,8 +36,10 @@ interface RazorpayResponse {
   razorpay_signature: string;
 }
 const Templates: React.FC = () => {
+  const location = useLocation();
+
   const [template, setTemplate] = useState<TemplateState>({
-    name: "Template Name", // Replace with `TemplatesDetails.title` if accessible
+    name: TemplatesDetails.title, // Replace with `TemplatesDetails.title` if accessible
     price: "1000",
   });
   // Initialize Razorpay payment
@@ -56,7 +59,9 @@ const Templates: React.FC = () => {
       // Handler applied it
       handler: async (response: RazorpayResponse) => {
         try {
-          const verifyURL = `${import.meta.env.VITE_Backend}/api/pay/api/order/verify`;
+          const verifyURL = `${
+            import.meta.env.VITE_Backend
+          }/api/pay/api/order/verify`;
           const verificationResponse = await axios.post(verifyURL, response);
           console.log(
             "Payment verification successful:",
@@ -78,7 +83,8 @@ const Templates: React.FC = () => {
   const handlePay = async () => {
     try {
       const orderURL = `${import.meta.env.VITE_Backend}/api/pay/api/create/Order`;
-      const { data } = await axios.post(orderURL, {
+      const { data } = await axios.post(orderURL,
+     {
         amount: parseInt(template.price) * 100,
       }); // Multiply by 100 for Razorpay's format
       console.log("Order data:", data);
@@ -108,9 +114,15 @@ const Templates: React.FC = () => {
               Buy now ₹{template.price}
             </button>
             &nbsp;
-            <button className="bg-slate-800 p-2 rounded-md">
-              Live Preview
-            </button>
+            <a
+              href="https://courses-db-one.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-slate-800 p-2 rounded-md">
+                Live Preview
+              </button>
+            </a>
           </div>
         </div>
         <div className="w-1/2">
