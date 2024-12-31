@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { HeaderComponents, subHeader } from "../apis/HeroData";
 import GoogleAuth from "../auth/GoogleAuth";
@@ -25,6 +25,7 @@ const Navbar: React.FC = () => {
       }
     });
   }, [auth]);
+
 
   return (
     <header className=" w-screen  fixed text-gray-100 z-50">
@@ -63,10 +64,14 @@ const Navbar: React.FC = () => {
             </>) : (<> <GoogleAuth/> </>)
           }
           {/* Demo Button */}
-          <button
+          
+          
+          <button 
             aria-label="Book Demo"
             className="hidden md:inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all"
+            onClick={() => window.location.href = "https://cal.com/DashboardUi"}
           >
+            
             Book Demo
             <svg
               fill="none"
@@ -128,6 +133,7 @@ const Navbar: React.FC = () => {
           <button
             aria-label="Book Demo"
             className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all"
+            onClick={() => window.location.href = "https://cal.com/DashboardUi"}
           >
             Book Demo
           </button>
