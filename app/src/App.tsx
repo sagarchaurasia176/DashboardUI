@@ -20,13 +20,15 @@ import {
   Linechart,
   Scatterseries,
 } from "./pages/index";
+import Templates from "./components/Templates";
 
 const App: React.FC = () => {
   return (
     <>
       <div className="">
-        <div className="">
-          <Navbar />
+        <Navbar />
+       
+        <div className="h-screen bg-slate-950">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             {/* Browse Components */}
@@ -43,6 +45,8 @@ const App: React.FC = () => {
               path="/components/scatterseries"
               element={<Scatterseries />}
             ></Route>
+            {/* Template */}
+            <Route path="/Templates/Ui" element={<Templates />}></Route>
           </Routes>
         </div>
       </div>

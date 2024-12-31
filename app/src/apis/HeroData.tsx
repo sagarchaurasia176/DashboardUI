@@ -7,12 +7,12 @@ export const mainHeader = {
 export const HeaderComponents = [
   {
     title: "Components",
-    link: "#",
+    link: "/components",
     icon: <FaCogs />
   },
   {
     title: "Templates",
-    link: "#",
+    link: "/Templates/Ui",
     icon: <FaFileAlt />
   },
   {
