@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 // import LocomotiveScroll from 'locomotive-scroll';
 // import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
+import "@radix-ui/themes/styles.css";
 
 //pages
 import {

@@ -4,11 +4,15 @@ import { app, auth } from "./FirebaseConfig";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
 import toast from 'react-hot-toast';
+import AuthDialogueBox from "./AuthDialogueBox";
 
 
 // Goolge Auth 
 const GoogleAuth = () => {
   const [load , setLoad] = useState(false);
+  const[openDialog , setDialog] = useState(true);
+
+
   // singiwithgoogle function
   const singInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
@@ -27,8 +31,17 @@ const GoogleAuth = () => {
   return(
     <>
     <button className=" flex items-center justify-center rounded-1xl text-white rounded-lg bg-slate-950 p-2 " onClick={()=>singInWithGoogle()}>
-    <FaGoogle className=" mr-2"/>
-    Sign In
+    {
+      openDialog ? (<>
+       <FaGoogle className=" mr-2"/>
+       Sign In
+      </>) : (
+        <>
+        <AuthDialogueBox/>
+        </>
+      )
+    }
+   
     </button>
     </>
   )
