@@ -14,9 +14,10 @@ const GoogleAuth = () => {
     const provider = new GoogleAuthProvider();
     try {
       setLoad(true);
-      toast.loading("loading...");
+      let load = toast.loading("loading...");
       const GoogleDialogBox = await signInWithPopup(auth, provider);
       console.log(GoogleDialogBox.user);
+      toast.dismiss(load);
       setLoad(false)
     } catch (er) {
       console.log("Error", er);
@@ -25,7 +26,7 @@ const GoogleAuth = () => {
 
   return(
     <>
-    <button className=" flex items-center justify-center rounded-1xl text-black rounded-lg bg-slate-800 p-2 " onClick={()=>singInWithGoogle()}>
+    <button className=" flex items-center justify-center rounded-1xl text-white rounded-lg bg-slate-950 p-2 " onClick={()=>singInWithGoogle()}>
     <FaGoogle className=" mr-2"/>
     Sign In
     </button>
