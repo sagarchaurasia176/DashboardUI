@@ -59,9 +59,7 @@ const Templates: React.FC = () => {
       // Handler applied it
       handler: async (response: RazorpayResponse) => {
         try {
-          const verifyURL = `${
-            import.meta.env.VITE_Backend
-          }/api/pay/api/order/verify`;
+          const verifyURL = `${import.meta.env.VITE_Backend}/api/order/verify`;
           const verificationResponse = await axios.post(verifyURL, response);
           console.log(
             "Payment verification successful:",

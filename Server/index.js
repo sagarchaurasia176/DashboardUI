@@ -17,7 +17,8 @@ app.use(
   })
 );
 
-//Routing
+
+//Routing updated
 app.use("/api/pay", payments);
 // post apply
 app.use("/", (req, res) => {
