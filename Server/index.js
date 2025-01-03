@@ -13,7 +13,7 @@ app.use(
   cors({
     origin: process.env.FRONTEND,
     credentials: true,
-    optionsSuccessStatus:202
+    methods: ["GET", "POST", "PUT"],
   })
 );
 
