@@ -45,7 +45,7 @@ const App: React.FC = () => {
               path="/components/scatterseries"
               element={<Scatterseries />}
             ></Route>
-            {/* Template */}
+            {/* Template for beautyful ui */}
             <Route path="/Templates/Ui" element={<Templates />}></Route>
           </Routes>
         </div>
