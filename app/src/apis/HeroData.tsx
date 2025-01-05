@@ -1,4 +1,4 @@
-import { FaCogs, FaFileAlt, FaDollarSign, FaEnvelope, FaEye, FaUsers } from 'react-icons/fa';
+import { FaCogs, FaFileAlt, FaDollarSign, FaEnvelope } from "react-icons/fa";
 
 export const mainHeader = {
   bio: "Introducing Dashboard_UI Pro - Premium Component packs and templates to build awesome Dashboard",
@@ -7,31 +7,29 @@ export const mainHeader = {
 export const HeaderComponents = [
   {
     title: "Components",
-    link: "/components",
-    icon: <FaCogs />
+    link: "/installation",
+    icon: <FaCogs />,
   },
   {
     title: "Templates",
     link: "/Templates/Ui",
-    icon: <FaFileAlt />
+    icon: <FaFileAlt />,
   },
   {
     title: "Pricing",
     link: "#",
-    icon: <FaDollarSign />
+    icon: <FaDollarSign />,
   },
   {
     title: "Contact us",
     link: "#",
-    icon: <FaEnvelope />
+    icon: <FaEnvelope />,
   },
-
-
 ];
 
 export const subHeader = {
   decp: "We Build Dashboard",
   next: " For You",
   para: "Beautifully Designed Dashboard that you can copy and paste into your own code base!",
-  data:"Introducing Dashboard_UI Pro - Premium Component packs and templates to build awesome Dashboard",
+  data: "Introducing Dashboard_UI Pro - Premium Component packs and templates to build awesome Dashboard",
 };

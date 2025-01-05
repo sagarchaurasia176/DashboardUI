@@ -126,19 +126,18 @@ const Navbar: React.FC = () => {
               {item.title}
             </Link>
           ))}
-             <div className="flex justify-center">
-          <button
-            aria-label="Book Demo"
-            className="bg-gray-700 hover:bg-gray-600 text-white p-1   rounded-lg transition-all"
-            onClick={() =>
-              (window.location.href = "https://cal.com/DashboardUi")
-            }
-          >
-            Book Demo
-          </button>
-        </div>
+          <div className="flex justify-center">
+            <button
+              aria-label="Book Demo"
+              className="bg-gray-700 hover:bg-gray-600 text-white p-1   rounded-lg transition-all"
+              onClick={() =>
+                (window.location.href = "https://cal.com/DashboardUi")
+              }
+            >
+              Book Demo
+            </button>
+          </div>
         </nav>
-     
       </div>
     </header>
   );

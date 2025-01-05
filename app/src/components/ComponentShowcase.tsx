@@ -17,19 +17,16 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
   const [userView, setUserView] = useState<string | undefined>();
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
-
-
   const handleCopy = () => {
-      // copy code to clipboard
-      navigator.clipboard.writeText(code)
-    let toastLoader =   toast.loading("copied...")
-      setIsCopied(true);
-      //automaitcally reset evry 2sec
-      setTimeout(() => {
-        toast.dismiss(toastLoader)
-        setIsCopied(false);
-      }, 2000);
-
+    // copy code to clipboard
+    navigator.clipboard.writeText(code);
+    let toastLoader = toast.loading("copied...");
+    setIsCopied(true);
+    //automaitcally reset evry 2sec
+    setTimeout(() => {
+      toast.dismiss(toastLoader);
+      setIsCopied(false);
+    }, 2000);
   };
 
   return (
@@ -87,14 +84,13 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
                   Preview
                 </button>
               </div>
-              
+
               <button
                 data-copy-to-clipboard-target="npm-install-copy-button"
                 data-tooltip-target="tooltip-copy-npm-install-copy-button"
                 className="px-4 py-2 bg-yellow-500 text-white rounded-md flex items-center hover:bg-yellow-700"
                 onClick={handleCopy}
               >
-
                 {isCopied ? (
                   <span id="success-icon" className="inline-flex items-center">
                     <svg
@@ -129,13 +125,9 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
                   </span>
                 )}
               </button>
-
-
             </div>
             <br />
-            
-            
-            
+
             <div className="overflow-y-auto  max-h-[25rem] lg:h-auto md:h-auto">
               {userView === "Preview" ? (
                 // Add logic to embed HTML for previewing component

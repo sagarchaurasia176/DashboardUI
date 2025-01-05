@@ -23,7 +23,7 @@ const OfferSection = () => {
   useGSAP(() => {
     const triggerElem = cardMovesWithScrollTrigger.current;
     gsap.to(cardMovesWithScrollTrigger.current, {
-      scale:1,
+      scale: 1,
       duration: 2,
       ease: "power4.out",
     });
