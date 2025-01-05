@@ -40,7 +40,7 @@ const HeroSection = () => {
       {/* Buttons */}
       <div className="flex space-x-4 justify-center mt-6">
         {/* Browse Components Button */}
-        <Link to="components">
+        <Link to="/components">
           <button className="flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:from-blue-600 hover:to-indigo-700 transition-all">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +61,7 @@ const HeroSection = () => {
         </Link>
 
         {/* Custom Components Button */}
+        <Link to='/components'>
         <button className="flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold rounded-lg shadow-md hover:from-green-600 hover:to-teal-700 transition-all">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,6 +79,8 @@ const HeroSection = () => {
           </svg>
           Custom Components
         </button>
+        </Link>
+      
       </div>
     </div>
   );

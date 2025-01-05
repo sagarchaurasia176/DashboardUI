@@ -27,12 +27,13 @@ const Navbar: React.FC = () => {
   }, [auth]);
 
   return (
-    <header className="fixed w-full max-w-full text-gray-100 z-50">
-      <div className="bg-gradient-to-tr from-blue-500 to-purple-600 text-center gap-12 p-3">
-        <h2 className="text-sm lg:text-md">{subHeader.data}</h2>
+    <header className="fixed  w-screen text-gray-100 z-50 ">
+      <div className="bg-gradient-to-tr from-blue-500 to-purple-600 text-center gap-12  lg:p-2 sm:p-2">
+        <h2 className="text-sm  lg:text-md">{subHeader.data}</h2>
       </div>
-      <div className="bg-slate-900 container mx-auto flex items-center justify-between p-3 lg:p-3">
-        {/* Logo */}
+
+      {/* Logo */}
+      <div className="bg-slate-900 flex items-center justify-between  p-3 lg:p-4 lg:px-4 lg:py-4">
         <Link to="/" className="flex items-center font-bold text-xl">
           <img className="w-8 h-8" src={logo} alt="Logo of Dashboard_UI" />
           <span className="ml-2">Dashboard_UI</span>
@@ -64,7 +65,9 @@ const Navbar: React.FC = () => {
           <button
             aria-label="Book Demo"
             className="hidden md:inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all"
-            onClick={() => window.location.href = "https://cal.com/DashboardUi"}
+            onClick={() =>
+              (window.location.href = "https://cal.com/DashboardUi")
+            }
           >
             Book Demo
             <svg
@@ -102,6 +105,8 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </div>
+      <br />
+
       {/* Mobile Menu */}
       <div
         className={`md:hidden bg-slate-800 transform transition-transform ${
@@ -121,16 +126,19 @@ const Navbar: React.FC = () => {
               {item.title}
             </Link>
           ))}
-        </nav>
-        <div className="flex justify-center p-4">
+             <div className="flex justify-center">
           <button
             aria-label="Book Demo"
-            className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all"
-            onClick={() => window.location.href = "https://cal.com/DashboardUi"}
+            className="bg-gray-700 hover:bg-gray-600 text-white p-1   rounded-lg transition-all"
+            onClick={() =>
+              (window.location.href = "https://cal.com/DashboardUi")
+            }
           >
             Book Demo
           </button>
         </div>
+        </nav>
+     
       </div>
     </header>
   );
