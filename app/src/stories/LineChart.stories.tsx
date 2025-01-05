@@ -1,4 +1,4 @@
-import LineChart from "../../playground/lineChart/LineChart";
+import LineChart from "../playground/line/LineChart";
 
 export default {
   title: "Line Chart",

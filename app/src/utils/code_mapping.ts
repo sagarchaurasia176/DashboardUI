@@ -1,0 +1,31 @@
+import {
+  cardCode,
+  barchartCode,
+  buttonCode,
+  donutseriesCode,
+  footerCode,
+  linechartCode,
+  navbarCode,
+  piechartCode,
+  scatterseriesCode,
+  areachartCode,
+  bubbleCode,
+  boxPlotCode,
+  candleStickCode,
+} from "../utils/CodeSnippet";
+
+export const codeMapping = {
+  card: cardCode,
+  barchart: barchartCode,
+  button: buttonCode,
+  donutseries: donutseriesCode,
+  footer: footerCode,
+  linechart: linechartCode,
+  navbar: navbarCode,
+  piechart: piechartCode,
+  scatterseries: scatterseriesCode,
+  area: areachartCode,
+  bubble: bubbleCode,
+  boxplot: boxPlotCode,
+  candlelist: candleStickCode,
+};

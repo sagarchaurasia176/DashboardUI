@@ -25,26 +25,46 @@ const DynamicWrapper: React.FC<DynamicComponentProps> = ({
         // dynamic imports of components storybook based on ComponentName
         switch (ComponentName) {
           case "Line Chart":
-            importedComponent = (await import("./stories/BarChart.stories"))
+            importedComponent = (await import("../stories/BarChart.stories"))
               .Default;
             break;
           case "Bar Chart":
-            importedComponent = (await import("./stories/BarChart.stories"))
+            importedComponent = (await import("../stories/BarChart.stories"))
               .Default;
             break;
           case "Donut Series":
-            importedComponent = (await import("./stories/DonutChart.stories"))
+            importedComponent = (await import("../stories/DonutChart.stories"))
               .Default;
             break;
           case "Pie Chart":
-            importedComponent = (await import("./stories/PieChart.stories"))
+            importedComponent = (await import("../stories/PieChart.stories"))
               .Default;
             break;
           case "Scatter Series":
             importedComponent = (
-              await import("./stories/ScatterSeries.stories")
+              await import("../stories/ScatterSeries.stories")
             ).Default;
             break;
+          case "Area":
+            importedComponent = (await import("../stories/AreaChart.stories"))
+              .Default;
+            break;
+          case "Bubble Series":
+            importedComponent = (
+              await import("../stories/BubbleSeries.stories")
+            ).Default;
+            break;
+          case "Box Plot Series":
+            importedComponent = (
+              await import("../stories/BoxPlotSeries.stories")
+            ).Default;
+            break;
+          case "Candle Stick Series":
+            importedComponent = (
+              await import("../stories/CandleStickSeries.stories")
+            ).Default;
+            break;
+
           default:
             importedComponent = null;
         }
@@ -69,7 +89,11 @@ const DynamicWrapper: React.FC<DynamicComponentProps> = ({
     <div>No Component provided</div>;
   }
 
-  return PreviewComponent ? <PreviewComponent {...props} /> : <div>No Component provided</div>;
+  return PreviewComponent ? (
+    <PreviewComponent {...props} />
+  ) : (
+    <div>No Component provided</div>
+  );
 };
 
 export default DynamicWrapper;

@@ -7,6 +7,7 @@ const barChartCode = {
   const BarChart = () => {
     const [options, setOptions] = useState({
       // Data: Data to be displayed in the chart
+      
       data: [
         { month: "Jan", avgTemp: 2.3, iceCreamSales: 162000 },
         { month: "Mar", avgTemp: 6.3, iceCreamSales: 302000 },

@@ -1,4 +1,4 @@
-import BarChart from "../../playground/barGraph/BarChart";
+import BarChart from "../playground/bar/BarChart";
 
 export default {
   title: "Bar Chart",

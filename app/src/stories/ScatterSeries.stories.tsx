@@ -1,7 +1,7 @@
 // import Sidebar from "./Sidebar";
 // import { MemoryRouter } from "react-router-dom";
 // import scatterSeriesCode from "../playground/scatterSeries/scatterSeriesCode";
-import ScatterChart from "../../playground/scatterSeries/ScatterSeries";
+import ScatterChart from "../playground/scatter/ScatterSeries";
 
 export default {
   title: "Scatter Series",

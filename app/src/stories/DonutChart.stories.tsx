@@ -1,4 +1,4 @@
-import DonutSeries from "../../playground/donutSeries/DonutSeries";
+import DonutSeries from "../playground/donut/DonutSeries";
 
 export default {
   title: "Donut Series",

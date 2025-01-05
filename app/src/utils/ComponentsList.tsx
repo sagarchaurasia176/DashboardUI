@@ -1,23 +1,51 @@
+import {
+  GrBarChart,
+  FaChartArea,
+  RiDonutChartFill,
+  FaChartLine,
+  FaChartPie,
+  BiScatterChart,
+  RiBubbleChartFill,
+  AiFillBoxPlot,
+  MdCandlestickChart,
+} from "../utils/icon";
+
 export const ComponentsList = [
   {
     name: "Bar Chart",
-    href: "/components/barchart",
+    icon: <GrBarChart />,
   },
   {
     name: "Pie Chart",
-    href: "/components/piechart",
+    icon: <FaChartPie />,
   },
   {
-    name: "Donut Chart",
-    href: "/components/donut",
+    name: "Donut Series",
+    icon: <RiDonutChartFill />,
   },
   {
     name: "Line Chart",
-    href: "/components/linechart",
+    icon: <FaChartLine />,
   },
   {
     name: "Scatter Series",
-    href: "/components/scatterseries",
+    icon: <BiScatterChart />,
+  },
+  {
+    name: "Area",
+    icon: <FaChartArea />,
+  },
+  {
+    name: "Bubble",
+    icon: <RiBubbleChartFill />,
+  },
+  {
+    name: "Box Plot",
+    icon: <AiFillBoxPlot />,
+  },
+  {
+    name: "Candle List",
+    icon: <MdCandlestickChart />,
   },
 ];
 

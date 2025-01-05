@@ -1,4 +1,4 @@
-import PieChart from "../../playground/pieChart/PieChart";
+import PieChart from "../playground/pie/PieChart";
 
 export default {
   title: "Pie Chart",

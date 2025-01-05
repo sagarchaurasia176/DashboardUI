@@ -1,10 +1,6 @@
-import React from "react";
-import { CodePreview } from "../components/CodePreview";
-import ButtonCodeSnippet from "../playground/button/buttonCodeSnippet";
-import CardCodeSnippet from "../playground/card/cardCodeSnippet";
 import Sidebar from "../components/Sidebar";
 
-const ComponentsPage = () => {
+const InstallationPage = () => {
   return (
     <div className="flex gap-20 bg-black h-screen text-white">
       <Sidebar />
@@ -21,4 +17,4 @@ const ComponentsPage = () => {
   );
 };
 
-export default ComponentsPage;
+export default InstallationPage;

@@ -7,20 +7,9 @@ import Navbar from "./components/Navbar";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import "@radix-ui/themes/styles.css";
 
-//pages
-import {
-  LandingPage,
-  ComponentsPage,
-  Barchart,
-  ButtonPage,
-  NavbarPage,
-  PieChart,
-  Card,
-  Donut,
-  Footer,
-  Linechart,
-  Scatterseries,
-} from "./pages/index";
+import InstallationPage from "./pages/InstallationPage";
+import LandingPage from "./pages/LandingPage";
+import ComponentPage from "./pages/ComponentPage";
 import Templates from "./components/Templates";
 
 const App: React.FC = () => {
@@ -28,24 +17,14 @@ const App: React.FC = () => {
     <>
       <div className="">
         <Navbar />
-       
         <div className="h-screen bg-slate-950">
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            {/* Test */}
+            <Route path="/components" element={<ComponentPage />} />
+
             {/* Browse Components */}
-            <Route path="/components" element={<ComponentsPage />}></Route>
-            <Route path="/components/barchart" element={<Barchart />}></Route>
-            <Route path="/components/button" element={<ButtonPage />}></Route>
-            <Route path="/components/navbar" element={<NavbarPage />}></Route>
-            <Route path="/components/piechart" element={<PieChart />}></Route>
-            <Route path="/components/card" element={<Card />}></Route>
-            <Route path="/components/donut" element={<Donut />}></Route>
-            <Route path="/components/footer" element={<Footer />}></Route>
-            <Route path="/components/linechart" element={<Linechart />}></Route>
-            <Route
-              path="/components/scatterseries"
-              element={<Scatterseries />}
-            ></Route>
+            <Route path="/installation" element={<InstallationPage />}></Route>
             {/* Template for beautyful ui */}
             <Route path="/Templates/Ui" element={<Templates />}></Route>
           </Routes>
@@ -56,5 +35,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-

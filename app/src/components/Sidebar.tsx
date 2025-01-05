@@ -2,8 +2,15 @@ import React from "react";
 import { ComponentsList, AdditionalList } from "../utils/ComponentsList";
 import { Link } from "react-router-dom";
 import { FaTools, FaPlus } from "react-icons/fa"; // Import icons
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
+  const navigate = useNavigate();
+  const handleComponentURL = (name: string) => {
+    const name_url = name.toLowerCase().replace(/\s/g, "");
+    navigate(`/components/?component=${name_url}`);
+  };
+
   return (
     <div className="mt-[7rem] lg:mt-[7rem] sm:hidden md:inline text-white p-1 overflow-y-auto bg-gray-800">
       <div className="font-sans  flex items-center bg-orange-400 p-2 rounded-lg font-semibold text-xl">
@@ -19,10 +26,16 @@ const Sidebar: React.FC = () => {
         <div className="flex flex-col gap-3">
           <p>&nbsp;</p>
           {ComponentsList.map((component, index) => {
+            const { name, icon } = component;
             return (
-              <Link to={component.href} key={index} className="mx-2">
-                {component.name}
-              </Link>
+              <div
+                key={index}
+                className="mx-2 my-2 flex gap-4 items-center text-lg cursor-pointer"
+                onClick={() => handleComponentURL(name)}
+              >
+                {icon}
+                {name}
+              </div>
             );
           })}
         </div>
@@ -35,12 +48,17 @@ const Sidebar: React.FC = () => {
           Additional Components
         </h2>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 cursor-pointer">
           {AdditionalList.map((component, index) => {
+            const { name } = component;
             return (
-              <Link to={component.href} className="mx-2" key={index}>
-                {component.name}
-              </Link>
+              <div
+                className="mx-2"
+                key={index}
+                onClick={() => handleComponentURL(name)}
+              >
+                {name}
+              </div>
             );
           })}
         </div>
