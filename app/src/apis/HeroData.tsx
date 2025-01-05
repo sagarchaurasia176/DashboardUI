@@ -25,16 +25,7 @@ export const HeaderComponents = [
     link: "#",
     icon: <FaEnvelope />
   },
-  {
-    title: "Showcase",
-    link: "#",
-    icon: <FaEye />
-  },
-  {
-    title: "Follow",
-    link: "#",
-    icon: <FaUsers />
-  }
+
 
 ];
 

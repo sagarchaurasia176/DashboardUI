@@ -4,7 +4,7 @@ import NavbarCode from "../../playground/navbar/navbarCode";
 
 const NavbarPage = () => {
   return (
-    <div className="flex bg-black h-screen">
+    <div className="flex bg-black h-screen max-w-full" >
       <Sidebar />
       <ComponentShowcase
         code={NavbarCode.code}
