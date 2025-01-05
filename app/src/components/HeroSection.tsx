@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { subHeader } from "../apis/HeroData";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const HeroSection = () => {
   const headingRef = useRef(null);
@@ -39,13 +39,10 @@ const HeroSection = () => {
       {/* Buttons */}
       <div className="flex space-x-4 justify-center mt-6">
         {/* Browse Components Button */}
-        <a
-          href="/installation"
-          className="text-white cursor-pointer"
-          onClick={() => console.log("Clicked")}
-        >
+       
+           <NavLink to='/installation'>
           <button className="flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:from-blue-600 hover:to-indigo-700 transition-all">
-            <svg
+           <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 mr-2"
               fill="none"
@@ -60,8 +57,9 @@ const HeroSection = () => {
               />
             </svg>
             Browse Components
+           
           </button>
-        </a>
+           </NavLink>
 
         {/* Custom Components Button */}
         <Link to="/installation">
