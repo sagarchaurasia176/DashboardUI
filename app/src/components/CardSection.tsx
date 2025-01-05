@@ -46,7 +46,7 @@ const CardSection = () => {
               alt="Image 2"
             />
             {/* Gradient Overlay */}
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r  from-slate-900 cursor-pointer  hover:transition-all hover:duration-100  to-blue-900 opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-slate-900 cursor-pointer  hover:transition-all hover:duration-100  to-blue-900 opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
           </div>
         </div>
       </div>

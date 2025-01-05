@@ -12,10 +12,10 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="mt-[7rem] lg:mt-[7rem] sm:hidden md:inline text-white p-1 overflow-y-auto bg-gray-800">
+    <div className="sm:hidden md:inline text-white py-4 px-4 overflow-y-auto bg-gray-800">
       <div className="font-sans  flex items-center bg-orange-400 p-2 rounded-lg font-semibold text-xl">
         <FaPlus className="mr-2 text-slate-700" />
-        <Link to="/components">Installation</Link>
+        <Link to="/installation">Installation</Link>
       </div>
       <br />
       <div className="gap-4">

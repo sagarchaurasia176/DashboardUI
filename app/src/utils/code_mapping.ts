@@ -24,7 +24,7 @@ export const codeMapping = {
   navbar: navbarCode,
   piechart: piechartCode,
   scatterseries: scatterseriesCode,
-  area: areachartCode,
+  areachart: areachartCode,
   bubble: bubbleCode,
   boxplot: boxPlotCode,
   candlelist: candleStickCode,

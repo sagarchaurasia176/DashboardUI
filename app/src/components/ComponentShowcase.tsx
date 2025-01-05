@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CodePreview } from "../components/CodePreview";
-import DynamicWrapper from "./DynamicWrapper";
+import PreviewComponent from "./PreviewComponent";
 import toast from "react-hot-toast";
 
 type ComponentShowcaseProps = {
@@ -30,19 +30,19 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
   };
 
   return (
-    <div className="mt-[8rem] ml-[1rem] p-3 w-full ">
+    <div className="pt-4 w-full ">
       {/* Imagine this is a card  */}
       <div className="">
         <div className="text-white inline">
-          <h2 className="text-md font-sans font-bold underline">{name}</h2>
+          <h2 className="text-2xl font-sans font-bold py-3">{name}</h2>
           <p className="text-md">{description}</p>
         </div>
         <br />
         {/* code preview logic here */}
         <div className="text-white rounded-lg">
           <div className=" w-full">
-            <div className="flex place-content-between">
-              <div className="flex justify-start">
+            <div className="flex place-content-between mr-8">
+              <div className="flex gap-4">
                 <button
                   className="px-4 py-2 bg-blue-500 text-white rounded-md flex items-center hover:bg-blue-700"
                   onClick={() => setUserView("Code")}
@@ -131,7 +131,7 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
             <div className="overflow-y-auto  max-h-[25rem] lg:h-auto md:h-auto">
               {userView === "Preview" ? (
                 // Add logic to embed HTML for previewing component
-                <DynamicWrapper ComponentName={name} />
+                <PreviewComponent ComponentName={name} />
               ) : (
                 <CodePreview code={code} />
               )}

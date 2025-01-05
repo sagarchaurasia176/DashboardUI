@@ -32,7 +32,7 @@ export const ComponentsList = [
     icon: <BiScatterChart />,
   },
   {
-    name: "Area",
+    name: "Area Chart",
     icon: <FaChartArea />,
   },
   {

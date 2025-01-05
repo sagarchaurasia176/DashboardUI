@@ -1,5 +1,5 @@
 const areaChartCode = {
-  name: "Area",
+  name: "Area Chart",
   code: `
   import React, { useState } from "react";
   import { createRoot } from "react-dom/client";

@@ -47,7 +47,7 @@ const femaleHeightWeight = [
   { name: "Zara", height: 173, weight: 64 },
 ];
 
-const ScatterChart = () => {
+const ScatterChart: React.FC = () => {
   const [options, setOptions] = useState({
     title: {
       text: "Weight vs Height)",

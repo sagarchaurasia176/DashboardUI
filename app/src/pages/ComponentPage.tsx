@@ -17,7 +17,7 @@ const CommonPage = () => {
   console.log(component.name);
 
   return (
-    <div className="flex bg-black h-screen">
+    <div className="flex gap-8 bg-black sm:w-auto">
       <Sidebar />
       <ComponentShowcase
         name={component.name}

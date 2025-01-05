@@ -2,12 +2,11 @@
 
 /** @type { import('@storybook/react').Preview } */
 import { Preview } from "@storybook/react";
+import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 
 const preview: Preview = {
   parameters: {
-    viewport: {
-      options: INITIAL_VIEWPORTS,
-    },
+    viewport: DEFAULT_VIEWPORT,
     controls: {
       matchers: {
         color: /(background|color)$/i,

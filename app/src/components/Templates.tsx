@@ -81,8 +81,7 @@ const Templates: React.FC = () => {
   const handlePay = async () => {
     try {
       const orderURL = `${import.meta.env.VITE_Backend}/create/Order`;
-      const { data } = await axios.post(orderURL,
-     {
+      const { data } = await axios.post(orderURL, {
         amount: parseInt(template.price) * 100,
       }); // Multiply by 100 for Razorpay's format
       console.log("Order data:", data);

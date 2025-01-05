@@ -27,13 +27,12 @@ const Navbar: React.FC = () => {
   }, [auth]);
 
   return (
-    <header className="fixed  w-screen text-gray-100 z-50 ">
-      <div className="bg-gradient-to-tr from-blue-500 to-purple-600 text-center gap-12  lg:p-2 sm:p-2">
-        <h2 className="text-sm  lg:text-md">{subHeader.data}</h2>
+    <header className="w-auto text-gray-100">
+      <div className="bg-gradient-to-tr from-blue-500 to-purple-600 text-center lg:p-2 sm:p-2">
+        <h2 className="text-sm lg:text-md">{subHeader.data}</h2>
       </div>
-
       {/* Logo */}
-      <div className="bg-slate-900 flex items-center justify-between  p-3 lg:p-4 lg:px-4 lg:py-4">
+      <div className="bg-slate-900 flex items-center justify-between p-3 lg:p-4 lg:px-4 lg:py-4 z-50">
         <Link to="/" className="flex items-center font-bold text-xl">
           <img className="w-8 h-8" src={logo} alt="Logo of Dashboard_UI" />
           <span className="ml-2">Dashboard_UI</span>
@@ -48,7 +47,7 @@ const Navbar: React.FC = () => {
                 location.pathname === item.link ? "text-red-500 font-bold" : ""
               }`}
             >
-              <p className="font-semibold flex items-center justify-center">
+              <p className="font-semibold flex items-center justify-center text-md">
                 {item.icon} &nbsp; {item.title}
               </p>
             </Link>
@@ -105,15 +104,13 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </div>
-      <br />
-
       {/* Mobile Menu */}
       <div
         className={`md:hidden bg-slate-800 transform transition-transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        } absolute left-0 w-full z-50`}
       >
-        <nav className="flex flex-col h-[80vh] space-y-2 p-4">
+        <nav className="flex flex-col gap-2 mt-2">
           {HeaderComponents.map((item, index) => (
             <Link
               key={index}
@@ -129,7 +126,7 @@ const Navbar: React.FC = () => {
           <div className="flex justify-center">
             <button
               aria-label="Book Demo"
-              className="bg-gray-700 hover:bg-gray-600 text-white p-1   rounded-lg transition-all"
+              className="bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-lg transition-all"
               onClick={() =>
                 (window.location.href = "https://cal.com/DashboardUi")
               }
