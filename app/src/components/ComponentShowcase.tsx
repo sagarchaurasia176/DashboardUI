@@ -32,10 +32,9 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
       <div className="w-full   max-w-4xl bg-slate-700  mt-12  rounded-lg shadow-lg p-4 md:p-3 lg:p-3">
         <div className="text-white text-center">
           <h2 className="text-2xl  font-extrabold underline py-3  animate-text text-orange-300">
-            {name}</h2>
-          <p
-            className="text-md mb-6 bg-clip-text font-bold text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500   animate-move "
-          >
+            {name}
+          </h2>
+          <p className="text-md mb-6 bg-clip-text font-bold text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500   animate-move ">
             {description}
           </p>
         </div>
