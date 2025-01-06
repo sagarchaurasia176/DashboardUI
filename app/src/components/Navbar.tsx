@@ -10,16 +10,12 @@ const Navbar: React.FC = () => {
   const location = useLocation();
   const [userImg, setImg] = useState<string | null>(null);
 
-  // auth
   const auth = getAuth();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const DetailsFeteched = {
-          userImg: user.photoURL,
-        };
-        setImg(DetailsFeteched.userImg);
+        setImg(user.photoURL);
       } else {
         setImg(null);
       }
@@ -27,18 +23,22 @@ const Navbar: React.FC = () => {
   }, [auth]);
 
   return (
-    <header className="w-auto text-gray-100">
-      <div className="bg-gradient-to-tr from-blue-500 to-purple-600 text-center lg:p-2 sm:p-2">
+    <header className="w-full text-gray-100 bg-slate-900  fixed  z-50 top-0 left-0">
+      {/* Subheader */}
+      <div className="bg-gradient-to-tr from-blue-500 to-purple-600 text-center p-2">
         <h2 className="text-sm lg:text-md">{subHeader.data}</h2>
       </div>
-      {/* Logo */}
-      <div className="bg-slate-900 flex items-center justify-between p-3 lg:p-4 lg:px-4 lg:py-4 z-50">
+
+      {/* Navbar */}
+      <div className="flex items-center justify-between px-4 py-3 lg:py-4">
+        {/* Logo */}
         <Link to="/" className="flex items-center font-bold text-xl">
           <img className="w-8 h-8" src={logo} alt="Logo of Dashboard_UI" />
           <span className="ml-2">Dashboard_UI</span>
         </Link>
-        {/* Menu for larger screens */}
-        <nav className="hidden md:flex gap-20">
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-8">
           {HeaderComponents.map((item, index) => (
             <Link
               key={index}
@@ -53,14 +53,14 @@ const Navbar: React.FC = () => {
             </Link>
           ))}
         </nav>
-        <div className="flex gap-4 items-center">
-          {/* GOOGLE AUTHS */}
+
+        {/* User Info and Demo Button */}
+        <div className="flex items-center gap-4">
           {userImg ? (
             <img src={userImg} className="w-8 h-8 rounded-full" alt="User" />
           ) : (
             <GoogleAuth />
           )}
-          {/* Demo Button */}
           <button
             aria-label="Book Demo"
             className="hidden md:inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all"
@@ -81,6 +81,7 @@ const Navbar: React.FC = () => {
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </button>
+
           {/* Hamburger Menu */}
           <button
             aria-label="Toggle Menu"
@@ -104,13 +105,14 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </div>
+
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-slate-800 transform transition-transform ${
+        className={`md:hidden bg-slate-800 transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } absolute left-0 w-full z-50`}
+        } absolute left-0 top-14 w-full z-50`}
       >
-        <nav className="flex flex-col gap-2 mt-2">
+        <nav className="flex flex-col gap-2 p-4">
           {HeaderComponents.map((item, index) => (
             <Link
               key={index}
@@ -123,10 +125,10 @@ const Navbar: React.FC = () => {
               {item.title}
             </Link>
           ))}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-4">
             <button
               aria-label="Book Demo"
-              className="bg-gray-700 hover:bg-gray-600 text-white p-1 rounded-lg transition-all"
+              className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-all"
               onClick={() =>
                 (window.location.href = "https://cal.com/DashboardUi")
               }

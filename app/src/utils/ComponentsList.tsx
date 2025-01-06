@@ -1,3 +1,10 @@
+import { 
+  FaBars, 
+  FaWpforms, 
+  FaRegWindowMinimize, 
+  FaRegCreditCard, 
+  FaRegHandPointer 
+} from "react-icons/fa";
 import {
   GrBarChart,
   FaChartArea,
@@ -52,18 +59,22 @@ export const ComponentsList = [
 export const AdditionalList = [
   {
     name: "Form",
+    icon: <FaWpforms />,
   },
   {
     name: "Navbar",
+    icon: <FaBars />,
   },
   {
     name: "Footer",
+    icon: <FaRegWindowMinimize />,
   },
   {
     name: "Card",
+    icon: <FaRegCreditCard />,
   },
-
   {
     name: "Button",
+    icon: <FaRegHandPointer />,
   },
 ];
