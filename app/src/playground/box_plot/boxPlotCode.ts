@@ -1,11 +1,11 @@
 const boxPlotCode = {
   name: "Box Plot Series",
   code: `
-    import { useState } from "react";
-    import { AgCharts } from "ag-charts-react";
+  import { useState } from "react";
+  import { AgCharts } from "ag-charts-react";
     
-    const BoxPlot: React.FC = () => {
-      const [options, setOptions] = useState({
+  const BoxPlot: React.FC = () => {
+  const [options, setOptions] = useState({
         title: {
           text: "HR Analytics",
         },
@@ -53,7 +53,7 @@ const boxPlotCode = {
       });
     
       return <AgCharts options={options as any} />;
-    };
+ };
     `,
   description:
     "A Box Plot Series, also known as a Box-and-Whisker Plot, visually summarises a dataset's distribution through its median and quartiles.",

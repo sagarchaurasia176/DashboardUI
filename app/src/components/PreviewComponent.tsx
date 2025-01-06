@@ -21,8 +21,9 @@ const PreviewComponent: React.FC<DynamicComponentProps> = ({
       let importedComponent: React.FC<any> | null;
       try {
         const component = ComponentName.replace(/\s/g, "");
-        const url = `../stories/${component}.stories`;
-        importedComponent = (await import(url)).Default;
+        importedComponent = (
+          await import(`../stories/${component}.stories.tsx`)
+        ).Default;
         setComponent(() => importedComponent);
       } catch (error) {
         console.log("Error loading components");

@@ -1,10 +1,3 @@
-import { 
-  FaBars, 
-  FaWpforms, 
-  FaRegWindowMinimize, 
-  FaRegCreditCard, 
-  FaRegHandPointer 
-} from "react-icons/fa";
 import {
   GrBarChart,
   FaChartArea,
@@ -15,6 +8,11 @@ import {
   RiBubbleChartFill,
   AiFillBoxPlot,
   MdCandlestickChart,
+  FaBars,
+  FaWpforms,
+  FaRegWindowMinimize,
+  FaRegCreditCard,
+  FaRegHandPointer,
 } from "../utils/icon";
 
 export const ComponentsList = [

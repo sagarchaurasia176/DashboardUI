@@ -28,8 +28,8 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
   };
 
   return (
-    <div className="flex  justify-end w-fit lg:w-full  items-center min-h-screen bg-gray-900 p-2">
-      <div className="w-full   max-w-4xl bg-slate-700  mt-12  rounded-lg shadow-lg p-4 md:p-3 lg:p-3">
+    <div className="flex w-auto items-center p-2">
+      <div className="w-full max-w-4xl bg-slate-700 rounded-lg shadow-lg p-4 md:p-3 lg:p-3">
         <div className="text-white text-center">
           <h2 className="text-2xl  font-extrabold underline py-3  animate-text text-orange-300">
             {name}
@@ -125,7 +125,7 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
               </button>
             </div>
 
-            <div className="overflow-y-auto max-h-[25rem] lg:h-auto md:h-auto border rounded-md bg-gray-700 p-4">
+            <div className="overflow-y-auto max-h-[25rem] h-auto rounded-md bg-gray-700 p-2">
               {userView === "Preview" ? (
                 <PreviewComponent ComponentName={name} />
               ) : (

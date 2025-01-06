@@ -17,23 +17,16 @@ const CommonPage = () => {
   console.log(component.name);
 
   return (
-    <>
-    <div className="flex flex-row gap-8   bg-black sm:w-auto">
-    <div className=" w-[20%]">
+    <div className="flex flex-row bg-gray-900 gap-20">
       <Sidebar />
+      <div className="transition duration-500 ease-in-out w-full mt-0">
+        <ComponentShowcase
+          name={component.name}
+          code={component.code}
+          description={component.description}
+        />
+      </div>
     </div>
-    <div className=" w-[90%] transition duration-500 ease-in-out hover:bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-    <ComponentShowcase
-        name={component.name}
-        code={component.code}
-        description={component.description}
-      />
-    </div>
- 
-   
-    </div>
-    </>
-    
   );
 };
 

@@ -20,13 +20,9 @@ const App: React.FC = () => {
         <div className="h-screen bg-slate-950">
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            {/* Test */}
             <Route path="/components" element={<ComponentPage />} />
-
-            {/* Browse Components */}
-            <Route path="/installation" element={<InstallationPage />}></Route>
-            {/* Template for beautyful ui */}
-            <Route path="/Templates/Ui" element={<Templates />}></Route>
+            <Route path="/installation" element={<InstallationPage />} />
+            <Route path="/Templates/Ui" element={<Templates />} />
           </Routes>
         </div>
       </div>

@@ -8,6 +8,15 @@ import { RiBubbleChartFill } from "react-icons/ri";
 import { AiFillBoxPlot } from "react-icons/ai";
 import { MdCandlestickChart } from "react-icons/md";
 
+//  Additional Components' icons
+import {
+  FaBars,
+  FaWpforms,
+  FaRegWindowMinimize,
+  FaRegCreditCard,
+  FaRegHandPointer,
+} from "react-icons/fa";
+
 export {
   GrBarChart,
   FaChartArea,
@@ -18,4 +27,9 @@ export {
   RiBubbleChartFill,
   AiFillBoxPlot,
   MdCandlestickChart,
+  FaBars,
+  FaWpforms,
+  FaRegWindowMinimize,
+  FaRegCreditCard,
+  FaRegHandPointer,
 };

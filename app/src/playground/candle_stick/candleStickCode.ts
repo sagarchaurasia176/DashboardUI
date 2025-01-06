@@ -1,15 +1,15 @@
 const candleStickCode = {
   name: "Candle Stick Series",
   code: `
-    import { useState } from "react";
-    import { createRoot } from "react-dom/client";
-    import { AgCharts } from "ag-charts-react";
-    import { AgChartOptions } from "ag-charts-enterprise";
-    import "ag-charts-enterprise";
+  import { useState } from "react";
+  import { createRoot } from "react-dom/client";
+  import { AgCharts } from "ag-charts-react";
+  import { AgChartOptions } from "ag-charts-enterprise";
+  import "ag-charts-enterprise";
     
-    const ChartExample = () => {
-      const [options, setOptions] = useState<AgChartOptions>({
-        data: [
+  const ChartExample = () => {
+  const [options, setOptions] = useState<AgChartOptions>({
+    data: [
           {
             date: new Date("Monday, July 31, 2023"),
             open: 4584.82,

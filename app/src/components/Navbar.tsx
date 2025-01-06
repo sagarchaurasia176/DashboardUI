@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
   }, [auth]);
 
   return (
-    <header className="w-full text-gray-100 bg-slate-900  fixed  z-50 top-0 left-0">
+    <header className="w-full text-gray-100 bg-slate-900 z-50 top-0 left-0">
       {/* Subheader */}
       <div className="bg-gradient-to-tr from-blue-500 to-purple-600 text-center p-2">
         <h2 className="text-sm lg:text-md">{subHeader.data}</h2>

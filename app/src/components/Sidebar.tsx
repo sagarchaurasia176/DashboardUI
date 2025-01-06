@@ -13,20 +13,18 @@ const Sidebar: React.FC = () => {
 
   return (
     <div
-      className="fixed z-40 mt-[6rem] left-0 overflow-y-auto h-screen sm:w-64 lg:w-80 w-full bg-gray-800 text-white transition-all duration-300 ease-in-out"
-    // based upon top - it reduce the h size
-      style={{ maxHeight: 'calc(100vh - 6rem)' }} 
+      className="left-0 h-screen w-auto bg-black text-white transition-all duration-300 ease-in-out pl-12 pr-4"
+      // based upon top - it reduce the h size
     >
       <div className="font-sans flex items-center bg-orange-400 p-2 rounded-lg font-semibold text-xl m-4">
-        <FaPlus className="mr-2 text-slate-700" />
+        <FaPlus className="mr-2" />
         <Link to="/installation">Installation</Link>
       </div>
-
       <div className="gap-4 px-4">
         <h2 className="font-sans font-semibold text-lg bg-orange-100 rounded-md text-black p-2 flex items-center">
-          <FaPlus className="mr-2" /> Components
+          Components
         </h2>
-        <div className="flex flex-col gap-3 mt-2">
+        <div className="flex flex-col gap-3 mt-4">
           {ComponentsList.map((component, index) => {
             const { name, icon } = component;
             return (
@@ -45,11 +43,11 @@ const Sidebar: React.FC = () => {
 
       <div className="gap-4 px-4 mt-6">
         <h2 className="font-sans bg-orange-100 rounded-md text-black font-semibold p-2 text-md flex items-center">
-          <FaPlus className="mr-2" /> Additional Components
+          Additional Components
         </h2>
         <div className="flex flex-col gap-3 mt-2">
           {AdditionalList.map((component, index) => {
-            const { name , icon } = component;
+            const { name, icon } = component;
             return (
               <div
                 key={index}
