@@ -1,6 +1,3 @@
-const navbarCode = {
-  name: "Navbar",
-  code: `
 import React from "react";
 
 const Navbar: React.FC = () => {
@@ -32,9 +29,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-    `,
-  description:
-    "A customizable navbar component containing a logo and nav-links",
-};
-
-export default navbarCode;

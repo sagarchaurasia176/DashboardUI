@@ -1,4 +1,4 @@
-const CardCodeSnippet = {
+const cardCodeSnippet = {
   name: "Card",
   code: `
   <pre>
@@ -11,4 +11,4 @@ const CardCodeSnippet = {
   description: "A card containg menus, headers and input fields",
 };
 
-export default CardCodeSnippet;
+export default cardCodeSnippet;

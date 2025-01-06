@@ -12,6 +12,7 @@ import {
   bubbleCode,
   boxPlotCode,
   candleStickCode,
+  formCode,
 } from "../utils/CodeSnippet";
 
 export const codeMapping = {
@@ -28,4 +29,5 @@ export const codeMapping = {
   bubble: bubbleCode,
   boxplot: boxPlotCode,
   candlelist: candleStickCode,
+  form: formCode,
 };

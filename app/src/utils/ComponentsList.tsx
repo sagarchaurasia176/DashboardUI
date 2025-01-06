@@ -51,53 +51,19 @@ export const ComponentsList = [
 
 export const AdditionalList = [
   {
-    name: "Button",
-    href: "/components/button",
+    name: "Form",
   },
   {
     name: "Navbar",
-    href: "/components/navbar",
   },
   {
     name: "Footer",
-    href: "/components/footer",
   },
   {
     name: "Card",
-    href: "/components/card",
   },
 
   {
     name: "Button",
-    href: "/components/button",
-  },
-  {
-    name: "Navbar",
-    href: "/components/navbar",
-  },
-  {
-    name: "Footer",
-    href: "/components/footer",
-  },
-  {
-    name: "Card",
-    href: "/components/card",
-  },
-
-  {
-    name: "Button",
-    href: "/components/button",
-  },
-  {
-    name: "Navbar",
-    href: "/components/navbar",
-  },
-  {
-    name: "Footer",
-    href: "/components/footer",
-  },
-  {
-    name: "Card",
-    href: "/components/card",
   },
 ];

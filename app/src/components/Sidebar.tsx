@@ -48,12 +48,12 @@ const Sidebar: React.FC = () => {
           Additional Components
         </h2>
 
-        <div className="flex flex-col gap-3 cursor-pointer">
+        <div className="flex flex-col gap-3">
           {AdditionalList.map((component, index) => {
             const { name } = component;
             return (
               <div
-                className="mx-2"
+                className="mx-2 my-2 flex gap-4 items-center text-lg cursor-pointer"
                 key={index}
                 onClick={() => handleComponentURL(name)}
               >
