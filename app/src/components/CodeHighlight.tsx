@@ -23,7 +23,7 @@ export function CodePreview({ code }: { code: string }) {
   }
 
   return (
-    <section
+    <section className="w-full max-w-[600px] mx-auto overflow-auto"
       dangerouslySetInnerHTML={{
         __html: highlightedCode,
       }}
@@ -40,6 +40,7 @@ async function highlightCode(code: string) {
     .use(rehypePrettyCode, {
       keepBackground: true,
       theme: "aurora-x",
+      
     })
     .use(rehypeStringify)
     .process(wrappedCode);

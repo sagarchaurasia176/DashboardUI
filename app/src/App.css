@@ -1,27 +1,55 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Protest+Strike&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Protest+Strike&display=swap");
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
 
-h1 {
-  font-family: "Libre Baskerville";
-  font-weight: 800;
-  color: white;
+  * {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+  }
+  
 
-  font-size: 6rem;
-}
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Libre Baskerville", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+  @font-face{
+    font-family: a4;
+    src: url('./Gfonts/a4.ttf');
+  }
+  
+  @font-face{
+    font-family: a5;
+    src: url('./Gfonts/a5.ttf');
+  }
+
+  
+  @font-face{
+    font-family: a6;
+    src: url('./Gfonts/a6.ttf');
+  }
+
+
+  h1 {
+    font-family:'a4';
+    font-weight: 800;
+    color: white;
+  }
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "a4";
+    font-weight: 500;
+  }
+
+  /* scroll resize */
+  ::-webkit-scrollbar{
+    width: 6px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(15deg, #fb0000, #83e8ff); /* Gradient colors */
+  }
+

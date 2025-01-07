@@ -3,6 +3,7 @@ import { CodePreview } from "../components/CodePreview";
 import PreviewComponent from "./PreviewComponent";
 import toast from "react-hot-toast";
 import { FaStar } from "react-icons/fa";
+
 type ComponentShowcaseProps = {
   code: string;
   name: string;
@@ -28,20 +29,20 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
   };
 
   return (
-    <div className="flex w-auto items-center p-2">
-      <div className="w-full max-w-4xl bg-slate-700 rounded-lg shadow-lg p-4 md:p-3 lg:p-3">
+    <>
+      <div className=" w-full lg:w-full bg-slate-800   lg:p-4">
         <div className="text-white text-center">
-          <h2 className="text-2xl  font-extrabold underline py-3  animate-text text-orange-300">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold underline py-3 animate-text text-orange-300">
             {name}
           </h2>
-          <p className="text-md mb-6 bg-clip-text font-bold text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500   animate-move ">
+          <p className=" text-2xl sm:text-2xl lg:text-3xl md:text-md mb-6 bg-clip-text animate-text text-purple-400 font-bold text-transparent lg:bg-gradient-to-r lg:from-purple-400 lg:via-pink-500 lg:to-red-500 lg:animate-move">
             {description}
           </p>
         </div>
 
         <div className="text-white rounded-lg">
-          <div className="w-full">
-            <div className="flex justify-between gap-4 mb-4">
+          <div className="">
+            <div className="flex flex-col   md:flex-row gap-4 mb-4">
               <div className="flex gap-4">
                 <button
                   className="px-4 py-2 bg-blue-500 text-white rounded-md flex items-center hover:bg-blue-700 transition"
@@ -83,10 +84,9 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
                   </svg>
                   Preview
                 </button>
-              </div>
 
-              <button
-                className="px-4 py-2 bg-yellow-500 text-white rounded-md flex items-center hover:bg-yellow-700 transition"
+                <button
+                className="px-4 py-2  bg-yellow-500 text-white rounded-md flex items-center justify-end hover:bg-yellow-700 transition"
                 onClick={handleCopy}
               >
                 {isCopied ? (
@@ -109,7 +109,7 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
                     <span className="ml-2">Copied!</span>
                   </span>
                 ) : (
-                  <span className="inline-flex items-center">
+                  <span className="flex justify-end items-center">
                     <svg
                       className="w-3.5 h-3.5"
                       aria-hidden="true"
@@ -123,9 +123,12 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
                   </span>
                 )}
               </button>
+              </div>
+
+
             </div>
 
-            <div className="overflow-y-auto max-h-[25rem] h-auto rounded-md bg-gray-700 p-2">
+            <div className="lg:overflow-y-auto  w-full lg:w-full   overflow-x-hidden  h-full  rounded-md bg-gray-700 p-2">
               {userView === "Preview" ? (
                 <PreviewComponent ComponentName={name} />
               ) : (
@@ -135,7 +138,7 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

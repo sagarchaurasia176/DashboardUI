@@ -30,10 +30,10 @@ const GoogleAuth = () => {
 
   return(
     <>
-    <button className=" flex items-center justify-center rounded-1xl text-white rounded-lg bg-slate-950 p-2 " onClick={()=>singInWithGoogle()}>
+    <button className=" flex items-center  justify-center rounded-1xl text-white rounded-xl bg-slate-950 p-5  " onClick={()=>singInWithGoogle()}>
     {
       openDialog ? (<>
-       <FaGoogle className=" mr-2"/>
+       <FaGoogle className=" mr-2 "/>
        Sign In
       </>) : (
         <>

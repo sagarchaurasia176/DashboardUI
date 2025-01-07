@@ -15,9 +15,8 @@ import Templates from "./components/Templates";
 const App: React.FC = () => {
   return (
     <>
-      <div className="">
-        <Navbar />
-        <div className="h-screen bg-slate-950">
+        {/* <Navbar /> */}
+        <div className=" bg-slate-950">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/components" element={<ComponentPage />} />
@@ -25,7 +24,6 @@ const App: React.FC = () => {
             <Route path="/Templates/Ui" element={<Templates />} />
           </Routes>
         </div>
-      </div>
     </>
   );
 };

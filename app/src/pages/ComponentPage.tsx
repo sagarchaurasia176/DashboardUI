@@ -2,6 +2,7 @@ import ComponentShowcase from "../components/ComponentShowcase";
 import Sidebar from "../components/Sidebar";
 import { useLocation } from "react-router-dom";
 import { codeMapping } from "../utils/code_mapping";
+import ComponentsNav from "./ComponentsNav";
 
 const CommonPage = () => {
   const location = useLocation();
@@ -15,18 +16,28 @@ const CommonPage = () => {
   }
   const component = codeMapping[comp as keyof typeof codeMapping];
   console.log(component.name);
+  document.title = "Dashboard_UI | Components ";
 
   return (
-    <div className="flex flex-row bg-gray-900 gap-20">
-      <Sidebar />
-      <div className="transition duration-500 ease-in-out w-full mt-0">
-        <ComponentShowcase
-          name={component.name}
-          code={component.code}
-          description={component.description}
-        />
+    <>
+      <div className="flex">
+        <Sidebar />
+        
+        <div className="w-full lg:w-[80%] bg-slate-950 h-full">
+          {/* Make the nav fixed inside this container */}
+          <div className="sticky top-0 z-50">
+            <ComponentsNav />
+          </div>
+
+          {/* Component showcase */}
+          <ComponentShowcase
+            name={component.name}
+            code={component.code}
+            description={component.description}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

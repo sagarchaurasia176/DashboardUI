@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import toast from 'react-hot-toast';
 // sanitize and xss
 
 type DynamicComponentProps = {
@@ -37,7 +38,7 @@ const PreviewComponent: React.FC<DynamicComponentProps> = ({
 
   // handle loading
   if (loading) {
-    return <div>Loading..</div>;
+    return <div>loading..................</div>;
   }
 
   if (!Component) {
