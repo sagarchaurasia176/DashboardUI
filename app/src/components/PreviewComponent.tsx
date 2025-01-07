@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 // sanitize and xss
 
 type DynamicComponentProps = {
-  Component?: React.ComponentType<any>;
   ComponentName: string;
   props?: Record<string, any>;
 };
 
-// name
 const PreviewComponent: React.FC<DynamicComponentProps> = ({
-  // Component,
   ComponentName,
   props,
 }) => {
@@ -18,8 +15,9 @@ const PreviewComponent: React.FC<DynamicComponentProps> = ({
 
   useEffect(() => {
     const importComponent = async () => {
-      let importedComponent: React.FC<any> | null;
+      let importedComponent: React.FC;
       try {
+        // remove whitespaces from component name
         const component = ComponentName.replace(/\s/g, "");
         importedComponent = (
           await import(`../stories/${component}.stories.tsx`)

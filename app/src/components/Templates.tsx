@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import axios from "axios";
 import { TemplatesDetails, TemplatesBio } from "../apis/Templates";
 import { useLocation } from "react-router-dom";
@@ -9,86 +9,42 @@ declare global {
     Razorpay: any;
   }
 }
-
 // Interface for template state
 interface TemplateState {
   name: string;
-  price: string;
+  price: number;
 }
 
-// Interface for Razorpay options
-interface RazorpayOptions {
-  key: string;
-  amount: number;
-  currency: string;
-  name: string;
-  description: string;
-  order_id: string;
-  handler: (response: RazorpayResponse) => Promise<void>;
-  theme: {
-    color: string;
-  };
+interface PaymentPageProps {
+  setClientSecret: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
-// Interface for Razorpay response
-interface RazorpayResponse {
-  razorpay_payment_id: string;
-  razorpay_order_id: string;
-  razorpay_signature: string;
-}
-const Templates: React.FC = () => {
+
+const Templates = ({ setClientSecret }: PaymentPageProps) => {
   const location = useLocation();
 
   const [template, setTemplate] = useState<TemplateState>({
     name: TemplatesDetails.title, // Replace with `TemplatesDetails.title` if accessible
-    price: "1000",
+    price: 1000,
   });
-  // Initialize Razorpay payment
-  const initPay = async (data: {
-    id: string;
-    currency: string;
-    amount: number;
-  }) => {
-    const options: RazorpayOptions = {
-      key: import.meta.env.VITE_Key_Secret as string,
-      amount: data.amount,
-      currency: data.currency,
-      name: template.name,
-      description: "Test",
-      order_id: data.id,
 
-      // Handler applied it
-      handler: async (response: RazorpayResponse) => {
-        try {
-          const verifyURL = `${import.meta.env.VITE_Backend}/order/verify`;
-          const verificationResponse = await axios.post(verifyURL, response);
-          console.log(
-            "Payment verification successful:",
-            verificationResponse.data
-          );
-        } catch (error) {
-          console.error("Payment verification failed:", error);
-        }
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
-    const rzp1 = new window.Razorpay(options);
-    rzp1.open();
-  };
-
-  // Handle the payment process
-  const handlePay = async () => {
-    try {
-      const orderURL = `${import.meta.env.VITE_Backend}/create/Order`;
-      const { data } = await axios.post(orderURL, {
-        amount: parseInt(template.price) * 100,
-      }); // Multiply by 100 for Razorpay's format
-      console.log("Order data:", data);
-      initPay(data.data);
-    } catch (error) {
-      console.error("Order creation failed:", error);
+  const handlePay = async (e: FormEvent) => {
+    e.preventDefault();
+    const backendUrl = import.meta.env.VITE_BACKEND_LOCAL;
+    const paymentResponse = await fetch(
+      `${backendUrl}/api/create-payment-intent`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: [{ id: "template", amount: 1000 }] }),
+      }
+    );
+    if (paymentResponse.status != 200) {
+      console.log("Payment failed");
     }
+    const data = await paymentResponse.json();
+    setClientSecret(data.clientSecret);
+    localStorage.setItem("client_secret", data.clientSecret);
+    window.location.replace("/checkout");
   };
 
   return (

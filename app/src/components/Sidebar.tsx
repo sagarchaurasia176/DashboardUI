@@ -2,7 +2,6 @@ import React from "react";
 import { ComponentsList, AdditionalList } from "../utils/ComponentsList";
 import { Link, useNavigate } from "react-router-dom";
 import { FaTools, FaPlus } from "react-icons/fa"; // Import icons
-import { Icon } from "@radix-ui/themes/dist/cjs/components/callout";
 
 const Sidebar: React.FC = () => {
   const navigate = useNavigate();
