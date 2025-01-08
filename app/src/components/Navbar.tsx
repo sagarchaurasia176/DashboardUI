@@ -25,19 +25,19 @@ const Navbar: React.FC = () => {
   return (
     <>
        {/* Subheader */}
-       <div className="bg-gradient-to-tr from-blue-900 to-purple-950 text-center p-6">
+       <div className="bg-gradient-to-tr from-blue-900 to-purple-950 text-center p-3">
         <h2 className="  text-sm lg:text-2xl md:text-2xl text-orange-100 animate-move text-zinc-00   font-medium">
           {subHeader.data}
         </h2>
       </div>
-    <header className="sticky top-0 z-10  p-4 shadow-lg w-full bg-slate-900 text-gray-100 ">
+    <header className="sticky top-0 z-10  shadow-lg w-full bg-slate-900 text-gray-100 ">
    
       {/* Navbar */}
-      <div className="flex items-center justify-between pt-4 px-12 py-3">
+      <div className="flex items-center justify-between p-3  ">
         {/* Logo */}
         <Link to="/" className="flex items-center font-bold text-sm sm:text-lg md:text-xl lg:text-2xl">
           <img className="w-8 h-8" src={logo} alt="Logo of Dashboard_UI" />
-          <span className="ml-2  font-extrabold lg:text-3xl  sm:text-xl ">Dashboard_UI</span>
+          <span className=" ml-0 lg:ml-2 sm:ml-0  font-extrabold text-1xl lg:text-3xl  ">Dashboard_UI</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
                 location.pathname === item.link ? "text-blue-500 font-bold" : ""
               }`}
             >
-              <p className="font-semibold flex items-center justify-center text-2xl lg:text-2xl sm:text-2xl  md:text-md  ">
+              <p className="font-semibold flex items-center justify-center  text-1xl text-1xl lg:text-1xl sm:text-2xl  md:text-md  ">
                 {item.icon} &nbsp; {item.title}
               </p>
             </Link>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           )}
           <button
             aria-label="Book Demo"
-            className="hidden md:flex  font-bold items-center bg-gray-700 hover:bg-gray-600 text-white p-4  rounded-xl font-semibold transition-all"
+            className="hidden md:flex  items-center bg-gray-700 hover:bg-gray-600 text-white p-4  rounded-xl font-semibold transition-all"
             onClick={() =>
               (window.location.href = "https://cal.com/DashboardUi")
             }

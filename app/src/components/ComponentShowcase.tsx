@@ -128,7 +128,7 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
 
             </div>
 
-            <div className="lg:overflow-y-auto  w-full lg:w-full   overflow-x-hidden  h-full  rounded-md bg-gray-700 p-2">
+            <div className="lg:overflow-y-auto  w-full lg:w-full   overflow-x-hidden    h-full  rounded-md bg-gray-700 lg:p-2 ">
               {userView === "Preview" ? (
                 <PreviewComponent ComponentName={name} />
               ) : (

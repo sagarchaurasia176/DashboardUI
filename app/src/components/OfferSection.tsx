@@ -6,20 +6,16 @@ import {
   FaShieldAlt,
   FaMobileAlt,
   FaChartLine,
-} from "react-icons/fa"; // Import icons from react-icons
-import gsap from "gsap"; // Import GSAP
-import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger plugin
-import offerImage from "../assets/manImg.png"; // Import the image
-// to used gsap we basically used the useGSAP hook
+} from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-// Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const OfferSection = () => {
   const cardMovesWithScrollTrigger = useRef(null);
 
-  // scroll trigger
   useGSAP(() => {
     const triggerElem = cardMovesWithScrollTrigger.current;
     gsap.to(cardMovesWithScrollTrigger.current, {
@@ -29,7 +25,6 @@ const OfferSection = () => {
     });
   });
 
-  // return the JSX
   return (
     <div>
       <div className="p-2 text-white">

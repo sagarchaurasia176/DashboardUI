@@ -2,8 +2,55 @@ import React, { useState } from "react";
 import axios from "axios";
 import { TemplatesDetails, TemplatesBio } from "../apis/Templates";
 import Navbar from "./Navbar";
+import { useLocation } from "react-router-dom";
+import { FormEvent} from 'react';
 
-const Templates: React.FC = () => {
+  // Interface for template state
+  interface TemplateState {
+    name: string;
+    price: number;
+  }
+  
+  interface PaymentPageProps {
+    setClientSecret: React.Dispatch<React.SetStateAction<string | undefined>>;
+  }
+
+
+  
+const Templates = ({ setClientSecret }: PaymentPageProps) => {
+
+
+  const location = useLocation();
+  const [template, setTemplate] = useState<TemplateState>({
+    name: TemplatesDetails.title, // Replace with `TemplatesDetails.title` if accessible
+    price: 1000,
+  });
+
+
+  const handlePay = async (e: FormEvent) => {
+    e.preventDefault();
+    const backendUrl = import.meta.env.VITE_Backend;
+    const paymentResponse = await fetch(
+      `${backendUrl}/api/create-payment-intent`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: [{ id: "template", amount: 1000 }] }),
+      }
+    );
+
+
+    if (paymentResponse.status != 200) {
+      console.log("Payment failed");
+    }
+    const data = await paymentResponse.json();
+    setClientSecret(data.clientSecret);
+    localStorage.setItem("client_secret", data.clientSecret);
+    window.location.replace("/checkout");
+  };
+
+
+
 
   return (
     <>
@@ -24,7 +71,7 @@ const Templates: React.FC = () => {
           <br />
           <br />
           <div className="flex flex-col lg:flex lg:flex-row">
-            <button className="bg-slate-800 p-2 rounded-md">
+            <button onClick={handlePay} className="bg-slate-800 p-2 rounded-md">
               Buy now ₹1000
             </button>
             &nbsp;

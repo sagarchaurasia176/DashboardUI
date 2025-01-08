@@ -12,10 +12,6 @@ const InstallationPage = () => {
 
   const faqItems = [
     {
-      question: "Why copy/paste and not packaged as a dependency?",
-      answer: "The idea behind this is to give you ownership and control over the code, allowing you to decide how the components are built and styled. Start with some sensible defaults, then customize the components to your needs. One of the drawbacks of packaging the components in an npm package is that the style is coupled with the implementation. The design of your components should be separate from their implementation."
-    },
-    {
       question: "Which frameworks are supported ?",
       answer: " You can use any framework that supports React. Next.js"
     },
@@ -120,14 +116,14 @@ export default {
             {faqItems.map((item, index) => (
               <div key={index} className="faq-item">
                 <button
-                  className="faq-question font-sans text-sm lg:text-xl  font-bold py-2"
+                  className="faq-question font-sans text-sm   justify-normal  lg:text-xl  font-bold "
                   onClick={() => toggleAccordion(index)}
                 >
                   {item.question}    
                 </button>
 
                 {activeIndex === index && (
-                  <div className="faq-answer bg-slate-700 p-3 rounded-md">
+                  <div className="faq-answer bg-slate-700 p-3  rounded-md">
                     {item.answer}
                   </div>
                 )}
