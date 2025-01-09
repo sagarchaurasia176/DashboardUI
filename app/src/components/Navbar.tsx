@@ -25,23 +25,23 @@ const Navbar: React.FC = () => {
   return (
     <>
        {/* Subheader */}
-       <div className="bg-gradient-to-tr from-blue-900 to-purple-950 text-center p-3">
-        <h2 className="  text-sm lg:text-2xl md:text-2xl text-orange-100 animate-move text-zinc-00   font-medium">
+       <div className="bg-gradient-to-tr from-blue-900 to-purple-950 text-center p-2">
+        <h2 className="  text-sm lg:text-1xl md:text-1xl text-orange-100 animate-move text-zinc-00   font-medium">
           {subHeader.data}
         </h2>
       </div>
     <header className="sticky top-0 z-10  shadow-lg w-full bg-slate-900 text-gray-100 ">
    
       {/* Navbar */}
-      <div className="flex items-center justify-between p-3  ">
+      <div className="flex items-center justify-between p-1  ">
         {/* Logo */}
-        <Link to="/" className="flex items-center font-bold text-sm sm:text-lg md:text-xl lg:text-2xl">
+        <Link to="/" className="flex items-center font-bold text-sm sm:text-lg md:text-sm lg:text-1xl">
           <img className="w-8 h-8" src={logo} alt="Logo of Dashboard_UI" />
-          <span className=" ml-0 lg:ml-2 sm:ml-0  font-extrabold text-1xl lg:text-3xl  ">Dashboard_UI</span>
+          <span className=" ml-0 lg:ml-2 sm:ml-0  font-extrabold   text-xl lg:text-2xl  ">Dashboard_UI</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex lg:flex-row lg:justify-between lg:space-x-20">
+        <nav className="hidden lg:flex lg:flex-row lg:justify-between lg:space-x-10">
           {HeaderComponents.map((item, index) => (
             <Link
               key={index}
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
                 location.pathname === item.link ? "text-blue-500 font-bold" : ""
               }`}
             >
-              <p className="font-semibold flex items-center justify-center  text-1xl text-1xl lg:text-1xl sm:text-2xl  md:text-md  ">
+              <p className="font-semibold flex items-center justify-center  text-lg text-1xl lg:text-1xl sm:text-1xl  md:text-md  ">
                 {item.icon} &nbsp; {item.title}
               </p>
             </Link>

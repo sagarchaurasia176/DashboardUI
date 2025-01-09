@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ComponentsNav = () => {
   return (
-    <div className="bg-slate-950 sm-full lg:w-full text-white p-8 lg:p-8">
+    <div className=" bg-slate-800   sm-full lg:w-full text-white z-50  sticky top-0 p-10   lg:p-8">
       <ul className=" hidden lg:flex sm:text-xs lg:text-sm sm:space-x-1 lg:space-x-4 sm:gap-3 lg:gap-12 justify-center items-center">
         {HeaderComponents.map((Val) => (
           <Link

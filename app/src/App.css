@@ -43,13 +43,13 @@
 
   /* scroll resize */
   ::-webkit-scrollbar{
-    width: 6px;
-    height: 10px;
+    width: 1px;
+    height: 1px;
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 12px;
-    padding: 2px;
-    background: linear-gradient(15deg, #fb0000, #83e8ff); /* Gradient colors */
+    border-radius: 1px;
+    padding: 1px;
+    scroll-behavior: smooth;
+    background: linear-gradient(1deg, #000000, #000000); /* Gradient colors */
   }
-

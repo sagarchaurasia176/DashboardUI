@@ -26,7 +26,7 @@ const HeroSection = () => {
           {/* Subheading */}
           <h2
             ref={subHeadingRef}
-            className="  text-6xl lg:text-9xl md:text-5xl  animate-bounce font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-teal-400 to-green-500 py-3 mt-4"
+            className="  text-6xl lg:text-9xl md:text-5xl  font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-teal-400 to-green-500 py-3 mt-4"
           >
             {subHeader.next}
           </h2>

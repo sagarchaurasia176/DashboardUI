@@ -41,7 +41,7 @@ const CardSection = () => {
 
           <div className="relative bg-white p-4 rounded-lg shadow-lg overflow-hidden group">
             <img
-              className="w-full animate-pulse h-auto rounded-lg   group-hover:scale-105 transition-all duration-300"
+              className="w-full  h-auto rounded-lg   group-hover:scale-105 transition-all duration-300"
               src="http://res.cloudinary.com/dakddv1pm/image/upload/v1732187458/posts/lthcz7aprnvldihburzi.png"
               alt="Image 2"
             />

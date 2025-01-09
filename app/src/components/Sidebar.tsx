@@ -16,7 +16,7 @@ const Sidebar: React.FC = () => {
   return (
     <>
       <button
-        className=" absolute top-4   left-1 z-50 bg-orange-500 text-white p-2 rounded-md md:hidden"
+        className= " absolute top-4 left-1 z-40 bg-orange-500 text-white p-2 rounded-md md:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -24,7 +24,8 @@ const Sidebar: React.FC = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed lg:sticky top-0 left-0 h-screen w-[75%] md:w-[20%] bg-gray-800 text-white overflow-y-auto transition-transform duration-300 ease-in-out z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+        className={`fixed lg:sticky top-0 overflow-auto left-0 h-screen w-[75%] md:w-[17%] bg-gray-800 text-white
+           transition-transform duration-300 ease-in-out z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
       >
         <div className="font-sans flex items-center bg-orange-400 p-2 rounded-lg font-semibold text-xl m-4">
           <FaPlus className="mr-2 text-slate-700" />
@@ -33,7 +34,7 @@ const Sidebar: React.FC = () => {
           </Link>
         </div>
 
-        <div className="gap-4 px-4">
+        <div className="gap-4 p-2">
           <h2 className="font-sans font-semibold text-lg bg-orange-100 rounded-md text-black p-2 flex items-center">
             <FaPlus className="mr-2" /> Components
           </h2>
@@ -53,12 +54,12 @@ const Sidebar: React.FC = () => {
             })}
           </div>
         </div>
-
-        <div className="gap-4 px-4 mt-6">
-          <h2 className="font-sans bg-orange-100 rounded-md text-black font-semibold p-2 text-md flex items-center">
-            <FaPlus className="mr-2" /> Additional Components
+<br />
+        <div className="gap-4  ">
+          <h2 className="font-sans bg-orange-100 rounded-md text-black font-semibold p-3 text-md flex items-center">
+            <FaPlus className="mr-2 " /> Additional Components
           </h2>
-          <div className="flex flex-col gap-3 mt-2">
+          <div className="flex   flex-col gap-3 mt-2">
             {AdditionalList.map((component, index) => {
               const { name, icon } = component;
               return (
