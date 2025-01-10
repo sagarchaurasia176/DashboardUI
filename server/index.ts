@@ -17,17 +17,25 @@ app.use(express.json());
 
 app.post("/api/create-payment-intent", async (req, res) => {
   const { items } = req.body;
-
-  const paymentIntent = await stripeInstance.paymentIntents.create({
-    amount: calculateOrderAmount(items),
-    currency: "usd",
-    automatic_payment_methods: {
-      enabled: true,
-    },
-  });
-  res.send({
-    clientSecret: paymentIntent.client_secret,
-  });
+  if (!items) {
+    console.log("No items provided!");
+    res.status(400).json({ msg: "Please provide items" });
+  }
+  try {
+    const paymentIntent = await stripeInstance.paymentIntents.create({
+      amount: calculateOrderAmount(items),
+      currency: "usd",
+      automatic_payment_methods: {
+        enabled: true,
+      },
+    });
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Payment failed, please try again later" });
+  }
 });
 
 app.listen(port, () => {

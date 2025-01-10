@@ -9,7 +9,7 @@ export const calculateOrderAmount = (items: item[]) => {
   items.forEach((item) => {
     const { amount } = item;
     // stripe accepts payment in cents
-    const amountInCents = amount;
+    const amountInCents = amount * 100;
     total += amountInCents;
   });
   return total;

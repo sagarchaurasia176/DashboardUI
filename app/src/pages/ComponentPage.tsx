@@ -1,5 +1,6 @@
 import ComponentShowcase from "../components/ComponentShowcase";
 import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
 import { codeMapping } from "../utils/code_mapping";
 
@@ -17,16 +18,19 @@ const CommonPage = () => {
   console.log(component.name);
 
   return (
-    <div className="flex flex-row bg-gray-900 gap-20">
-      <Sidebar />
-      <div className="transition duration-500 ease-in-out w-full mt-0">
-        <ComponentShowcase
-          name={component.name}
-          code={component.code}
-          description={component.description}
-        />
+    <section>
+      <Navbar />
+      <div className="flex flex-row bg-gray-900 gap-20">
+        <Sidebar />
+        <div className="transition duration-500 ease-in-out w-full mt-0">
+          <ComponentShowcase
+            name={component.name}
+            code={component.code}
+            description={component.description}
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,63 +1,59 @@
 import React, { FormEvent, useState } from "react";
 import axios from "axios";
 import { TemplatesDetails, TemplatesBio } from "../apis/Templates";
-import { useLocation } from "react-router-dom";
+import { currencyConvert } from "../utils/currency-convert";
 
-// Declare the global interface for Razorpay
-declare global {
-  interface Window {
-    Razorpay: any;
-  }
-}
-// Interface for template state
 interface TemplateState {
   name: string;
   price: number;
 }
-
 interface PaymentPageProps {
   setClientSecret: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
+const backendUrl = import.meta.env.VITE_BACKEND_LOCAL;
 
 const Templates = ({ setClientSecret }: PaymentPageProps) => {
-  const location = useLocation();
-
   const [template, setTemplate] = useState<TemplateState>({
-    name: TemplatesDetails.title, // Replace with `TemplatesDetails.title` if accessible
+    name: TemplatesDetails.title,
     price: 1000,
   });
 
   const handlePay = async (e: FormEvent) => {
     e.preventDefault();
-    const backendUrl = import.meta.env.VITE_BACKEND_LOCAL;
-    const paymentResponse = await fetch(
-      `${backendUrl}/api/create-payment-intent`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: [{ id: "template", amount: 1000 }] }),
-      }
-    );
+    // price in USD
+    const amount = await currencyConvert({ amount: template.price });
+    console.log(amount);
+
+    const paymentResponse = await axios({
+      method: "POST",
+      url: `${backendUrl}/api/create-payment-intent`,
+      data: {
+        items: [{ id: "template", amount: amount }],
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     if (paymentResponse.status != 200) {
       console.log("Payment failed");
     }
-    const data = await paymentResponse.json();
+    const data = await paymentResponse.data;
     setClientSecret(data.clientSecret);
     localStorage.setItem("client_secret", data.clientSecret);
     window.location.replace("/checkout");
   };
 
   return (
-    <div className="absolute w-full mt-32">
-      <div className="text-center h-2/3 p-12 text-white">
+    <div className="h-full absolute w-full bg-slate-950 ">
+      <div className="text-center h-1/3 text-white">
         <h1>{TemplatesBio.title}</h1>
         <span>{TemplatesBio.descp}</span>
       </div>
       <br />
       <br />
-      <div className="flex flex-col lg:flex bg-slate-950 px-4 max-h-screen lg:flex-row shadow-md">
+      <div className="flex flex-col lg:flex bg-slate-950 px-4 lg:flex-row shadow-md">
         <div className="w-1/2 text-white font-sans">
-          <h2>{TemplatesDetails.title}</h2>
+          <h2 className="text-2xl">{TemplatesDetails.title}</h2>
           <br />
           <span>{TemplatesDetails.descp}</span>
           <br />
