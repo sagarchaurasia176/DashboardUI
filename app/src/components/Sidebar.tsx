@@ -1,89 +1,99 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { ComponentsList, AdditionalList } from "../utils/ComponentsList";
 import { Link, useNavigate } from "react-router-dom";
-import { FaTools, FaPlus, FaBars, FaTimes } from "react-icons/fa"; // Import icons
+import { FaTools, FaPlus, FaBars, FaTimes } from "react-icons/fa";
+import { SidebarContext } from "../context/SidebarContext";
 
 const Sidebar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to toggle the sidebar
+  const { isCollapsed, toggleSidebar } = useContext(SidebarContext);
   const navigate = useNavigate();
 
   const handleComponentURL = (name: string) => {
     const name_url = name.toLowerCase().replace(/\s/g, "");
     navigate(`/components/?component=${name_url}`);
-    setIsOpen(false); // Close sidebar after navigation
   };
 
   return (
     <>
-      <button
-        className= " absolute top-4 left-1 z-40 bg-orange-500 text-white p-2 rounded-md md:hidden"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-      </button>
+      {/* Mobile Overlay */}
+      {!isCollapsed && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
+          onClick={toggleSidebar}
+        />
+      )}
 
-      {/* Sidebar */}
       <div
-        className={`fixed lg:sticky top-0 overflow-auto left-0 h-screen w-[75%] md:w-[17%] bg-gray-800 text-white
-           transition-transform duration-300 ease-in-out z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+        className={`fixed md:sticky top-0 left-0 h-screen 
+          ${isCollapsed ? 'w-0 md:w-16' : 'w-[240px] md:w-[240px]'}
+          bg-gray-800 text-white transition-all duration-300 ease-in-out z-40
+          overflow-hidden`}
       >
-        <div className="font-sans flex items-center bg-orange-400 p-2 rounded-lg font-semibold text-xl m-4">
-          <FaPlus className="mr-2 text-slate-700" />
-          <Link to="/installation" onClick={() => setIsOpen(false)}>
-            Installation
+        <div className={`font-sans p-4`}>
+          <Link 
+            to="/installation" 
+            className={`flex items-center bg-orange-400 p-2 rounded-lg font-semibold 
+              ${isCollapsed ? 'md:justify-center' : ''}`}
+          >
+            <FaPlus className="text-slate-700 min-w-[20px]" />
+            <span className={`ml-2 ${isCollapsed ? 'md:hidden' : ''}`}>Installation</span>
           </Link>
         </div>
 
-        <div className="gap-4 p-2">
-          <h2 className="font-sans font-semibold text-lg bg-orange-100 rounded-md text-black p-2 flex items-center">
-            <FaPlus className="mr-2" /> Components
-          </h2>
-          <div className="flex flex-col gap-3 mt-2">
-            {ComponentsList.map((component, index) => {
-              const { name, icon } = component;
-              return (
+        <div className="p-4 space-y-6">
+          <div>
+            <h2 className={`font-sans font-semibold bg-orange-100 rounded-md text-black p-2 flex items-center 
+              ${isCollapsed ? 'md:justify-center' : ''}`}
+            >
+              <FaPlus className="min-w-[20px]" />
+              <span className={`ml-2 ${isCollapsed ? 'md:hidden' : ''}`}>Components</span>
+            </h2>
+            
+            <div className="flex flex-col gap-3 mt-4">
+              {ComponentsList.map((component, index) => (
                 <div
                   key={index}
-                  className="flex rounded-md gap-4 p-1 items-center text-lg cursor-pointer transition duration-500 ease-in-out hover:bg-gradient-to-r from-purple-600 via-blue-slate-800 to-blue-900"
-                  onClick={() => handleComponentURL(name)}
+                  className={`flex rounded-md p-2 items-center cursor-pointer
+                    transition duration-300 hover:bg-gray-700
+                    ${isCollapsed ? 'md:justify-center' : ''}`}
+                  onClick={() => handleComponentURL(component.name)}
                 >
-                  {icon}
-                  {name}
+                  <span className="min-w-[20px]">{component.icon}</span>
+                  <span className={`ml-3 ${isCollapsed ? 'md:hidden' : ''}`}>
+                    {component.name}
+                  </span>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-<br />
-        <div className="gap-4  ">
-          <h2 className="font-sans bg-orange-100 rounded-md text-black font-semibold p-3 text-md flex items-center">
-            <FaPlus className="mr-2 " /> Additional Components
-          </h2>
-          <div className="flex   flex-col gap-3 mt-2">
-            {AdditionalList.map((component, index) => {
-              const { name, icon } = component;
-              return (
+
+          <div>
+            <h2 className={`font-sans bg-orange-100 rounded-md text-black font-semibold p-2 flex items-center 
+              ${isCollapsed ? 'md:justify-center' : ''}`}
+            >
+              <FaPlus className="min-w-[20px]" />
+              <span className={`ml-2 ${isCollapsed ? 'md:hidden' : ''}`}>Additional</span>
+            </h2>
+            
+            <div className="flex flex-col gap-3 mt-4">
+              {AdditionalList.map((component, index) => (
                 <div
                   key={index}
-                  className="flex p-1 rounded-md items-center gap-3 text-lg cursor-pointer transition duration-500 ease-in-out hover:bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
-                  onClick={() => handleComponentURL(name)}
+                  className={`flex rounded-md p-2 items-center cursor-pointer
+                    transition duration-300 hover:bg-gray-700
+                    ${isCollapsed ? 'md:justify-center' : ''}`}
+                  onClick={() => handleComponentURL(component.name)}
                 >
-                  {icon}
-                  {name}
+                  <span className="min-w-[20px]">{component.icon}</span>
+                  <span className={`ml-3 ${isCollapsed ? 'md:hidden' : ''}`}>
+                    {component.name}
+                  </span>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Overlay when sidebar is open */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      )}
     </>
   );
 };

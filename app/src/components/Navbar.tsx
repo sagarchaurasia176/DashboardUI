@@ -4,13 +4,29 @@ import logo from "../assets/logo.png";
 import { HeaderComponents, subHeader } from "../apis/HeroData";
 import GoogleAuth from "../auth/GoogleAuth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { motion, AnimatePresence } from "framer-motion";
+import '../styles/navbar-blur.css';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const [userImg, setImg] = useState<string | null>(null);
 
   const auth = getAuth();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -25,13 +41,26 @@ const Navbar: React.FC = () => {
   return (
     <>
        {/* Subheader */}
-       <div className="bg-gradient-to-tr from-blue-900 to-purple-950 text-center p-2">
+       <div className="bg-gradient-to-tr  from-blue-750 to-purple-950 text-center p-2">
         <h2 className="  text-sm lg:text-1xl md:text-1xl text-orange-100 animate-move text-zinc-00   font-medium">
           {subHeader.data}
         </h2>
       </div>
-    <header className="sticky top-0 z-10  shadow-lg w-full bg-slate-900 text-gray-100 ">
-   
+    <header className={`sticky top-0 z-50 shadow-lg w-full transition-all duration-300 ${
+        isScrolled ? 'navbar-blur' : 'bg-slate-900'
+      } text-gray-100`}>
+        {/* Gradient border bottom */}
+        <AnimatePresence>
+          {isScrolled && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"
+            />
+          )}
+        </AnimatePresence>
+
       {/* Navbar */}
       <div className="flex items-center justify-between p-1  ">
         {/* Logo */}

@@ -3,7 +3,8 @@ import axios from "axios";
 import { TemplatesDetails, TemplatesBio } from "../apis/Templates";
 import Navbar from "./Navbar";
 import { useLocation } from "react-router-dom";
-import { FormEvent} from 'react';
+import { FormEvent } from 'react';
+import { motion } from "framer-motion";
 
   // Interface for template state
   interface TemplateState {
@@ -53,49 +54,84 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
 
 
   return (
-    <>
-    <div className=" bg-slate-950 w-full  h-screen">
-      <Navbar/>
-      <div className="text-center p-12 text-white">
-        <h1 className=" text-7xl">{TemplatesBio.title}</h1>
-        <br />
-        <span className=" text-2xl">{TemplatesBio.descp}</span>
-      </div>
-      <br />
-      <br />
-      <div className="flex flex-col lg:flex bg-slate-950 px-4 max-h-screen lg:flex-row shadow-md">
-        <div className="w-1/2 text-2xl text-white font-sans">
-          <h2 >{TemplatesDetails.title}</h2>
-          <br />
-          <span>{TemplatesDetails.descp}</span>
-          <br />
-          <br />
-          <div className="flex flex-col lg:flex lg:flex-row">
-            <button onClick={handlePay} className="bg-slate-800 p-2 rounded-md">
+    <div className="bg-slate-950 w-full min-h-screen overflow-hidden">
+      <Navbar />
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center p-12 text-white"
+      >
+        <h1 className="text-7xl bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-bold">
+          {TemplatesBio.title}
+        </h1>
+        <motion.span 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-2xl text-gray-300 mt-6 block"
+        >
+          {TemplatesBio.descp}
+        </motion.span>
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
+        className="flex flex-col lg:flex-row bg-slate-900/50 backdrop-blur-sm rounded-xl mx-4 p-8 shadow-2xl"
+      >
+        <div className="lg:w-1/2 text-white font-sans space-y-6">
+          <motion.h2 
+            whileHover={{ scale: 1.02 }}
+            className="text-3xl font-bold"
+          >
+            {TemplatesDetails.title}
+          </motion.h2>
+          
+          <p className="text-gray-300 text-lg leading-relaxed">
+            {TemplatesDetails.descp}
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handlePay}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 rounded-lg font-semibold 
+                         hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+            >
               Buy now ₹1000
-            </button>
-            &nbsp;
-            <a
+            </motion.button>
+            
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               href="https://courses-db-one.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
+              className="bg-slate-800 px-6 py-3 rounded-lg font-semibold text-center
+                         hover:bg-slate-700 transition-all duration-300"
             >
-              <button className="bg-slate-800 p-2 rounded-md">
-                Live Preview
-              </button>
-            </a>
+              Live Preview
+            </motion.a>
           </div>
         </div>
-        <div className="w-1/2">
+
+        <motion.div 
+          className="lg:w-1/2 mt-8 lg:mt-0"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.3 }}
+        >
           <img
             src="http://res.cloudinary.com/dakddv1pm/image/upload/v1735661273/posts/b8fcxy4wdbocxwuaueyt.png"
             alt="Template Preview"
+            className="rounded-lg shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
-    </>
-
   );
 };
 
