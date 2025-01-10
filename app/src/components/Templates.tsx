@@ -23,7 +23,7 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
 
   const location = useLocation();
   const [template, setTemplate] = useState<TemplateState>({
-    name: TemplatesDetails.title, // Replace with `TemplatesDetails.title` if accessible
+    name: TemplatesDetails.title,
     price: 1000,
   });
 
@@ -41,8 +41,9 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
     );
 
 
-    if (paymentResponse.status != 200) {
+    if (paymentResponse.status !== 200) {
       console.log("Payment failed");
+      return;
     }
     const data = await paymentResponse.json();
     setClientSecret(data.clientSecret);

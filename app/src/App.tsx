@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import "@radix-ui/themes/styles.css";
@@ -18,7 +18,6 @@ import Contactus from "./components/Contactus";
 // load stripe
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
-// This is your test publishable API key.
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 console.log(stripePromise)
 
@@ -35,14 +34,14 @@ const App: React.FC = () => {
     }
   }
   return (
-    <SidebarProvider>
-      {/* <Navbar /> */}
-      <div className=" bg-slate-950">
+    <>
+      <div>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/components" element={<ComponentPage />} />
           <Route path="/installation" element={<InstallationPage />} />
           <Route path="/pricing" element={<PricingSection />} />
+
           <Route
             path="/Templates/Ui"
             element={<Templates setClientSecret={setClientSecret} />}
@@ -55,6 +54,7 @@ const App: React.FC = () => {
                   options={{
                     clientSecret,
                     appearance: { theme: "stripe" },
+
                     loader: "auto",
                   }}
                   stripe={stripePromise}
@@ -79,7 +79,7 @@ const App: React.FC = () => {
           )}
         </Routes>
       </div>
-    </SidebarProvider>
+      </>
   );
 };
 

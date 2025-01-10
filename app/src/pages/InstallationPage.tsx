@@ -1,7 +1,7 @@
 import Sidebar from "../components/Sidebar";
-import ComponentsNav from "./ComponentsNav";
+import Navbar from "../components/Navbar";
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import ComponentsNav from "./ComponentsNav";
 
 const InstallationPage = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -116,20 +116,21 @@ export default {
             {faqItems.map((item, index) => (
               <div key={index} className="faq-item">
                 <button
-                  className="faq-question font-sans text-sm   justify-normal  lg:text-xl  font-bold "
+                  className="faq-question font-sans text-sm justify-normal lg:text-xl font-bold"
                   onClick={() => toggleAccordion(index)}
                 >
                   {item.question}    
                 </button>
 
                 {activeIndex === index && (
-                  <div className="faq-answer bg-slate-700 p-3  rounded-md">
+                  <div className="faq-answer bg-slate-700 p-3 rounded-md">
                     {item.answer}
                   </div>
                 )}
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </div>

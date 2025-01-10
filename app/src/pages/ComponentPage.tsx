@@ -1,5 +1,6 @@
 import ComponentShowcase from "../components/ComponentShowcase";
 import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
 import { codeMapping } from "../utils/code_mapping";
 import ComponentsNav from "./ComponentsNav";
@@ -36,7 +37,7 @@ const CommonPage = () => {
           />
         </div>
       </div>
-    </>
+      </>
   );
 };
 
