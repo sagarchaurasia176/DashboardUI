@@ -5,17 +5,19 @@ import OfferSection from "../components/OfferSection";
 import BuildSection from "../components/BuildSection";
 import FooterSection from "../components/FooterSection";
 import Navbar from "../components/Navbar";
-
+import Testimonials from "../components/Testimonials";
 const LandingPage: React.FC = () => {
   return (
     <div>
-      <Navbar />
       <div className=" bg-slate-900">
+        <Navbar/>
         <HeroSection />
         <CardSection />
         <OfferSection />
+        <Testimonials/>
         <BuildSection />
         <FooterSection />
+
       </div>
     </div>
   );

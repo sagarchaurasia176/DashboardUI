@@ -60,8 +60,6 @@ const HeroSection = () => {
   };
 
   return (
-    <>
-      <Navbar />
       <motion.section 
         initial="hidden"
         animate="visible"
@@ -191,7 +189,6 @@ const HeroSection = () => {
           </NavLink>
         </motion.div>
       </motion.section>
-    </>
   );
 };
 

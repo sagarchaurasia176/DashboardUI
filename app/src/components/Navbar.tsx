@@ -41,12 +41,12 @@ const Navbar: React.FC = () => {
   return (
     <>
        {/* Subheader */}
-       <div className="bg-gradient-to-tr  from-blue-750 to-purple-950 text-center p-2">
-        <h2 className="  text-sm lg:text-1xl md:text-1xl text-orange-100 animate-move text-zinc-00   font-medium">
+       <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-center p-3">
+        <h2 className="text-sm lg:text-md md:text-md font-medium text-white animate-pulse">
           {subHeader.data}
         </h2>
       </div>
-    <header className={`sticky top-0 z-50 shadow-lg w-full transition-all duration-300 ${
+      <header className={`sticky top-0 z-50 shadow-lg w-full transition-all duration-300 ${
         isScrolled ? 'navbar-blur' : 'bg-slate-900'
       } text-gray-100`}>
         {/* Gradient border bottom */}

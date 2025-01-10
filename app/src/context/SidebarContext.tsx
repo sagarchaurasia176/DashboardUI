@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 interface SidebarContextType {
   isCollapsed: boolean;
@@ -11,7 +11,27 @@ export const SidebarContext = createContext<SidebarContextType>({
 });
 
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  // Initialize based on screen size
+  const [isCollapsed, setIsCollapsed] = useState(() => {
+    return window.innerWidth < 768;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Only auto-collapse on mobile
+      if (window.innerWidth < 768) {
+        setIsCollapsed(true);
+      }
+    };
+
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
+    
+    // Initial check
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const toggleSidebar = () => {
     setIsCollapsed(prev => !prev);

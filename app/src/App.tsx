@@ -34,52 +34,56 @@ const App: React.FC = () => {
     }
   }
   return (
-    <>
-      <div>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/components" element={<ComponentPage />} />
-          <Route path="/installation" element={<InstallationPage />} />
-          <Route path="/pricing" element={<PricingSection />} />
+    // This is basically a wrapper for the entire app | it is context provider for the sidebar
+    <SidebarProvider>
+      {/* Actuall app here  */}
+      <div className="flex min-h-screen bg-gray-100">
+        <div className="flex-1 flex flex-col min-h-screen">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/components" element={<ComponentPage />} />
+            <Route path="/installation" element={<InstallationPage />} />
+            <Route path="/pricing" element={<PricingSection />} />/
 
-          <Route
-            path="/Templates/Ui"
-            element={<Templates setClientSecret={setClientSecret} />}
-          />
-          {clientSecret ? (
             <Route
-              path="/*"
-              element={
-                <Elements
-                  options={{
-                    clientSecret,
-                    appearance: { theme: "stripe" },
+              path="/Templates/Ui"
+              element={<Templates setClientSecret={setClientSecret} />}
+            />
+            {clientSecret ? (
+              <Route
+                path="/*"
+                element={
+                  <Elements
+                    options={{
+                      clientSecret,
+                      appearance: { theme: "stripe" },
 
-                    loader: "auto",
-                  }}
-                  stripe={stripePromise}
-                >
-                  <Routes>
-                    <Route path="/checkout" element={<CheckoutForm />} />
-                    <Route path="/complete" element={<CompletePage />} />
-                    <Route path="/contactus" element={<Contactus />} />
-                  </Routes>
-                </Elements>
-              }
-            />
-          ) : (
-            <Route
-              path="/checkout"
-              element={
-                <div className="text-white text-center">
-                  Loading payment details...
-                </div>
-              }
-            />
-          )}
-        </Routes>
+                      loader: "auto",
+                    }}
+                    stripe={stripePromise}
+                  >
+                    <Routes>
+                      <Route path="/checkout" element={<CheckoutForm />} />
+                      <Route path="/complete" element={<CompletePage />} />
+                      <Route path="/contactus" element={<Contactus />} />
+                    </Routes>
+                  </Elements>
+                }
+              />
+            ) : (
+              <Route
+                path="/checkout"
+                element={
+                  <div className="text-white text-center">
+                    Loading payment details...
+                  </div>
+                }
+              />
+            )}
+          </Routes>
+        </div>
       </div>
-      </>
+    </SidebarProvider>
   );
 };
 

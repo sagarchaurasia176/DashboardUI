@@ -26,8 +26,7 @@ const Contactus = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
-      <Navbar/>
-      
+        <Navbar/>
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px]" />
@@ -69,7 +68,7 @@ const Contactus = () => {
                       id="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="mt-1 block w-full rounded-lg bg-white/5 border border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-lg bg-white/5 border border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base py-3 px-4"
                       required
                     />
                   </div>
@@ -85,7 +84,7 @@ const Contactus = () => {
                       id="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="mt-1 block w-full rounded-lg bg-white/5 border border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-lg bg-white/5 border border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base py-3 px-4"
                       required
                     />
                   </div>
@@ -101,7 +100,7 @@ const Contactus = () => {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      className="mt-1 block w-full rounded-lg bg-white/5 border border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      className="mt-1 block w-full rounded-lg bg-white/5 border border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base py-3 px-4"
                       required
                     />
                   </div>
@@ -110,7 +109,7 @@ const Contactus = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full flex justify-center py-3 px-4 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    className="w-full flex justify-center py-4 px-6 rounded-lg text-base font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     Send Message
                   </motion.button>
