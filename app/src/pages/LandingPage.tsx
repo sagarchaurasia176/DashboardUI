@@ -14,6 +14,7 @@ const LandingPage: React.FC = () => {
         <HeroSection />
         <CardSection />
         <OfferSection />
+        {/* Testim */}
         <Testimonials/>
         <BuildSection />
         <FooterSection />
