@@ -17,17 +17,13 @@ const GoogleAuth = () => {
   const singInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      setLoad(true);
-      let load = toast.loading("loading...");
       const GoogleDialogBox = await signInWithPopup(auth, provider);
       console.log(GoogleDialogBox.user);
-      toast.dismiss(load);
-      setLoad(false)
     } catch (er) {
       console.log("Error", er);
     }
   };
-
+// Minor changes in firebase config
   return(
     <>
     <button className=" flex items-center  justify-center rounded-1xl text-white rounded-xl bg-slate-950 p-5  " onClick={()=>singInWithGoogle()}>
