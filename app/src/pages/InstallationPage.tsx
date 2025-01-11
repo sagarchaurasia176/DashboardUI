@@ -3,12 +3,12 @@ import Navbar from "../components/Navbar";
 import { useState } from "react";
 import ComponentsNav from "./ComponentsNav";
 import toast from "react-hot-toast";
-
+import { FaCopy } from "react-icons/fa";
 const InstallationPage = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
-  const handleCopy = (code: string) => {
+  const handleCopy = (code: string) =>   {
     navigator.clipboard.writeText(code);
     const toastLoader = toast.loading("Copying...");
     setIsCopied(true);
@@ -56,9 +56,11 @@ const InstallationPage = () => {
             </code>
             <button
               onClick={() => handleCopy("npm create vite@latest my-project -- --template react")}
-              className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
-            >
-              Copy
+              className="ml-2 bg-stone-950 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+
+              // className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+            > 
+            <FaCopy/>
             </button>
           </div>
 
@@ -72,18 +74,24 @@ const InstallationPage = () => {
               onClick={() =>
                 handleCopy("npm install -D tailwindcss postcss autoprefixer")
               }
-              className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+              className="ml-2 bg-stone-950 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+
+              // className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
             >
-              Copy
+            <FaCopy/>
+              
             </button>
           </div>
           <div className="bg-slate-800 p-4 rounded-md mb-6 flex justify-between items-center">
             <code className="font-mono text-lg">npx tailwindcss init -p</code>
             <button
               onClick={() => handleCopy("npx tailwindcss init -p")}
-              className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+              className="ml-2 bg-stone-950 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+
+              // className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
             >
-              Copy
+            <FaCopy/>
+             
             </button>
           </div>
 
@@ -118,9 +126,10 @@ export default {
   plugins: [],
 }`)
                 }
-                className="ml-2 bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+                className="ml-2 bg-stone-950 text-white px-3 py-1 rounded-md hover:bg-blue-700"
               >
-                Copy
+            <FaCopy/>
+                
               </button>
             </pre>
           </div>
@@ -138,9 +147,12 @@ export default {
                 onClick={() =>
                   handleCopy(`@tailwind base;\n@tailwind components;\n@tailwind utilities;`)
                 }
-                className="ml-2 bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
-              >
-                Copy
+                className="ml-2 bg-stone-950 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+               
+              > 
+            <FaCopy/>
+              
+               {/* Copy */}
               </button>
             </pre>
           </div>
@@ -150,9 +162,12 @@ export default {
             <code className="font-mono text-lg">npm run dev</code>
             <button
               onClick={() => handleCopy("npm run dev")}
-              className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+              className="ml-2 bg-stone-950 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+
+              // className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
             >
-              Copy
+            <FaCopy/>
+            
             </button>
           </div>
 
