@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const BuildSection = () => {
   return (
     <div>
@@ -11,9 +11,13 @@ const BuildSection = () => {
           Join thousands of developers who are creating amazing dashboards with
           Dashboard_UI
         </p>
-        <button className="bg-purple-600 hover:bg-purple-700 p-4 rounded-lg">
+        <Link to='/components'>
+        <button   className="bg-purple-600 hover:bg-purple-700 p-4 rounded-lg">
           Start Free Trial
         </button>
+        </Link>
+         
+
       </section>
     </div>
   );

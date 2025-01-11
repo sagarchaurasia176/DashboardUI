@@ -41,12 +41,12 @@ const Navbar: React.FC = () => {
   return (
     <>
        {/* Subheader */}
-       <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-center p-3">
-        <h2 className="text-sm lg:text-md md:text-md font-medium text-white animate-pulse">
+       <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-center p-2 lg:p-4 sm:p-2">
+        <h2 className="text-md lg:text-lg md:text-md font-medium text-white animate-pulse">
           {subHeader.data}
         </h2>
       </div>
-      <header className={`sticky top-0 z-50 shadow-lg w-full transition-all duration-300 ${
+      <header className={`sticky top-0 z-50 shadow-lg w-full transition-all  p-3 lg:p-4 duration-300 ${
         isScrolled ? 'navbar-blur' : 'bg-slate-900'
       } text-gray-100`}>
         {/* Gradient border bottom */}
@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
                 location.pathname === item.link ? "text-blue-500 font-bold" : ""
               }`}
             >
-              <p className="font-semibold flex items-center justify-center  text-lg text-1xl lg:text-1xl sm:text-1xl  md:text-md  ">
+              <p className="font-semibold flex items-center justify-center lg:text-2xl sm:text-sm  md:text-md  ">
                 {item.icon} &nbsp; {item.title}
               </p>
             </Link>
@@ -95,7 +95,7 @@ const Navbar: React.FC = () => {
           )}
           <button
             aria-label="Book Demo"
-            className="hidden md:flex  items-center bg-gray-700 hover:bg-gray-600 text-white p-4  rounded-xl font-semibold transition-all"
+            className="hidden md:flex  items-center rounded-xl p-4   font-bold bg-slate-400 text-black  transition-all"
             onClick={() =>
               (window.location.href = "https://cal.com/DashboardUi")
             }

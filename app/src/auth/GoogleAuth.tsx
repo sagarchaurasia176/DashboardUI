@@ -26,7 +26,7 @@ const GoogleAuth = () => {
 // Minor changes in firebase config
   return(
     <>
-    <button className=" flex items-center  justify-center rounded-1xl text-white rounded-xl bg-slate-950 p-5  " onClick={()=>singInWithGoogle()}>
+    <button className=" flex items-center  justify-center rounded-1xl text-white  rounded-xl p-4   font-bold bg-slate-950  " onClick={()=>singInWithGoogle()}>
     {
       openDialog ? (<>
        <FaGoogle className=" mr-2 "/>

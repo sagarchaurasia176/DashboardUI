@@ -75,30 +75,5 @@ export const AdditionalList = [
     name: "Button",
     icon: <FaRegHandPointer />,
   },
-  {
-    name: "Card",
-    icon: <FaRegCreditCard />,
-  },
-  {
-    name: "Button",
-    icon: <FaRegHandPointer />,
-  },
-
-  {
-    name: "Card",
-    icon: <FaRegCreditCard />,
-  },
-  {
-    name: "Button",
-    icon: <FaRegHandPointer />,
-  },
-
-  {
-    name: "Card",
-    icon: <FaRegCreditCard />,
-  },
-  {
-    name: "Button",
-    icon: <FaRegHandPointer />,
-  },
+ 
 ];

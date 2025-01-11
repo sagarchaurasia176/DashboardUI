@@ -28,8 +28,8 @@ export const HeaderComponents = [
 ];
 
 export const subHeader = {
-  decp: "We Build Dashboard",
-  next: " For You",
+  decp: "Smart Dashboards",
+  next: " For Smarter Decisions",
   para: "Beautifully Designed Dashboard that you can copy and paste into your own code base!",
   data: "Introducing Dashboard_UI Pro - Premium Component packs and templates to build awesome Dashboard",
 };

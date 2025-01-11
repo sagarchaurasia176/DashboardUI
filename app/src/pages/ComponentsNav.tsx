@@ -1,5 +1,5 @@
 import { HeaderComponents } from "../apis/HeroData";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { SidebarContext } from "../context/SidebarContext";
 import { FaBars, FaHome } from "react-icons/fa";
@@ -7,8 +7,9 @@ import { FaBars, FaHome } from "react-icons/fa";
 const ComponentsNav = () => {
   const { isCollapsed, toggleSidebar } = useContext(SidebarContext);
 
+
   return (
-    <nav className="bg-slate-800 flex justify-between items-center text-white z-50 sticky top-0 p-3">
+    <nav className="bg-slate-800 flex justify-between items-center  text-white z-50 sticky top-0 p-6  lg-p-5 md:lg-p-5 sm:p-5">
       <button 
         onClick={toggleSidebar}
         className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg 
