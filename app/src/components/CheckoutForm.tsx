@@ -68,7 +68,8 @@ export default function CheckoutForm() {
         <div className="text-gray-500 mr-20">
           <h2 className="font-segoe">Dashboard UI</h2>
           <p className="py-1">
-            <span className="text-4xl font-bold text-gray-700">$1000 </span>only
+            {/* TODO make this dynamic */}
+            <span className="text-4xl font-bold text-gray-700">$12 </span>only
           </p>
           <p className="text-sm">A simple elegant dashboard UI</p>
         </div>
@@ -82,7 +83,7 @@ export default function CheckoutForm() {
       <form
         id="payment-form"
         onSubmit={handleSubmit}
-        className="h-screen w-[450px]"
+        className="h-screen w-[450px] border-l-2 pl-4"
       >
         <PaymentElement
           id="payment-element"

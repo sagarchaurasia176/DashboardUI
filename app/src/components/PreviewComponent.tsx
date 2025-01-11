@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import toast from 'react-hot-toast';
 // sanitize and xss
 
 type DynamicComponentProps = {
@@ -20,7 +19,7 @@ const PreviewComponent: React.FC<DynamicComponentProps> = ({
       try {
         // remove whitespaces from component name
         const component = ComponentName.replace(/\s/g, "");
-        console.log(component)
+        console.log(component);
         importedComponent = (
           await import(`../stories/${component}.stories.tsx`)
         ).Default;
@@ -37,7 +36,7 @@ const PreviewComponent: React.FC<DynamicComponentProps> = ({
 
   // handle loading
   if (loading) {
-    return <div>loading..................</div>;
+    return <div>Loading..</div>;
   }
 
   if (!Component) {

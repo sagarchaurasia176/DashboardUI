@@ -12,7 +12,7 @@ interface TemplateState {
 interface PaymentPageProps {
   setClientSecret: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_LOCAL;
 const Templates = ({ setClientSecret }: PaymentPageProps) => {
   const [template, setTemplate] = useState<TemplateState>({
     name: TemplatesDetails.title,
@@ -41,10 +41,6 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
     localStorage.setItem("client_secret", data.clientSecret);
     window.location.replace("/checkout");
   };
-
-
-
-
 
   return (
     <div className="bg-slate-950 w-full min-h-screen overflow-hidden">
@@ -95,6 +91,7 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
               className="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 rounded-lg font-semibold 
                          hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
             >
+              {/* TODO make this dynamic */}
               Buy now ₹1000
             </motion.button>
 

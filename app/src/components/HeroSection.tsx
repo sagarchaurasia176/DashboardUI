@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
 import { subHeader } from "../apis/HeroData";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   const headingRef = useRef(null);
@@ -51,11 +51,11 @@ const HeroSection = () => {
 
   return (
     <motion.section
-    initial="hidden"
-    animate="visible"
-    variants={containerVariants}
-    className="w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 via-[#1A2334] to-[#0A1626] overflow-hidden"
-  >
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 via-[#1A2334] to-[#0A1626] overflow-hidden"
+    >
       {/* Background Gradient Orbs */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute top-[10%] left-[5%] w-[250px] sm:w-[300px] h-[250px] sm:h-[300px] bg-purple-500/20 rounded-full blur-[120px]" />
@@ -106,32 +106,54 @@ const HeroSection = () => {
         {/* Browse Components Button */}
         <NavLink to="/installation">
           <motion.button
-        variants={buttonVariants}
-        className="flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-        aria-label="Browse Components"
+            variants={buttonVariants}
+            className="flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+            aria-label="Browse Components"
           >
-        <i className="mr-2">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-        </i>
-        Browse Components
+            <i className="mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 4v16m8-8H4"
+                />
+              </svg>
+            </i>
+            Browse Components
           </motion.button>
         </NavLink>
 
         {/* Custom Components Button */}
         <NavLink to="/installation">
           <motion.button
-        variants={buttonVariants}
-        className="flex items-center px-8 py-4 bg-green-600 text-white font-semibold rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2"
-        aria-label="Custom Components"
+            variants={buttonVariants}
+            className="flex items-center px-8 py-4 bg-green-600 text-white font-semibold rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2"
+            aria-label="Custom Components"
           >
-        <i className="mr-2">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-        </i>
-        Custom Components
+            <i className="mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 4v16m8-8H4"
+                />
+              </svg>
+            </i>
+            Custom Components
           </motion.button>
         </NavLink>
       </motion.div>

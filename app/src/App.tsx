@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
+
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import "locomotive-scroll/dist/locomotive-scroll.css";
+// import "locomotive-scroll/dist/locomotive-scroll.css";
 import "@radix-ui/themes/styles.css";
+
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { SidebarProvider } from './context/SidebarContext';
+import { SidebarProvider } from "./context/SidebarContext";
 import InstallationPage from "./pages/InstallationPage";
 import LandingPage from "./pages/LandingPage";
 import ComponentPage from "./pages/ComponentPage";
@@ -15,11 +16,11 @@ import CheckoutForm from "./components/CheckoutForm";
 import CompletePage from "./components/CompletePage";
 import PricingSection from "./components/PricingSection";
 import Contactus from "./components/Contactus";
+
 // load stripe
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
-console.log(stripePromise)
 
 const App: React.FC = () => {
   const [clientSecret, setClientSecret] = useState<string | undefined>("");
@@ -32,9 +33,7 @@ const App: React.FC = () => {
     }
   }
   return (
-    // This is basically a wrapper for the entire app | it is context provider for the sidebar
     <SidebarProvider>
-      {/* Actuall app here  */}
       <div className="flex min-h-screen bg-gray-100">
         <div className="flex-1 flex flex-col min-h-screen">
           <Routes>
@@ -42,7 +41,6 @@ const App: React.FC = () => {
             <Route path="/components" element={<ComponentPage />} />
             <Route path="/installation" element={<InstallationPage />} />
             <Route path="/pricing" element={<PricingSection />} />/
-
             <Route
               path="/Templates/Ui"
               element={<Templates setClientSecret={setClientSecret} />}
