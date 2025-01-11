@@ -14,7 +14,8 @@ import buttonCode from "../playground/button/buttonCode";
 import cardCode from "../playground/card/cardCode";
 import footerCode from "../playground/footer/footerCode";
 import navbarCode from "../playground/navbar/navbarCode";
-
+import errorCode from "../playground/error/errorCode";
+import portfolioCode from "../playground/heroSections/portfolioCode";
 export {
   cardCode,
   barchartCode,
@@ -30,4 +31,7 @@ export {
   boxPlotCode,
   candleStickCode,
   formCode,
+  errorCode,
+  portfolioCode
+
 };

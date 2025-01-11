@@ -1,3 +1,4 @@
+import { FaWatchmanMonitoring } from "react-icons/fa6";
 import {
   GrBarChart,
   FaChartArea,
@@ -53,7 +54,7 @@ export const ComponentsList = [
     icon: <MdCandlestickChart />,
   },
 ];
-
+//Additional List aplied it 
 export const AdditionalList = [
   {
     name: "Form",
@@ -75,5 +76,15 @@ export const AdditionalList = [
     name: "Button",
     icon: <FaRegHandPointer />,
   },
+  {
+    name:"Error",
+    icon: <FaWatchmanMonitoring/>
+  },
+  {
+    name:"Portfolio",
+    icon: <FaWatchmanMonitoring/>
+  }
  
 ];
+
+console.log(AdditionalList)

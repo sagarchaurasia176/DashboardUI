@@ -1,25 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 
-// add validation
 const Form: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Form Data Submitted:", formData);
+    // Reset the form
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
-    <form className="flex flex-col gap-4 items-center py-4">
-      <div className="flex flex-col gap-2 w-fit">
-        <label htmlFor="emp_id">Employee Id</label>
-        <input type="text" placeholder="Enter employee id" id="emp_id" />
-      </div>
-      <div className="flex flex-col gap-2 w-fit">
-        <label htmlFor="emp_name">Name</label>
-        <input type="text" placeholder="Enter name of employee" id="emp_name" />
-      </div>
-      <div className="flex flex-col gap-2 w-fit">
-        <label htmlFor="dept_id">Department Id</label>
-        <input type="text" placeholder="Enter employee id" id="dept_id" />
-      </div>
-      <button className="bg-blue-700 text-white px-3 py-1 rounded-lg">
-        Submit
-      </button>
-    </form>
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold mb-6">Simple React Form</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-gray-700">Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700">Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700">Message:</label>
+          <textarea
+            rows={4}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

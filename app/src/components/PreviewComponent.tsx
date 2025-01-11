@@ -20,12 +20,13 @@ const PreviewComponent: React.FC<DynamicComponentProps> = ({
       try {
         // remove whitespaces from component name
         const component = ComponentName.replace(/\s/g, "");
+        console.log(component)
         importedComponent = (
           await import(`../stories/${component}.stories.tsx`)
         ).Default;
         setComponent(() => importedComponent);
       } catch (error) {
-        console.log("Error loading components");
+        console.log(error);
         setComponent(null);
       } finally {
         setLoading(false);

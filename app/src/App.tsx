@@ -22,8 +22,6 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 console.log(stripePromise)
 
 const App: React.FC = () => {
-
-
   const [clientSecret, setClientSecret] = useState<string | undefined>("");
   if (!clientSecret) {
     const secret = localStorage.getItem("client_secret");

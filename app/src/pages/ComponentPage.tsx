@@ -17,13 +17,14 @@ const CommonPage = () => {
   }
   const component = codeMapping[comp as keyof typeof codeMapping];
   console.log(component.name);
+ 
+ 
   document.title = "Dashboard_UI | Components ";
-
   return (
     <>
       <div className="flex flex-row">
         <Sidebar />
-        <div className="w-full lg:w-[100%] bg-slate-950 h-full">
+        <div className="w-full lg:w-[100%]  bg-slate-950 h-full">
           {/* Make the nav fixed inside this container */}
           <div className="sticky top-0 z-50">
             <ComponentsNav />

@@ -13,8 +13,12 @@ import {
   boxPlotCode,
   candleStickCode,
   formCode,
+  errorCode,
+portfolioCode
+
 } from "../utils/CodeSnippet";
 
+// additional
 export const codeMapping = {
   card: cardCode,
   barchart: barchartCode,
@@ -30,4 +34,6 @@ export const codeMapping = {
   boxplot: boxPlotCode,
   candlelist: candleStickCode,
   form: formCode,
+  error: errorCode,
+  portfolio: portfolioCode
 };

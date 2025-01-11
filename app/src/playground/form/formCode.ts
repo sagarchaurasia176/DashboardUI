@@ -1,28 +1,81 @@
 const formCode = {
   name: "Form",
   code: `
-  import React from "react";
-
-  // add validation
+  import React, { useState } from "react";
   const Form: React.FC = () => {
-    return (
-      <form className="flex flex-col gap-4 items-center py-4">
-        <div className="flex flex-col gap-2 w-fit">
-          <label htmlFor="emp_id">Employee Id</label>
-          <input type="text" placeholder="Enter employee id" id="emp_id" />
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Data Submitted:", formData);
+    // Reset the form
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  return (
+    <div style={{ maxWidth: "400px", margin: "50px auto", fontFamily: "Arial" }}>
+      <h2>Simple React Form</h2>
+      <form onSubmit={handleSubmit}>
+        <div style={{ marginBottom: "15px" }}>
+          <label style={{ display: "block", marginBottom: "5px" }}>Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            style={{ width: "100%", padding: "8px", border: "1px solid #ccc" }}
+            required
+          />
         </div>
-        <div className="flex flex-col gap-2 w-fit">
-          <label htmlFor="emp_name">Name</label>
-          <input type="text" placeholder="Enter name of employee" id="emp_name" />
+        <div style={{ marginBottom: "15px" }}>
+          <label style={{ display: "block", marginBottom: "5px" }}>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            style={{ width: "100%", padding: "8px", border: "1px solid #ccc" }}
+            required
+          />
         </div>
-        <div className="flex flex-col gap-2 w-fit">
-          <label htmlFor="dept_id">Department Id</label>
-          <input type="text" placeholder="Enter employee id" id="dept_id" />
+        <div style={{ marginBottom: "15px" }}>
+          <label style={{ display: "block", marginBottom: "5px" }}>Message:</label>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            style={{ width: "100%", padding: "8px", border: "1px solid #ccc" }}
+            rows="4"
+            required
+          ></textarea>
         </div>
-        <button className="bg-blue-700 text-white px-3 py-1 rounded-lg">
+        <button
+          type="submit"
+          style={{
+            padding: "10px 15px",
+            backgroundColor: "#007BFF",
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
           Submit
         </button>
       </form>
+    </div>
+  );
+};
+
+export default SimpleForm;
+
     );
   };
 
