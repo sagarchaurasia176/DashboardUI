@@ -41,6 +41,7 @@ app.post("/api/create-payment-intent", async (req, res) => {
   }
 });
 
+// Production
 // This req only for checking that our backend give any resp or not in production
 app.post('/' , (req,res)=>{
   res.send("Dashboard Backend live....")
