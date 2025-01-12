@@ -23,6 +23,9 @@ importers:
       node:
         specifier: ^23.5.0
         version: 23.5.0
+      nodemon:
+        specifier: ^3.1.9
+        version: 3.1.9
       razorpay:
         specifier: ^2.9.5
         version: 2.9.5
@@ -39,9 +42,6 @@ importers:
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.0
-      nodemon:
-        specifier: ^3.1.9
-        version: 3.1.9
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@22.10.5)(typescript@5.7.2)
