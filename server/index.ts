@@ -9,7 +9,8 @@ const app = express();
 const port = process.env.PORT || 4000;
 app.use(
   cors({
-    origin: "*",
+    origin: process.env.FRONTEND,
+    methods: ["GET", "POST" , "PUT","UPDATE","DELETE"],
   })
 );
 const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY!);
@@ -40,6 +41,13 @@ app.post("/api/create-payment-intent", async (req, res) => {
   }
 });
 
+// This req only for checking that our backend give any resp or not in production
+app.post('/' , (req,res)=>{
+  res.send("Dashboard Backend live....")
+})
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}..`);
 });
+
+
