@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "scripts": {
     "start": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"tsx index.ts\"",
-    "build": "echo dashboardUi"
+    "build": "echo dashboardUi",
+    "dev":"node server.js"
   },
   "keywords": [],
   "author": "Sagar and Manish",
@@ -19,12 +19,13 @@
     "node": "^23.5.0",
     "razorpay": "^2.9.5",
     "stripe": "^17.5.0",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.3",
+    "nodemon": "^3.1.9"
+
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"

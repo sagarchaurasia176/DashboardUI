@@ -15,6 +15,7 @@ app.use(
 const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY!);
 app.use(express.json());
 
+// Create-payment method
 app.post("/api/create-payment-intent", async (req, res) => {
   const { items } = req.body;
   if (!items) {
