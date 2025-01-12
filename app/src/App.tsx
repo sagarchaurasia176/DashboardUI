@@ -42,7 +42,6 @@ const App: React.FC = () => {
             <Route path="/installation" element={<InstallationPage />} />
             <Route path="/pricing" element={<PricingSection />} />/
             <Route path="/contactus" element={<Contactus />} />
-          
             <Route
               path="/Templates/Ui"
               element={<Templates setClientSecret={setClientSecret} />}
@@ -55,15 +54,12 @@ const App: React.FC = () => {
                     options={{
                       clientSecret,
                       appearance: { theme: "stripe" },
-
                       loader: "auto",
                     }}
                     stripe={stripePromise}
                   >
-                    <Routes>
                       <Route path="/checkout" element={<CheckoutForm />} />
                       <Route path="/complete" element={<CompletePage />} />
-                    </Routes>
                   </Elements>
                 }
               />
