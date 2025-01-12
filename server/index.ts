@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 app.use(
   cors({
-    origin: process.env.FRONTEND,
+    origin: "*",
     methods: ["GET", "POST" , "PUT","UPDATE","DELETE"],
   })
 );
@@ -43,7 +43,7 @@ app.post("/api/create-payment-intent", async (req, res) => {
 
 // Production
 // This req only for checking that our backend give any resp or not in production
-app.post('/' , (req,res)=>{
+app.get('/' , (req,res)=>{
   res.send("Dashboard Backend live....")
 })
 

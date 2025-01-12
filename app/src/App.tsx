@@ -58,8 +58,11 @@ const App: React.FC = () => {
                     }}
                     stripe={stripePromise}
                   >
+                    {/* Again re-add */}
+                    <Routes>
                       <Route path="/checkout" element={<CheckoutForm />} />
                       <Route path="/complete" element={<CompletePage />} />
+                    </Routes>
                   </Elements>
                 }
               />
