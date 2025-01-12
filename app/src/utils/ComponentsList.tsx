@@ -54,7 +54,7 @@ export const ComponentsList = [
     icon: <MdCandlestickChart />,
   },
 ];
-//Additional List aplied it
+//Additional List aplied it 
 export const AdditionalList = [
   {
     name: "Form",
