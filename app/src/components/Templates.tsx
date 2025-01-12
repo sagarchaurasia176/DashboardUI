@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import React, { FormEvent, useState } from "react";
 import axios from "axios";
 import { currencyConvert } from "../utils/currency-convert";
+import { useNavigate } from "react-router-dom";
 
 interface TemplateState {
   name: string;
@@ -13,7 +14,10 @@ interface PaymentPageProps {
   setClientSecret: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
+const navigate = useNavigate();
+const CheckOutHandeler = ()=>{
+    navigate('/checkout')
+}
 
 const Templates = ({ setClientSecret }: PaymentPageProps) => {
   const [template, setTemplate] = useState<TemplateState>({
@@ -42,6 +46,7 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
     setClientSecret(data.clientSecret);
     localStorage.setItem("client_secret", data.clientSecret);
     window.location.replace("/checkout");
+    CheckOutHandeler();
   };
 
   return (
