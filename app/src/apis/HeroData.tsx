@@ -17,12 +17,12 @@ export const HeaderComponents = [
   },
   {
     title: "Pricing",
-    link: "#",
+    link: "/pricing",
     icon: <FaDollarSign />,
   },
   {
     title: "Contact us",
-    link: "#",
+    link: "/contactus",
     icon: <FaEnvelope />,
   },
 ];
