@@ -22,12 +22,20 @@ Elevate your project with Dashboard_🚀_UI and focus on building great experien
 
 - [@manish-lal12](https://github.com/manish-lal12)
 - [sagarchaurasia176](https://github.com/sagarchaurasia176)
+
 ---
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS, firebase
+**Client:** Typescript + React, TailwindCSS
 
-**Server:** Node, Express
+
+**Server:** Node.JS, Express.JS
+
+
+**Database:** Firebase,
+
+
+**PaymentGateway:** Stripe,
 ---
 
 ## Snap-shot
