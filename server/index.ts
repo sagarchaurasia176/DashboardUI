@@ -21,6 +21,7 @@ app.post("/api/create-payment-intent", async (req, res) => {
     console.log("No items provided!");
     res.status(400).json({ msg: "Please provide items" });
   }
+  // PaymentIntent
   try {
     const paymentIntent = await stripeInstance.paymentIntents.create({
       amount: calculateOrderAmount(items),
