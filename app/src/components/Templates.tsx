@@ -12,7 +12,9 @@ interface TemplateState {
 interface PaymentPageProps {
   setClientSecret: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
-const backendUrl = import.meta.env.VITE_BACKEND_LOCAL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+
 const Templates = ({ setClientSecret }: PaymentPageProps) => {
   const [template, setTemplate] = useState<TemplateState>({
     name: TemplatesDetails.title,
