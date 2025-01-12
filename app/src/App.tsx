@@ -41,6 +41,8 @@ const App: React.FC = () => {
             <Route path="/components" element={<ComponentPage />} />
             <Route path="/installation" element={<InstallationPage />} />
             <Route path="/pricing" element={<PricingSection />} />/
+            <Route path="/contactus" element={<Contactus />} />
+          
             <Route
               path="/Templates/Ui"
               element={<Templates setClientSecret={setClientSecret} />}
@@ -61,7 +63,6 @@ const App: React.FC = () => {
                     <Routes>
                       <Route path="/checkout" element={<CheckoutForm />} />
                       <Route path="/complete" element={<CompletePage />} />
-                      <Route path="/contactus" element={<Contactus />} />
                     </Routes>
                   </Elements>
                 }
