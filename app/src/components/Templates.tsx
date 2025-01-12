@@ -41,7 +41,7 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
     const data = await paymentResponse.data;
     setClientSecret(data.clientSecret);
     localStorage.setItem("client_secret", data.clientSecret);
-    window.location.href = "/checkout";
+    window.location.replace("/checkout");
   };
 
   return (
