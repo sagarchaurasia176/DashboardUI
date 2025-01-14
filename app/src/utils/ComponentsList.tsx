@@ -83,7 +83,59 @@ export const AdditionalList = [
   {
     name:"Portfolio",
     icon: <FaWatchmanMonitoring/>
-  }
+  },
+  {
+    name: "Button",
+    icon: <FaRegHandPointer />,
+  },
+  {
+    name:"Error",
+    icon: <FaWatchmanMonitoring/>
+  },
+  {
+    name:"Portfolio",
+    icon: <FaWatchmanMonitoring/>
+  },
+  {
+    name: "Button",
+    icon: <FaRegHandPointer />,
+  },
+  {
+    name:"Error",
+    icon: <FaWatchmanMonitoring/>
+  },
+  {
+    name:"Portfolio",
+    icon: <FaWatchmanMonitoring/>
+  },
+
+  {
+    name: "Button",
+    icon: <FaRegHandPointer />,
+  },
+  {
+    name:"Error",
+    icon: <FaWatchmanMonitoring/>
+  },
+  {
+    name:"Portfolio",
+    icon: <FaWatchmanMonitoring/>
+  },
+
+  {
+    name: "Button",
+    icon: <FaRegHandPointer />,
+  },
+  {
+    name:"Error",
+    icon: <FaWatchmanMonitoring/>
+  },
+  {
+    name:"Portfolio",
+    icon: <FaWatchmanMonitoring/>
+  },
+
+  
  
 ];
 

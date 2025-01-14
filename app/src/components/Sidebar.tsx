@@ -24,7 +24,7 @@ const Sidebar: React.FC = () => {
       )}
 
       <div
-        className={`fixed md:sticky top-0 left-0 h-screen  overflow-y-auto
+        className={`fixed md:sticky  top-0 left-0 h-screen  overflow-y-auto
           ${
             !isCollapsed
               ? "translate-x-0 w-64"

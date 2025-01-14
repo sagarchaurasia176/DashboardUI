@@ -1,6 +1,6 @@
 import ComponentShowcase from "../components/ComponentShowcase";
 import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
 import { codeMapping } from "../utils/code_mapping";
 import ComponentsNav from "./ComponentsNav";
@@ -21,10 +21,10 @@ const CommonPage = () => {
   document.title = "Dashboard_UI | Components ";
   return (
     <section>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex flex-row bg-gray-900 gap-20">
         <Sidebar />
-        <div className="w-full lg:w-[100%]  bg-slate-950 h-full">
+        <div className="w-full   bg-slate-950 h-full">
           {/* Make the nav fixed inside this container */}
           <div className="sticky top-0 z-50">
             <ComponentsNav />
