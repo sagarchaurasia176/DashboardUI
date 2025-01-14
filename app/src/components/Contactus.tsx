@@ -2,31 +2,63 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Navbar from './Navbar';
 import Banner from '../assets/Banner.webp';
-
+import toast from 'react-hot-toast';
 
 const Contactus = () => {
+  const [result, setResult] = useState<string>("");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-  };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  
+  // WEB-3-FORM 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setResult("Sending....");
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    data.append("access_key", import.meta.env.VITE_WEB_FORM_KEY);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      // Response 
+      const jsonResponse = await response.json();
+      if (jsonResponse.success) {
+        setResult("Form Submitted Successfully");
+        toast.loading("Thanks, our team respond you Back !")
+        form.reset();
+        setFormData({ name: '', email: '', message: '' }); // Reset formData state
+        setTimeout(() => {
+        toast.dismiss();
+      },4000); // Adjust the timeout duration as needed
+      } else {
+        toast.error("Your response not submited....")
+        console.error("Error", jsonResponse);
+        setResult(jsonResponse.message);
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+      setResult("There was an error submitting the form.");
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
-        <Navbar/>
+      <Navbar />
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px]" />
@@ -135,9 +167,8 @@ const Contactus = () => {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span>support@dashboardui.com</span>
+                  <span className="text-white font-semibold">builddashboardui@gmail.com</span>
                 </div>
-               
               </div>
             </motion.div>
           </div>
