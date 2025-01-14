@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 
 const Contactus = () => {
   const [result, setResult] = useState<string>("");
+ 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,6 +31,7 @@ const Contactus = () => {
     const form = e.target as HTMLFormElement;
     const data = new FormData(form);
     data.append("access_key", import.meta.env.VITE_WEB_FORM_KEY);
+    
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
