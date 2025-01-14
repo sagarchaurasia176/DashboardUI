@@ -20,7 +20,7 @@ const errorCode = {
     </div>    
     `,
     description:
-      "A custom-built button component. Get your own personalized button for webpages",
+      "A user-friendly 404 error page that informs visitors that the page they are looking for could not be found. It features a clear message,",
   };
   
   export default errorCode;

@@ -48,7 +48,7 @@ const FeaturesCode = {
     
     `,
     description:
-      "A custom-built button component. Get your own personalized button for webpages",
+    "A dynamic and engaging features section that highlights the key functionalities and benefits of your product or service."
   };
   
   export default   FeaturesCode ;

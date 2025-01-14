@@ -74,14 +74,9 @@ const formCode = {
   );
 };
 
-export default SimpleForm;
-
-    );
-  };
-
-  export default Form;
-    `,
-  description: "A form component",
+export default Form;
+  `,
+  description: "A reusable and customizable form component designed to capture user input efficiently.",
 };
 
 export default formCode;

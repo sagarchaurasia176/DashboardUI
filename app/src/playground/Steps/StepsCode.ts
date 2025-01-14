@@ -48,8 +48,9 @@ export default Steps;
 
       
       `,
+
     description:
-      "A custom-built button component. Get your own personalized button for webpages",
+    "A clear and easy-to-follow steps section that outlines the process or journey for users to take in order to achieve a specific goal. "  
   };
   
   export default StepsCode;

@@ -47,7 +47,7 @@ const TestCode = {
     
     `,
   description:
-    "A custom-built button component. Get your own personalized button for webpages",
+  "A persuasive and trust-building testimonials section that showcases positive feedback from satisfied customers, clients, or users. "
 };
 
 export default TestCode;

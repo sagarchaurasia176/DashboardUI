@@ -51,7 +51,7 @@ const portfolioCode = {
     </section>
     `,
     description:
-      "A custom-built button component. Get your own personalized button for webpages",
+    "A captivating and visually appealing hero section that serves as the first point of interaction for visitors",    
   };
   
   export default portfolioCode;

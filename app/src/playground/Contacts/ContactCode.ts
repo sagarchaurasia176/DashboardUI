@@ -66,8 +66,9 @@ const ContactCode = {
   </div>
 </section>
     `,
+
     description:
-      "A custom-built button component. Get your own personalized button for webpages",
+    "A user-friendly contact page that allows visitors to easily get in touch."
   };
   
   export default  ContactCode;

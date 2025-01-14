@@ -34,7 +34,7 @@ const HomeCode = {
     
     `,
     description:
-      "A custom-built button component. Get your own personalized button for webpages",
+  "A well-structured and informative footer that provides essential links and information at the bottom of the page. "
   };
   
   export default  HomeCode;

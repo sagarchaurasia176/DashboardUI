@@ -79,7 +79,7 @@ const GalleryCode = {
     `,
 
     description:
-      "A custom-built button component. Get your own personalized button for webpages",
+    "A visually striking gallery section designed to display a curated collection of images..."  
   };
   
   export default  GalleryCode;
