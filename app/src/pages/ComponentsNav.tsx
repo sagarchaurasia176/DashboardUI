@@ -8,7 +8,7 @@ const ComponentsNav = () => {
   const { isCollapsed, toggleSidebar } = useContext(SidebarContext);
 
   return (
-    <nav className="bg-gradient-to-r from-purple-800 to-indigo-800 flex justify-between items-center text-white z-50 sticky top-0 p-2 lg:p-5 md:lg-p-5 sm:p-5 shadow-lg">
+    <nav className=" bg-gradient-to-r from-purple-800 to-indigo-800 flex justify-between  w-full  text-white z-50 sticky top-0 p-2 lg:p-5 md:lg-p-5 sm:p-5 shadow-lg">
       <button
         onClick={toggleSidebar}
         className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg 
