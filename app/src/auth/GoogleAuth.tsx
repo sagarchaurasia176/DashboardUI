@@ -29,7 +29,7 @@ const GoogleAuth = () => {
   return (
     <>
       <button
-        className=" flex items-center justify-center rounded-1xl text-white rounded-lg bg-slate-950 p-2 "
+        className=" flex items-center justify-center  text-white rounded-2xl bg-slate-950 p-5  "
         onClick={() => singInWithGoogle()}
       >
         {openDialog ? (

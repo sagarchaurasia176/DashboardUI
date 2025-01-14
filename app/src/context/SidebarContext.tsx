@@ -6,15 +6,13 @@ interface SidebarContextType {
 }
 
 export const SidebarContext = createContext<SidebarContextType>({
-  isCollapsed: false,
+  isCollapsed: true,
   toggleSidebar: () => {},
 });
 
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Initialize based on screen size
-  const [isCollapsed, setIsCollapsed] = useState(() => {
-    return window.innerWidth < 768;
-  });
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,4 +42,4 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ child
   );
 };
 
-export const useSidebar = () => useContext(SidebarContext); 
+export const useSidebar = () => useContext(SidebarContext);

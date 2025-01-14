@@ -14,11 +14,17 @@ import {
   candleStickCode,
   formCode,
   errorCode,
-portfolioCode
-
+  portfolioCode,
+  ContactCode,
+  FeaturesCode,
+  GalleryCode,
+  HomeCode,
+  TestCode,
+  StepsCode
 } from "../utils/CodeSnippet";
 
-// additional
+
+// additional_contact 
 export const codeMapping = {
   card: cardCode,
   barchart: barchartCode,
@@ -35,5 +41,12 @@ export const codeMapping = {
   candlelist: candleStickCode,
   form: formCode,
   error: errorCode,
-  portfolio: portfolioCode
+  portfolio: portfolioCode,
+  contact : ContactCode,
+  feature:FeaturesCode,
+  gallery:GalleryCode,
+  hero : HomeCode,
+  testimonials : TestCode,
+  steps : StepsCode
 };
+

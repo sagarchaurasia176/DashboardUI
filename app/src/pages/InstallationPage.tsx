@@ -65,7 +65,17 @@ const InstallationPage = () => {
           </div>
 
           {/* Install Tailwind CSS */}
-          <p className="mb-2">Install Tailwind CSS and its dependencies:</p>
+          <p className="mb-2">
+          <ul className="list-disc pl-5">
+              <li>
+                
+                {/* Configure Tailwind CSS with Vite */}
+            Install Tailwind CSS and its dependencies:
+
+              </li>
+            </ul>
+            </p>
+
           <div className="bg-slate-800 p-4 rounded-md mb-6 flex justify-between items-center">
             <code className="font-mono text-lg">
               npm install -D tailwindcss postcss autoprefixer
@@ -96,9 +106,19 @@ const InstallationPage = () => {
           </div>
 
           {/* Configure Tailwind paths */}
-          <p className="mb-2">Configure your template paths in tailwind.config.js:</p>
-          <div className="bg-slate-800 p-4 rounded-md mb-6">
-            <pre className="bg-slate-900 p-3 rounded-md overflow-x-auto flex justify-between items-center">
+          <p className="mb-2">
+          <ul className="list-disc pl-5">
+              <li>
+                
+            Configure your template paths in tailwind.config.js
+
+              </li>
+            </ul>
+            </p>
+            
+            
+          <div className=" p-4 rounded-md mb-6">
+            <pre className="bg-slate-800 p-3 rounded-md overflow-x-auto flex justify-between items-center">
               <code className="font-mono text-sm">
                 {`/** @type {import('tailwindcss').Config} */
 export default {
@@ -126,7 +146,7 @@ export default {
   plugins: [],
 }`)
                 }
-                className="ml-2 bg-stone-950 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+                className="ml-2 bg-stone-800 text-white px-3 py-1 rounded-md hover:bg-blue-700"
               >
             <FaCopy/>
                 
@@ -135,9 +155,17 @@ export default {
           </div>
 
           {/* Add Tailwind directives to CSS */}
-          <p className="mb-2">Add the Tailwind directives to your CSS:</p>
+
+          <ul className="list-disc pl-5">
+              <li>
+                
+            Add the Tailwind directives to your CSS:
+              </li>
+            </ul>
+          
+
           <div className="bg-slate-800 p-4 rounded-md mb-6">
-            <pre className="bg-slate-900 p-3 rounded-md overflow-x-auto flex justify-between items-center">
+            <pre className="bg-slate-800 p-3 rounded-md overflow-x-auto flex justify-between items-center">
               <code className="font-mono text-sm">
                 {`@tailwind base;
 @tailwind components;

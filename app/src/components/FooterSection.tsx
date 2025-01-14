@@ -9,10 +9,6 @@ const FooterSection = () => {
     { icon: FaGithub, href: "https://github.com/sagarchaurasia176/DashboardUI",target:"_blank", label: "GitHub" },
   ];
 
-  const footerLinks = [
-    { title: "Product", links: ["Features", "Pricing", "Documentation", "Updates"] },
-    { title: "Resources", links: ["Blog", "Newsletter", "Events", "Help center"] },
-  ];
 
   return (
     <footer className="relative bg-gradient-to-b from-gray-900 to-black text-gray-300 overflow-hidden">
@@ -49,31 +45,7 @@ const FooterSection = () => {
       <div className="relative max-w-7xl   mx-auto px-4 py-16">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {footerLinks.map((section, idx) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                {section.title}
-              </h3>
-              <ul className="space-y-3">
-                {section.links.map((link) => (
-                  <li key={link}>
-                    <Link
-                      to="#"
-                      className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+          
         </div>
 
         {/* Bottom Section */}

@@ -44,7 +44,7 @@ const Sidebar: React.FC = () => {
           </Link>
         </div>
 
-        <div className="p-4 space-y-6">
+        <div className="p-4   w-full  space-y-6">
           <div>
             <h2
               className={`font-sans font-semibold bg-orange-100 rounded-md text-black p-2 flex items-center 
@@ -72,9 +72,9 @@ const Sidebar: React.FC = () => {
             </div>
           </div>
 
-          <div>
+          <div className=" w-full">
             <h2
-              className={`font-sans bg-orange-100 rounded-md text-black font-semibold p-2 flex items-center 
+              className={`font-sans bg-orange-100 rounded-md text-black  font-semibold p-2 flex items-center 
               ${isCollapsed ? "justify-center" : ""}`}
             >
               <FaPlus />

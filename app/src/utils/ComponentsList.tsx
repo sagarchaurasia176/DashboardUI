@@ -19,124 +19,95 @@ import {
 export const ComponentsList = [
   {
     name: "Bar Chart",
-    icon: <GrBarChart />,
+    icon: <GrBarChart color="blue" />,
   },
   {
     name: "Pie Chart",
-    icon: <FaChartPie />,
+    icon: <FaChartPie color="red" />,
   },
   {
     name: "Donut Series",
-    icon: <RiDonutChartFill />,
+    icon: <RiDonutChartFill color="green" />,
   },
   {
     name: "Line Chart",
-    icon: <FaChartLine />,
+    icon: <FaChartLine color="purple" />,
   },
   {
     name: "Scatter Series",
-    icon: <BiScatterChart />,
+    icon: <BiScatterChart color="orange" />,
   },
   {
     name: "Area Chart",
-    icon: <FaChartArea />,
+    icon: <FaChartArea color="brown" />,
   },
   {
     name: "Bubble",
-    icon: <RiBubbleChartFill />,
+    icon: <RiBubbleChartFill color="pink" />,
   },
   {
     name: "Box Plot",
-    icon: <AiFillBoxPlot />,
+    icon: <AiFillBoxPlot color="cyan" />,
   },
   {
     name: "Candle List",
-    icon: <MdCandlestickChart />,
+    icon: <MdCandlestickChart color="yellow" />,
   },
 ];
-//Additional List aplied it 
+
 export const AdditionalList = [
   {
     name: "Form",
-    icon: <FaWpforms />,
+    icon: <FaWpforms color="blue" />,
   },
   {
     name: "Navbar",
-    icon: <FaBars />,
+    icon: <FaBars color="red" />,
   },
   {
     name: "Footer",
-    icon: <FaRegWindowMinimize />,
+    icon: <FaRegWindowMinimize color="green" />,
   },
   {
     name: "Card",
-    icon: <FaRegCreditCard />,
+    icon: <FaRegCreditCard color="purple" />,
   },
   {
     name: "Button",
-    icon: <FaRegHandPointer />,
+    icon: <FaRegHandPointer color="orange" />,
   },
   {
-    name:"Error",
-    icon: <FaWatchmanMonitoring/>
+    name: "Error",
+    icon: <FaWatchmanMonitoring color="brown" />,
   },
   {
-    name:"Portfolio",
-    icon: <FaWatchmanMonitoring/>
+    name: "Portfolio",
+    icon: <FaWatchmanMonitoring color="pink" />,
   },
   {
-    name: "Button",
-    icon: <FaRegHandPointer />,
+    name: "Contact",
+    icon: <FaRegHandPointer color="cyan" />,
   },
   {
-    name:"Error",
-    icon: <FaWatchmanMonitoring/>
+    name: "Feature",
+    icon: <FaWatchmanMonitoring color="yellow" />,
   },
   {
-    name:"Portfolio",
-    icon: <FaWatchmanMonitoring/>
+    name: "Gallery",
+    icon: <FaWatchmanMonitoring color="blue" />,
   },
   {
-    name: "Button",
-    icon: <FaRegHandPointer />,
+    name: "Hero",
+    icon: <FaRegHandPointer color="red" />,
   },
   {
-    name:"Error",
-    icon: <FaWatchmanMonitoring/>
+    name: "Testimonials",
+    icon: <FaWatchmanMonitoring color="green" />,
   },
   {
-    name:"Portfolio",
-    icon: <FaWatchmanMonitoring/>
+    name: "Steps",
+    icon: <FaWatchmanMonitoring color="purple" />,
   },
-
-  {
-    name: "Button",
-    icon: <FaRegHandPointer />,
-  },
-  {
-    name:"Error",
-    icon: <FaWatchmanMonitoring/>
-  },
-  {
-    name:"Portfolio",
-    icon: <FaWatchmanMonitoring/>
-  },
-
-  {
-    name: "Button",
-    icon: <FaRegHandPointer />,
-  },
-  {
-    name:"Error",
-    icon: <FaWatchmanMonitoring/>
-  },
-  {
-    name:"Portfolio",
-    icon: <FaWatchmanMonitoring/>
-  },
-
-  
- 
 ];
 
-console.log(AdditionalList)
+console.log(AdditionalList);

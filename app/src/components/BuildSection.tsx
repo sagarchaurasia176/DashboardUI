@@ -11,11 +11,11 @@ const BuildSection = () => {
           Join thousands of developers who are creating amazing dashboards with
           Dashboard_UI
         </p>
-        <Link to='/components'>
-        <button   className="bg-purple-600 hover:bg-purple-700 p-4 rounded-lg">
+        <button className="bg-purple-600 hover:bg-purple-700 p-4 rounded-lg">
+        <Link to='/installation'>
           Start Free Trial
-        </button>
         </Link>
+        </button>
          
 
       </section>
