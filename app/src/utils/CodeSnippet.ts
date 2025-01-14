@@ -16,13 +16,12 @@ import footerCode from "../playground/footer/footerCode";
 import navbarCode from "../playground/navbar/navbarCode";
 import errorCode from "../playground/error/errorCode";
 import portfolioCode from "../playground/heroSections/portfolioCode";
-import ContactCode from "../playground/Contacts/ContactCode";
 import FeaturesCode from "../playground/features/FeatureCode";
 import GalleryCode from "../playground/gallery/GalleryCode";
 import HomeCode from "../playground/Heros/HomeCode";
 import TestCode from "../playground/Testimonials/TestiCode";
 import StepsCode from '../playground/Steps/StepsCode';
-
+import ContactCode from "../playground/Contacts/ContactCode";
 // code Snippets 
 export {
   cardCode,
