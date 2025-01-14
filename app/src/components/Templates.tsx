@@ -14,7 +14,6 @@ interface PaymentPageProps {
 }
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-
 const Templates = ({ setClientSecret }: PaymentPageProps) => {
   const [template, setTemplate] = useState<TemplateState>({
     name: TemplatesDetails.title,
@@ -43,8 +42,9 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
     localStorage.setItem("client_secret", data.clientSecret);
     window.location.replace("/checkout");
   };
-
+  document.title = "Dashboard_UI |  Templates";
   return (
+
     <div className="bg-slate-950 w-full min-h-screen overflow-hidden">
       <Navbar />
 
@@ -54,14 +54,14 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
         transition={{ duration: 0.6 }}
         className="text-center p-12 text-white"
       >
-        <h1 className="text-7xl bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-bold">
-          {TemplatesBio.title}
+        <h1 className="text-7xl bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-extrabold underline-offset-2">
+          <strong>{TemplatesBio.title}</strong>
         </h1>
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-2xl text-gray-300 mt-6 block"
+          className="text-2xl text-zinc-500 mt-6 block"
         >
           {TemplatesBio.descp}
         </motion.span>

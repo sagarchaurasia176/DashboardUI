@@ -10,6 +10,8 @@ interface PricingCardProps {
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({ title, price, features, isPopular }) => {
+  document.title = "Dashboard_UI | Pricing ";
+
   return (
     <>
     <motion.div
@@ -104,8 +106,9 @@ const PricingSection: React.FC = () => {
   return (
     <section className=" bg-slate-950  h-screen ">
         <Navbar/>
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <br />
+      <div className="container  mx-auto  ">
+        <div className="text-center relative top-12 lg:top-12 sm:top-10 md:top-12">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +126,7 @@ const PricingSection: React.FC = () => {
             Select the plan that best fits your needs and start creating amazing projects today
           </motion.p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3  relative  sm:mt-20  md:mt-40 lg:mt-40 gap-8">
           {pricingPlans.map((plan, index) => (
             <PricingCard key={index} {...plan} />
           ))}

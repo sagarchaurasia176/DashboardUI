@@ -35,6 +35,9 @@ const InstallationPage = () => {
     },
   ];
 
+
+  document.title = "Dashboard_UI | Installation ";
+
   return (
     <div className="flex flex-row w-full bg-black text-white min-h-screen">
       <Sidebar />
