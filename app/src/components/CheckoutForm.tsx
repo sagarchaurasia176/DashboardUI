@@ -6,13 +6,40 @@ import {
 } from "@stripe/react-stripe-js";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
 import Image from "../assets/template.png";
+import axios from "axios";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
 
+  const [product, setProduct] = useState({
+    name: "",
+    price: null,
+    description: "",
+    image: "",
+  });
   const [message, setMessage] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchProductDetails = async () => {
+      try {
+        const productId = localStorage.getItem("productId");
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_BACKEND_LOCAL}/api/v1/product/getProduct`,
+          {
+            params: {
+              productId: productId,
+            },
+          }
+        );
+        setProduct(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProductDetails();
+  }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -66,12 +93,14 @@ export default function CheckoutForm() {
     <section className="grid grid-cols-2 mt-10">
       <div className="flex flex-col gap-16 ml-96 items-center mt-32">
         <div className="text-gray-500 mr-20">
-          <h2 className="font-segoe">Dashboard UI</h2>
+          <h2 className="font-segoe">{product.name}</h2>
           <p className="py-1">
-            {/* TODO make this dynamic */}
-            <span className="text-4xl font-bold text-gray-700">$12 </span>only
+            <span className="text-4xl font-bold text-gray-700">
+              ${product.price}{" "}
+            </span>
+            only
           </p>
-          <p className="text-sm">A simple elegant dashboard UI</p>
+          <p className="text-sm">{product.description}</p>
         </div>
         <img
           src={Image}

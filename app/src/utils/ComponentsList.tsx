@@ -1,4 +1,3 @@
-import { FaWatchmanMonitoring } from "react-icons/fa6";
 import {
   GrBarChart,
   FaChartArea,
@@ -14,6 +13,7 @@ import {
   FaRegWindowMinimize,
   FaRegCreditCard,
   FaRegHandPointer,
+  FaWatchmanMonitoring,
 } from "../utils/icon";
 
 export const ComponentsList = [
@@ -109,5 +109,3 @@ export const AdditionalList = [
     icon: <FaWatchmanMonitoring color="purple" />,
   },
 ];
-
-console.log(AdditionalList);

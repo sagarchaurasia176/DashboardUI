@@ -9,6 +9,7 @@ const Sidebar: React.FC = () => {
   const navigate = useNavigate();
 
   const handleComponentURL = (name: string) => {
+    console.log("clicked");
     const name_url = name.toLowerCase().replace(/\s/g, "");
     navigate(`/components/?component=${name_url}`);
   };
@@ -24,7 +25,7 @@ const Sidebar: React.FC = () => {
       )}
 
       <div
-        className={`fixed md:sticky  top-0 left-0 h-screen  overflow-y-auto
+        className={`fixed md:sticky top-0 left-0 h-screen overflow-hidden hover:overflow-y-auto
           ${
             !isCollapsed
               ? "translate-x-0 w-64"
@@ -45,30 +46,28 @@ const Sidebar: React.FC = () => {
         </div>
 
         <div className="p-4 w-full  space-y-6">
-            <h2
-              className={`font-sans font-semibold bg-orange-100 rounded-md text-black p-2 flex items-center 
+          <h2
+            className={`font-sans font-semibold bg-orange-100 rounded-md text-black p-2 flex items-center 
               ${isCollapsed ? "justify-center" : ""}`}
-            >
-              <FaPlus />
-              {!isCollapsed && <span className="ml-2">Components</span>}
-            </h2>
+          >
+            <FaPlus />
+            {!isCollapsed && <span className="ml-2">Components</span>}
+          </h2>
 
-            <div className="flex flex-col gap-3 mt-4">
-              {ComponentsList.map((component, index) => (
-                <div
-                  key={index}
-                  className={`flex rounded-md p-2 items-center cursor-pointer
+          <div className="flex flex-col gap-3 mt-4">
+            {ComponentsList.map((component, index) => (
+              <div
+                key={index}
+                className={`flex rounded-md p-2 items-center cursor-pointer
                     transition duration-300 hover:bg-gray-700
                     ${isCollapsed ? "justify-center" : ""}`}
-                  onClick={() => handleComponentURL(component.name)}
-                >
-                  <span>{component.icon}</span>
-                  {!isCollapsed && (
-                    <span className="ml-3">{component.name}</span>
-                  )}
-                </div>
-              ))}
-            </div>
+                onClick={() => handleComponentURL(component.name)}
+              >
+                <span>{component.icon}</span>
+                {!isCollapsed && <span className="ml-3">{component.name}</span>}
+              </div>
+            ))}
+          </div>
 
           <div className="">
             <h2

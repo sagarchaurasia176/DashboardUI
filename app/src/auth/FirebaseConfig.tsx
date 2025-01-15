@@ -17,6 +17,8 @@ const firebaseConfig = {
 // Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+// TODO check later
+auth.languageCode = "hi";
 
 // Export initialized Firebase services
 export { app, auth };

@@ -8,18 +8,14 @@ import Navbar from "../components/Navbar";
 import Testimonials from "../components/Testimonials";
 const LandingPage: React.FC = () => {
   return (
-    <div>
-      <div className=" bg-slate-900">
-        <Navbar/>
-        <HeroSection />
-        <CardSection />
-        <OfferSection />
-        {/* Testim */}
-        <Testimonials/>
-        <BuildSection />
-        <FooterSection />
-
-      </div>
+    <div className="bg-slate-900 scrollbar-overlay">
+      <Navbar />
+      <HeroSection />
+      <CardSection />
+      <OfferSection />
+      <Testimonials />
+      <BuildSection />
+      <FooterSection />
     </div>
   );
 };

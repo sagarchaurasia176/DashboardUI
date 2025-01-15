@@ -22,9 +22,9 @@ const CommonPage = () => {
   return (
     <section>
       {/* <Navbar /> */}
-      <div className=" bg-gray-900 flex flex-row">
+      <div className=" bg-gray-950 flex flex-row">
         <Sidebar />
-        <div className=" bg-slate-950 w-full h-full">
+        <div className="w-full h-full">
           {/* Make the nav fixed inside this container */}
           <div className="sticky top-0 z-50 ">
             <ComponentsNav />

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useStripe } from "@stripe/react-stripe-js";
 import { downloadReceipt } from "../utils/download-receipt";
 import { HiDownload } from "react-icons/hi";
+import axios from "axios";
 
 const SuccessIcon = (
   <svg width="210" height="210" xmlns="http://www.w3.org/2000/svg">
@@ -108,6 +109,7 @@ interface paymentDetailsProps {
   status: string;
   intentId: string | null;
   amount: number | null;
+  productURL: string | null;
 }
 
 export default function CompletePage() {
@@ -118,6 +120,7 @@ export default function CompletePage() {
     status: "processing",
     intentId: null,
     amount: null,
+    productURL: null,
   });
 
   useEffect(() => {
@@ -148,6 +151,42 @@ export default function CompletePage() {
       }));
     });
   }, [stripe]);
+
+  useEffect(() => {
+    // send payment details to backend
+    if (paymentDetails.amount && paymentDetails.intentId) {
+      const processPaymentDetails = async () => {
+        try {
+          const user = localStorage.getItem("user");
+          const product = localStorage.getItem("productId");
+          const paymentResponse = await axios(
+            `${
+              import.meta.env.VITE_BACKEND_LOCAL
+            }/api/v1/payment/processPayment`,
+            {
+              method: "POST",
+              data: {
+                amount: paymentDetails.amount,
+                status: paymentDetails.status,
+                intentId: paymentDetails.intentId,
+                user,
+                product,
+              },
+            }
+          );
+          setPaymentDetails((prev) => {
+            return {
+              ...prev,
+              productURL: paymentResponse.data.downloadURL,
+            };
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      processPaymentDetails();
+    }
+  }, [paymentDetails]);
 
   return (
     <section
@@ -191,7 +230,7 @@ export default function CompletePage() {
         </div>
 
         {paymentDetails.intentId && (
-          <div className="flex flex-col justify-center items-center gap-4">
+          <div className="flex flex-col justify-center items-center gap-4 pb-2">
             {/*TODO remove later */}
             <a
               href={`https://dashboard.stripe.com/payments/${paymentDetails.intentId}`}
@@ -216,6 +255,11 @@ export default function CompletePage() {
                 Click here to download receipt <HiDownload />
               </div>
             </button>
+            {paymentDetails.productURL && (
+              <div className="bg-blue-500 px-2 py-1 rounded text-white hover:bg-blue-700">
+                <a href={paymentDetails.productURL}>Download ZIP</a>
+              </div>
+            )}
           </div>
         )}
       </div>

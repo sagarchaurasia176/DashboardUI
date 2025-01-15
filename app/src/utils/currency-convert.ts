@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function currencyConvert({ amount }: { amount: number }) {
-  let amountInUSD;
+  let amountInINR;
   const url = `https://api.freecurrencyapi.com/v1/latest?apikey=${
     import.meta.env.VITE_CURRENCY_CONVERTER_API
   }`;
@@ -11,8 +11,8 @@ export async function currencyConvert({ amount }: { amount: number }) {
     const { data } = incomingResponse;
     let rate = data.INR;
 
-    amountInUSD = Math.round(amount / rate);
+    amountInINR = Math.round(amount * rate);
   });
-  // inr to usd rate
-  return amountInUSD;
+  // usd to inr
+  return amountInINR;
 }

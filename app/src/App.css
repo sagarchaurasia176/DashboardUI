@@ -1,55 +1,61 @@
-  @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Protest+Strike&display=swap");
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Protest+Strike&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
 
-  * {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-  }
-  
+@font-face {
+  font-family: a4;
+  src: url("./Gfonts/a4.ttf");
+}
 
-  @font-face{
-    font-family: a4;
-    src: url('./Gfonts/a4.ttf');
-  }
-  
-  @font-face{
-    font-family: a5;
-    src: url('./Gfonts/a5.ttf');
-  }
+@font-face {
+  font-family: a5;
+  src: url("./Gfonts/a5.ttf");
+}
 
-  
-  @font-face{
-    font-family: a6;
-    src: url('./Gfonts/a6.ttf');
-  }
+@font-face {
+  font-family: a6;
+  src: url("./Gfonts/a6.ttf");
+}
 
+h1 {
+  font-family: "a4";
+  font-weight: 200;
+  color: white;
+}
+h2,
+h3,
+h4,
+h5 {
+  font-family: "a4";
+  font-weight: 500;
+}
 
-  h1 {
-    font-family:'a4';
-    font-weight: 200;
-    color: white;
-  }
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-family: "a4";
-    font-weight: 500;
-  }
+/* scroll resize */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
 
-  /* scroll resize */
-  ::-webkit-scrollbar{
-    width: 1px;
-    height: 1px;
-  }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #dddcdc;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
 
-  ::-webkit-scrollbar-thumb {
-    border-radius: 1px;
-    padding: 1px;
-    scroll-behavior: smooth;
-    background: linear-gradient(1deg, #000000, #000000); /* Gradient colors */
-  }
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
