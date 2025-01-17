@@ -1,9 +1,9 @@
 import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
 import { useState } from "react";
 import ComponentsNav from "./ComponentsNav";
 import toast from "react-hot-toast";
 import { FaCopy } from "react-icons/fa";
+
 const InstallationPage = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isCopied, setIsCopied] = useState<boolean>(false);

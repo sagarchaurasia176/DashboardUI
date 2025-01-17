@@ -16,6 +16,9 @@
     "noImplicitUseStrict": false,
     "outDir": "dist/",
     "baseUrl": "src/",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "listFiles": false,
     "noEmitHelpers": true,
     "jsx": "react-jsx",

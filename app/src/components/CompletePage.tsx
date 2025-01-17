@@ -3,6 +3,7 @@ import { useStripe } from "@stripe/react-stripe-js";
 import { downloadReceipt } from "../utils/download-receipt";
 import { HiDownload } from "react-icons/hi";
 import axios from "axios";
+import { BACKEND_URL } from "../../lib/vars";
 
 const SuccessIcon = (
   <svg width="210" height="210" xmlns="http://www.w3.org/2000/svg">
@@ -160,9 +161,7 @@ export default function CompletePage() {
           const user = localStorage.getItem("user");
           const product = localStorage.getItem("productId");
           const paymentResponse = await axios(
-            `${
-              import.meta.env.VITE_BACKEND_LOCAL
-            }/api/v1/payment/processPayment`,
+            `${BACKEND_URL}/api/v1/payment/processPayment`,
             {
               method: "POST",
               data: {

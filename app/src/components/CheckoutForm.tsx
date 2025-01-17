@@ -7,10 +7,13 @@ import {
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
 import Image from "../assets/template.png";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../../lib/vars";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState({
     name: "",
@@ -26,7 +29,7 @@ export default function CheckoutForm() {
       try {
         const productId = localStorage.getItem("productId");
         const { data } = await axios.get(
-          `${import.meta.env.VITE_BACKEND_LOCAL}/api/v1/product/getProduct`,
+          `${BACKEND_URL}/api/v1/product/getProduct`,
           {
             params: {
               productId: productId,
@@ -42,25 +45,36 @@ export default function CheckoutForm() {
   }, []);
 
   const handleSubmit = async (e: FormEvent) => {
+    const domain = window.location.origin;
     e.preventDefault();
 
     if (!stripe || !elements) {
       return;
     }
-
     setIsLoading(true);
-
     try {
-      const { error } = await stripe.confirmPayment({
+      const { error, paymentIntent } = await stripe.confirmPayment({
         // `Elements` instance that was used to create the Payment Element
         elements,
-        confirmParams: {
-          return_url: `${import.meta.env.VITE_FRONTEND_LOCAL}/complete`,
-        },
+        // confirmParams: {
+        //     return_url: ``,
+        // },
+        redirect: "if_required",
       });
-
+      // custom redirect logic
       if (error) {
         setMessage(error.message);
+        navigate(
+          `/complete?payment_intent=${paymentIntent.id}&payment_intent_client_secret=${paymentIntent.client_secret}&redirect_status=failed`
+        );
+      } else if (paymentIntent?.status === "succeeded") {
+        navigate(
+          `/complete?payment_intent=${paymentIntent.id}&payment_intent_client_secret=${paymentIntent.client_secret}&redirect_status=succeeded`
+        );
+      } else {
+        navigate(
+          `$/complete?payment_intent=${paymentIntent.id}&payment_intent_client_secret=${paymentIntent.client_secret}&redirect_status=${paymentIntent.status}`
+        );
       }
     } catch (error) {
       setMessage((error as Error).message);

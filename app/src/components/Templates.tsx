@@ -1,8 +1,11 @@
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useToast } from "../shadcn/hooks/use-toast";
 import { currencyConvert } from "../utils/currency-convert";
+import { BACKEND_URL } from "../../lib/vars";
 
 interface Template {
   productId: string;
@@ -16,8 +19,8 @@ interface PaymentPageProps {
   setClientSecret: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
-const backendUrl = import.meta.env.VITE_BACKEND_LOCAL;
 const Templates = ({ setClientSecret }: PaymentPageProps) => {
+  const navigate = useNavigate();
   const [templates, setTemplates] = useState<Template[]>([
     {
       productId: "",
@@ -29,6 +32,7 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
     },
   ]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     setIsLoading(true);
@@ -39,7 +43,7 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
     const fetchTemplates = async () => {
       try {
         const { data } = await axios.get(
-          `${backendUrl}/api/v1/product/getAllProducts`
+          `${BACKEND_URL}/api/v1/product/getAllProducts`
         );
 
         const updatedTemplates = await Promise.all(
@@ -81,26 +85,36 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
   }, []);
 
   const handlePay = async (productId: string) => {
-    // price in USD
-    const paymentResponse = await axios({
-      method: "POST",
-      url: `${backendUrl}/api/v1/payment/checkout`,
-      data: {
-        items: [{ id: productId }],
-      },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const user = localStorage.getItem("user");
+    if (!user) {
+      console.log("No user");
+      toast({
+        variant: "destructive",
+        title: "Auth failed",
+        description: "Sign In to buy templates",
+      });
+      return;
+    } else {
+      const paymentResponse = await axios({
+        method: "POST",
+        url: `${BACKEND_URL}/api/v1/payment/checkout`,
+        data: {
+          items: [{ id: productId }],
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    if (paymentResponse.status != 200) {
-      console.log("Payment failed");
+      if (paymentResponse.status != 200) {
+        console.log("Payment failed");
+      }
+      const data = await paymentResponse.data;
+      setClientSecret(data.clientSecret);
+      localStorage.setItem("client_secret", data.clientSecret);
+      localStorage.setItem("productId", productId);
+      navigate(`/checkout`);
     }
-    const data = await paymentResponse.data;
-    setClientSecret(data.clientSecret);
-    localStorage.setItem("client_secret", data.clientSecret);
-    localStorage.setItem("productId", productId);
-    window.location.replace("/checkout");
   };
 
   return (

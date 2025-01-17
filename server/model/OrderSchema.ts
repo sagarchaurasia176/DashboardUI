@@ -23,6 +23,9 @@ const orderSchema = new Schema({
     type: String,
     required: [true, "Please provide product"],
   },
+  createdAt: {
+    type: String,
+  },
   // subTotal: {
   //   type: Number,
   //   required: [true, "Please provide subtotal"],
@@ -34,5 +37,14 @@ const orderSchema = new Schema({
   // },
 });
 
+orderSchema.pre("save", function (next) {
+  if (this.isNew) {
+    const date = new Date();
+    this.createdAt = date.toLocaleString();
+  }
+  next();
+});
+
 const Order = model("Order", orderSchema);
+
 export default Order;

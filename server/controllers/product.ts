@@ -14,6 +14,14 @@ export async function createProduct(
       .json({ msg: "Please provide all details of product" });
     return;
   }
+  const productAlreadyExists = await Product.findOne({
+    name: name,
+    price: price,
+  });
+  if (productAlreadyExists) {
+    res.status(StatusCodes.BAD_REQUEST).json({ msg: "Product already exists" });
+    return;
+  }
   try {
     const product = await Product.create({
       name,

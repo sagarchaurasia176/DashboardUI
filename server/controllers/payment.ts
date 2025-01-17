@@ -81,7 +81,6 @@ export async function processPayment(
       product,
       downloadURL: productDetails?.downloadURL,
     };
-
     res.status(StatusCodes.CREATED).json(paymentResponse);
   } catch (error) {
     console.log(error);

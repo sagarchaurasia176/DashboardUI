@@ -16,6 +16,7 @@ import CheckoutForm from "./components/CheckoutForm";
 import CompletePage from "./components/CompletePage";
 import PricingSection from "./components/PricingSection";
 import Contactus from "./components/Contactus";
+import { Toaster } from "./shadcn/components/ui/toaster";
 
 // load stripe
 // Make sure to call loadStripe outside of a component’s render to avoid
@@ -33,53 +34,56 @@ const App: React.FC = () => {
     }
   }
   return (
-    <SidebarProvider>
-      <div className="flex min-h-screen bg-gray-100">
-        <div className="flex-1 flex flex-col min-h-screen">
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/components" element={<ComponentPage />} />
-            <Route path="/installation" element={<InstallationPage />} />
-            <Route path="/pricing" element={<PricingSection />} />/
-            <Route path="/contactus" element={<Contactus />} />
-            <Route
-              path="/Templates/Ui"
-              element={<Templates setClientSecret={setClientSecret} />}
-            />
-            {clientSecret ? (
+    <>
+      <Toaster />
+      <SidebarProvider>
+        <div className="flex min-h-screen bg-gray-100">
+          <div className="flex-1 flex flex-col min-h-screen">
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/components" element={<ComponentPage />} />
+              <Route path="/installation" element={<InstallationPage />} />
+              <Route path="/pricing" element={<PricingSection />} />/
+              <Route path="/contactus" element={<Contactus />} />
               <Route
-                path="/*"
-                element={
-                  <Elements
-                    options={{
-                      clientSecret,
-                      appearance: { theme: "stripe" },
-                      loader: "auto",
-                    }}
-                    stripe={stripePromise}
-                  >
-                    {/* Again re-add */}
-                    <Routes>
-                      <Route path="/checkout" element={<CheckoutForm />} />
-                      <Route path="/complete" element={<CompletePage />} />
-                    </Routes>
-                  </Elements>
-                }
+                path="/Templates/Ui"
+                element={<Templates setClientSecret={setClientSecret} />}
               />
-            ) : (
-              <Route
-                path="/checkout"
-                element={
-                  <div className="text-white text-center">
-                    Loading payment details...
-                  </div>
-                }
-              />
-            )}
-          </Routes>
+              {clientSecret ? (
+                <Route
+                  path="/*"
+                  element={
+                    <Elements
+                      options={{
+                        clientSecret,
+                        appearance: { theme: "stripe" },
+                        loader: "auto",
+                      }}
+                      stripe={stripePromise}
+                    >
+                      {/* Again re-add */}
+                      <Routes>
+                        <Route path="/checkout" element={<CheckoutForm />} />
+                        <Route path="/complete" element={<CompletePage />} />
+                      </Routes>
+                    </Elements>
+                  }
+                />
+              ) : (
+                <Route
+                  path="/checkout"
+                  element={
+                    <div className="text-white text-center">
+                      Loading payment details...
+                    </div>
+                  }
+                />
+              )}
+            </Routes>
+          </div>
         </div>
-      </div>
-    </SidebarProvider>
+      </SidebarProvider>
+    </>
   );
 };
 

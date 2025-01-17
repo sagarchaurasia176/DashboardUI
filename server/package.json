@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch \"src/**\" --ext \"ts\"  --exec \"ts-node index.ts\"",
-    "build": "echo dashboardUi"
+    "dev": "nodemon --watch \"*.ts\" --ext ts --exec ts-node ./index.ts",
+    "start": "node ./dist/index.js",
+    "build": "tsc -b"
   },
   "keywords": [],
   "author": "Sagar and Manish",
@@ -17,6 +18,7 @@
     "express": "^4.21.2",
     "firebase-admin": "^13.0.2",
     "http-status-codes": "^2.3.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
     "node": "^23.5.0",
     "razorpay": "^2.9.5",
@@ -24,9 +26,10 @@
     "uuid": "^11.0.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
