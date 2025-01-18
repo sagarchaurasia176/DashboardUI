@@ -1,7 +1,7 @@
 import { FaCogs, FaFileAlt, FaDollarSign, FaEnvelope } from "react-icons/fa";
 
 export const mainHeader = {
-  bio: "Introducing Dashboard_UI Pro - Premium Component packs and templates to build awesome Dashboard",
+  bio: " Elevate Your Components Search with Dashboard_UI",
 };
 
 export const HeaderComponents = [
