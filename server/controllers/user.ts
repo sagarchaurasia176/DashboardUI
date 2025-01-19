@@ -5,6 +5,7 @@ import admin from "firebase-admin";
 import fs from "fs";
 import "dotenv/config";
 
+
 const firebaseCredentialsJSON = Buffer.from(
   process.env.FIREBASE_APPLICATION_CREDENTIALS!,
   "base64"
