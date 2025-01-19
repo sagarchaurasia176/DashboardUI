@@ -8,13 +8,13 @@ import {
   RiBubbleChartFill,
   AiFillBoxPlot,
   MdCandlestickChart,
-  FaBars,
   FaWpforms,
   FaRegWindowMinimize,
   FaRegCreditCard,
   FaRegHandPointer,
   FaWatchmanMonitoring,
 } from "../utils/icon";
+import { TbLayoutNavbarFilled } from "react-icons/tb";
 
 export const ComponentsList = [
   {
@@ -62,7 +62,7 @@ export const AdditionalList = [
   },
   {
     name: "Navbar",
-    icon: <FaBars color="red" />,
+    icon: <TbLayoutNavbarFilled color="red" />,
   },
   {
     name: "Footer",
@@ -89,7 +89,7 @@ export const AdditionalList = [
     icon: <FaRegHandPointer color="cyan" />,
   },
   {
-    name: "Feature",
+    name: "Features",
     icon: <FaWatchmanMonitoring color="yellow" />,
   },
   {
@@ -97,7 +97,7 @@ export const AdditionalList = [
     icon: <FaWatchmanMonitoring color="blue" />,
   },
   {
-    name: "Hero",
+    name: "Home",
     icon: <FaRegHandPointer color="red" />,
   },
   {

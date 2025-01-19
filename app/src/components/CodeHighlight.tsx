@@ -5,7 +5,7 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypePrettyCode from "rehype-pretty-code";
 
-export function CodePreview({ code }: { code: string }) {
+export function CodeHighlight({ code }: { code: string }) {
   const [highlightedCode, setHighlightedCode] = useState<string | null>(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function CodePreview({ code }: { code: string }) {
   }
 
   return (
-    <section className="w-full max-w-[600px] mx-auto overflow-auto"
+    <section
       dangerouslySetInnerHTML={{
         __html: highlightedCode,
       }}
@@ -40,11 +40,8 @@ async function highlightCode(code: string) {
     .use(rehypePrettyCode, {
       keepBackground: true,
       theme: "aurora-x",
-      
     })
     .use(rehypeStringify)
     .process(wrappedCode);
-  console.log(file.value);
-
   return String(file.value);
 }

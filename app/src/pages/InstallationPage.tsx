@@ -1,6 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import { useState } from "react";
-import ComponentsNav from "./ComponentsNav";
+import ComponentsNav from "../components/ComponentsNav";
 import toast from "react-hot-toast";
 import { FaCopy } from "react-icons/fa";
 

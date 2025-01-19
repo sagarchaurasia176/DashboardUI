@@ -7,7 +7,7 @@ import FooterSection from "../components/FooterSection";
 import Navbar from "../components/Navbar";
 import Testimonials from "../components/Testimonials";
 
-const LandingPage: React.FC = () => {
+export default function LandingPage() {
   return (
     <div className="bg-slate-900 scrollbar-overlay" onClick={() => {}}>
       <Navbar />
@@ -19,6 +19,4 @@ const LandingPage: React.FC = () => {
       <FooterSection />
     </div>
   );
-};
-
-export default LandingPage;
+}

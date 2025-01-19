@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import "./App.css";
-
 import { Route, Routes } from "react-router-dom";
-// import "locomotive-scroll/dist/locomotive-scroll.css";
-import "@radix-ui/themes/styles.css";
-
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { SidebarProvider } from "./context/SidebarContext";
-import InstallationPage from "./pages/InstallationPage";
-import LandingPage from "./pages/LandingPage";
-import ComponentPage from "./pages/ComponentPage";
-import Templates from "./components/Templates";
-import CheckoutForm from "./components/CheckoutForm";
-import CompletePage from "./components/CompletePage";
-import PricingSection from "./components/PricingSection";
-import Contactus from "./components/Contactus";
+import {
+  InstallationPage,
+  LandingPage,
+  ComponentPage,
+  CheckoutPage,
+  CompletePage,
+  PricingPage,
+  ContactusPage,
+  TemplatesPage,
+} from "./pages/index";
 import { Toaster } from "./shadcn/components/ui/toaster";
+import "./App.css";
+// test
 
-// load stripe
-// Make sure to call loadStripe outside of a component’s render to avoid
-// recreating the Stripe object on every render.
+// call loadStripe outside of a component’s render to avoid recreating the Stripe object on every render.
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const App: React.FC = () => {
@@ -43,11 +40,11 @@ const App: React.FC = () => {
               <Route path="/" element={<LandingPage />} />
               <Route path="/components" element={<ComponentPage />} />
               <Route path="/installation" element={<InstallationPage />} />
-              <Route path="/pricing" element={<PricingSection />} />/
-              <Route path="/contactus" element={<Contactus />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/contactus" element={<ContactusPage />} />
               <Route
                 path="/Templates/Ui"
-                element={<Templates setClientSecret={setClientSecret} />}
+                element={<TemplatesPage setClientSecret={setClientSecret} />}
               />
               {clientSecret ? (
                 <Route
@@ -61,9 +58,8 @@ const App: React.FC = () => {
                       }}
                       stripe={stripePromise}
                     >
-                      {/* Again re-add */}
                       <Routes>
-                        <Route path="/checkout" element={<CheckoutForm />} />
+                        <Route path="/checkout" element={<CheckoutPage />} />
                         <Route path="/complete" element={<CompletePage />} />
                       </Routes>
                     </Elements>

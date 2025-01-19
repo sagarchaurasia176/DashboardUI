@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { CodePreview } from "../components/CodePreview";
-import PreviewComponent from "./PreviewComponent";
+import { CodeHighlight } from "./CodeHighlight";
 import toast from "react-hot-toast";
+import ComponentPreview from "./ComponentPreview";
 
 type ComponentShowcaseProps = {
   code: string;
@@ -29,7 +29,7 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
 
   return (
     <>
-      <div className=" w-full lg:w-full ml-0 bg-slate-950 lg:p-4">
+      <div className=" w-full lg:w-full ml-0 bg-slate-900 lg:p-4">
         <div className="text-white text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold underline py-3 animate-text text-orange-300">
             {name}
@@ -127,9 +127,13 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
 
             <div className="w-full lg:w-full overflow-hidden hover:overflow-auto rounded h-[420px] text-white">
               {userView === "Preview" ? (
-                <PreviewComponent ComponentName={name} />
+                <>
+                  <ComponentPreview componentName={name} />
+                </>
               ) : (
-                <CodePreview code={code} />
+                <div>
+                  <CodeHighlight code={code} />
+                </div>
               )}
             </div>
           </div>

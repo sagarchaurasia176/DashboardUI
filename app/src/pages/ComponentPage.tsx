@@ -3,9 +3,9 @@ import Sidebar from "../components/Sidebar";
 // import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
 import { codeMapping } from "../utils/code_mapping";
-import ComponentsNav from "./ComponentsNav";
+import ComponentsNav from "../components/ComponentsNav";
 
-const CommonPage = () => {
+export default function ComponentPage() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const comp = queryParams.get("component");
@@ -21,15 +21,12 @@ const CommonPage = () => {
   document.title = "Dashboard_UI | Components ";
   return (
     <section>
-      {/* <Navbar /> */}
-      <div className=" bg-gray-950 flex flex-row">
+      <div className=" bg-gray-900 flex flex-row">
         <Sidebar />
         <div className="w-full h-full">
-          {/* Make the nav fixed inside this container */}
           <div className="sticky top-0 z-50 ">
             <ComponentsNav />
           </div>
-          {/* Component showcase */}
           <ComponentShowcase
             name={component.name}
             code={component.code}
@@ -39,6 +36,4 @@ const CommonPage = () => {
       </div>
     </section>
   );
-};
-
-export default CommonPage;
+}
