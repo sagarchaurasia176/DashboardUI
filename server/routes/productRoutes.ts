@@ -7,6 +7,7 @@ import {
   getAllProducts,
 } from "../controllers/product";
 
+// data
 import {
   validateProductId,
   validateProductDetails,
