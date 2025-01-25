@@ -2,11 +2,12 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import { connectDB } from "./connection/db";
-
 // import route handlers
 import { paymentRoutes, productRoutes, userRoutes } from "./routes/index";
+import fileUpload from 'express-fileupload';
 
 const app = express();
+
 
 const port = process.env.PORT || 4000;
 
@@ -16,6 +17,13 @@ app.use(
   })
 );
 app.use(express.json());
+
+app.use(fileUpload({
+  useTempFiles : true,
+  tempFileDir : '/tmp/'
+}));
+
+
 //route handlers
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/product", productRoutes);

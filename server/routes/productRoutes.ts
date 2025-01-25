@@ -5,7 +5,7 @@ import {
   updateProduct,
   getProduct,
   getAllProducts,
-} from "../controllers/product";
+} from "../model/product";
 
 // data
 import {

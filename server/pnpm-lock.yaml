@@ -11,6 +11,9 @@ importers:
       axios:
         specifier: ^1.7.9
         version: 1.7.9
+      cloudinary:
+        specifier: ^2.5.1
+        version: 2.5.1
       cors:
         specifier: ^2.8.5
         version: 2.8.5
@@ -20,6 +23,9 @@ importers:
       express:
         specifier: ^4.21.2
         version: 4.21.2
+      express-fileupload:
+        specifier: ^1.5.1
+        version: 1.5.1
       firebase-admin:
         specifier: ^13.0.2
         version: 13.0.2
@@ -54,6 +60,9 @@ importers:
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.0
+      '@types/express-fileupload':
+        specifier: ^1.5.1
+        version: 1.5.1
       '@types/jsonwebtoken':
         specifier: ^9.0.7
         version: 9.0.7
@@ -353,6 +362,9 @@ packages:
   '@types/body-parser@1.19.5':
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
 
+  '@types/busboy@1.5.4':
+    resolution: {integrity: sha512-kG7WrUuAKK0NoyxfQHsVE6j1m01s6kMma64E+OZenQABMQyTJop1DumUWcLwAQ2JzpefU7PDYoRDKl8uZosFjw==}
+
   '@types/caseless@0.12.5':
     resolution: {integrity: sha512-hWtVTC2q7hc7xZ/RLbxapMvDMgUnDvKvMOpKal4DrMyfGBUfB1oKaZlIRr6mJL+If3bAP6sV/QneGzF6tJjZDg==}
 
@@ -361,6 +373,9 @@ packages:
 
   '@types/cors@2.8.17':
     resolution: {integrity: sha512-8CGDvrBj1zgo2qE+oS3pOCyYNqCPryMWY2bGfwA0dcfopWGgxs+78df0Rs3rc9THP4JkOhLsAa+15VdpAqkcUA==}
+
+  '@types/express-fileupload@1.5.1':
+    resolution: {integrity: sha512-DllImBVI1lCyjl2klky/TEwk60mbNebgXv1669h66g9TfptWSrEFq5a/raHSutaFzjSm1tmn9ypdNfu4jPSixQ==}
 
   '@types/express-serve-static-core@4.19.6':
     resolution: {integrity: sha512-N4LZ2xG7DatVqhCZzOGb1Yi5lMbXSZcmdLDe9EzSndPV2HpWYWzRbaerl2n27irrm94EPpprqa8KpskPT085+A==}
@@ -500,6 +515,10 @@ packages:
   buffer-equal-constant-time@1.0.1:
     resolution: {integrity: sha512-zRpUiDwd/xk6ADqPMATG8vc9VPrkck7T07OIx0gnjmJAnHnTVXNQG3vfvWNuiZIkwu9KrKdA1iJKfsfTVxE6NA==}
 
+  busboy@1.6.0:
+    resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
+    engines: {node: '>=10.16.0'}
+
   bytes@3.1.2:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
     engines: {node: '>= 0.8'}
@@ -519,6 +538,10 @@ packages:
   cliui@8.0.1:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
     engines: {node: '>=12'}
+
+  cloudinary@2.5.1:
+    resolution: {integrity: sha512-CNg6uU53Hl4FEVynkTGpt5bQEAQWDHi3H+Sm62FzKf5uQHipSN2v7qVqS8GRVqeb0T1WNV+22+75DOJeRXYeSQ==}
+    engines: {node: '>=9'}
 
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -651,6 +674,10 @@ packages:
   event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
+
+  express-fileupload@1.5.1:
+    resolution: {integrity: sha512-LsYG1ALXEB7vlmjuSw8ABeOctMp8a31aUC5ZF55zuz7O2jLFnmJYrCv10py357ky48aEoBQ/9bVXgFynjvaPmA==}
+    engines: {node: '>=12.0.0'}
 
   express@4.21.2:
     resolution: {integrity: sha512-28HqgMZAmih1Czt9ny7qr6ek2qddF4FclbMzwhCREB6OFfH+rXAnuNCwo1/wFvrtbgsQDb4kSbX9de9lFbrXnA==}
@@ -903,6 +930,9 @@ packages:
   lodash.once@4.1.1:
     resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
 
+  lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+
   long@5.2.4:
     resolution: {integrity: sha512-qtzLbJE8hq7VabR3mISmVGtoXP8KGc2Z/AT8OuqlYD7JTR3oqrgwdjnk07wpj1twXxYmgDXgoKVWUG/fReSzHg==}
 
@@ -1093,6 +1123,14 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
+  q@1.5.1:
+    resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
+    engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
+    deprecated: |-
+      You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+
+      (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+
   qs@6.13.0:
     resolution: {integrity: sha512-+38qI9SOr8tfZ4QmJNplMUxqjbe7LKvvZgWdExBOmd+egZTtjLB67Gu0HRX3u/XOq7UU2Nx6nsjvS16Z9uwfpg==}
     engines: {node: '>=0.6'}
@@ -1192,6 +1230,10 @@ packages:
 
   stream-shift@1.0.3:
     resolution: {integrity: sha512-76ORR0DO1o1hlKwTbi/DM3EXWGf3ZJYO8cXX5RJwnul2DEg2oyoZyjLNoQM8WsvZiFKCRfC1O0J7iCvie3RZmQ==}
+
+  streamsearch@1.1.0:
+    resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
+    engines: {node: '>=10.0.0'}
 
   string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
@@ -1611,6 +1653,10 @@ snapshots:
       '@types/connect': 3.4.38
       '@types/node': 22.10.5
 
+  '@types/busboy@1.5.4':
+    dependencies:
+      '@types/node': 22.10.5
+
   '@types/caseless@0.12.5':
     optional: true
 
@@ -1621,6 +1667,11 @@ snapshots:
   '@types/cors@2.8.17':
     dependencies:
       '@types/node': 22.10.5
+
+  '@types/express-fileupload@1.5.1':
+    dependencies:
+      '@types/busboy': 1.5.4
+      '@types/express': 5.0.0
 
   '@types/express-serve-static-core@4.19.6':
     dependencies:
@@ -1795,6 +1846,10 @@ snapshots:
 
   buffer-equal-constant-time@1.0.1: {}
 
+  busboy@1.6.0:
+    dependencies:
+      streamsearch: 1.1.0
+
   bytes@3.1.2: {}
 
   call-bind-apply-helpers@1.0.1:
@@ -1825,6 +1880,11 @@ snapshots:
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
     optional: true
+
+  cloudinary@2.5.1:
+    dependencies:
+      lodash: 4.17.21
+      q: 1.5.1
 
   color-convert@2.0.1:
     dependencies:
@@ -1953,6 +2013,10 @@ snapshots:
 
   event-target-shim@5.0.1:
     optional: true
+
+  express-fileupload@1.5.1:
+    dependencies:
+      busboy: 1.6.0
 
   express@4.21.2:
     dependencies:
@@ -2309,6 +2373,8 @@ snapshots:
 
   lodash.once@4.1.1: {}
 
+  lodash@4.17.21: {}
+
   long@5.2.4:
     optional: true
 
@@ -2478,6 +2544,8 @@ snapshots:
 
   punycode@2.3.1: {}
 
+  q@1.5.1: {}
+
   qs@6.13.0:
     dependencies:
       side-channel: 1.1.0
@@ -2612,6 +2680,8 @@ snapshots:
 
   stream-shift@1.0.3:
     optional: true
+
+  streamsearch@1.1.0: {}
 
   string-width@4.2.3:
     dependencies:

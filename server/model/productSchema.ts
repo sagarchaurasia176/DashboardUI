@@ -22,8 +22,6 @@ const productSchema = new Schema({
     // TODO
     type: String,
     required: [true, "Please provide image of product"],
-    default:
-      "https://landing.moqups.com/img/templates/wireframes/admin-dashboard-wireframe.png",
   },
   // might remove later
   previewSite: {
@@ -34,10 +32,9 @@ const productSchema = new Schema({
   },
   downloadURL: {
     type: String,
-    required: [true, "Please provide downloadable link of product"],
-    default:
-      "https://www.dropbox.com/scl/fi/8pqbua47e31eijbolewog/adminKitDashboard.tar.gz?rlkey=32bao2si4cv9kjp89bdui5ssm&st=l0parnbf&dl=1",
-  },
+    required: [true, "Please provide downloadable link of product"]
+  }
+  
 });
 
 const Product = model("Product", productSchema);
