@@ -8,13 +8,11 @@ import axios from "axios";
 import { BACKEND_URL } from "../../lib/vars";
 import { useToast } from "../shadcn/hooks/use-toast";
 
-// Google Auth
 const GoogleAuth = () => {
   const { toast } = useToast();
   const [load, setLoad] = useState(false);
   const [openDialog, setDialog] = useState(true);
 
-  // singiwithgoogle function
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
@@ -22,24 +20,21 @@ const GoogleAuth = () => {
       let load = loaderToast.loading("loading...");
       const response = await signInWithPopup(auth, provider);
       const idToken = await response.user.getIdToken();
+
       loaderToast.dismiss(load);
       setLoad(false);
-      // send ID token to backend
-      const responseUser = await axios(
-        `${BACKEND_URL}/api/v1/user/verify-token`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          data: JSON.stringify({ idToken }),
-        }
-      );
+      const responseUser = await axios(`${BACKEND_URL}/api/v1/user/signIn`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: JSON.stringify({ idToken }),
+        withCredentials: true,
+      });
       toast({
         variant: "success",
-        title: `Hey, ${responseUser.data.name}`,
+        title: `Login success`,
       });
-      localStorage.setItem("user", responseUser.data.email);
     } catch (error) {
       console.log("Error", error);
     }

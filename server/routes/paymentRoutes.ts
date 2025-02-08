@@ -1,10 +1,9 @@
 import { Router } from "express";
-import { checkoutOrder, processPayment } from "../controllers/payment";
-import { validatePaymentDetails } from "../middlewares/paymentMiddleware";
+import { createPaymentIntent } from "../controllers/payment";
+import { authenticateUser } from "../middlewares/authenticateUser";
 
 const router = Router();
 
-router.post("/checkout", checkoutOrder);
-router.route("/processPayment").post(validatePaymentDetails, processPayment);
+router.post("/createPaymentIntent", authenticateUser, createPaymentIntent);
 
 export default router;

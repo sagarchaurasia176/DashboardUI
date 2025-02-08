@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { signIn } from "../controllers/user";
+import { handleSignIn } from "../controllers/user";
 
 const router = Router();
 
-router.route("/verify-token").post(signIn);
+router.route("/signIn").post(handleSignIn);
 
 export default router;

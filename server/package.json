@@ -12,30 +12,33 @@
   "author": "Sagar and Manish",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.10.5",
     "axios": "^1.7.9",
-    "cloudinary": "^2.5.1",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "express-fileupload": "^1.5.1",
     "firebase-admin": "^13.0.2",
     "fs": "0.0.1-security",
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
     "node": "^23.5.0",
-    "razorpay": "^2.9.5",
+    "nodemailer": "^6.10.0",
     "stripe": "^17.5.0",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
+    "@types/amqplib": "^0.10.6",
+    "@types/cookie-parser": "^1.4.8",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/express-fileupload": "^1.5.1",
     "@types/jsonwebtoken": "^9.0.7",
+    "@types/nodemailer": "^6.4.17",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }

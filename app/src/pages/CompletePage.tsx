@@ -4,6 +4,8 @@ import { downloadReceipt } from "../utils/download-receipt";
 import { HiDownload } from "react-icons/hi";
 import axios from "axios";
 import { BACKEND_URL } from "../../lib/vars";
+import { useGlobalContext } from "../../ThemeContext";
+import { idText } from "typescript";
 
 const SuccessIcon = (
   <svg width="210" height="210" xmlns="http://www.w3.org/2000/svg">
@@ -114,24 +116,20 @@ interface paymentDetailsProps {
 }
 
 export default function CompletePage() {
-  const stripe = useStripe();
-  const receiptRef = useRef<HTMLDivElement | null>(null);
-
+  const { clientSecret, user, product } = useGlobalContext();
   const [paymentDetails, setPaymentDetails] = useState<paymentDetailsProps>({
     status: "processing",
     intentId: null,
     amount: null,
     productURL: null,
   });
+  const stripe = useStripe();
+  const receiptRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!stripe) {
       return;
     }
-
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
 
     if (!clientSecret) {
       console.log("no secret");
@@ -146,46 +144,45 @@ export default function CompletePage() {
       setPaymentDetails((prev) => ({
         ...prev,
         status: paymentIntent.status,
-        // amount is in cents
+        // amount: cents to dollars
         amount: paymentIntent.amount / 100,
         intentId: paymentIntent.id,
       }));
     });
   }, [stripe]);
 
-  useEffect(() => {
-    // send payment details to backend
-    if (paymentDetails.amount && paymentDetails.intentId) {
-      const processPaymentDetails = async () => {
-        try {
-          const user = localStorage.getItem("user");
-          const product = localStorage.getItem("productId");
-          const paymentResponse = await axios(
-            `${BACKEND_URL}/api/v1/payment/processPayment`,
-            {
-              method: "POST",
-              data: {
-                amount: paymentDetails.amount,
-                status: paymentDetails.status,
-                intentId: paymentDetails.intentId,
-                user,
-                product,
-              },
-            }
-          );
-          setPaymentDetails((prev) => {
-            return {
-              ...prev,
-              productURL: paymentResponse.data.downloadURL,
-            };
-          });
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      processPaymentDetails();
-    }
-  }, [paymentDetails]);
+  // useEffect(() => {
+  //   if (
+  //     !paymentDetails.amount ||
+  //     !paymentDetails.intentId ||
+  //     paymentDetails.productURL
+  //   )
+  //     return;
+
+  //   const processPaymentDetails = async () => {
+  //     try {
+  //       const { amount, intentId, status } = paymentDetails;
+  //       const paymentResponse = await axios.post(
+  //         `${BACKEND_URL}/api/v1/payment/webhook`,
+  //         {
+  //           amount,
+  //           status,
+  //           intentId,
+  //           user,
+  //           product,
+  //         }
+  //       );
+  //       setPaymentDetails((prev) => ({
+  //         ...prev,
+  //         productURL: paymentResponse.data.downloadURL,
+  //       }));
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  //   processPaymentDetails();
+  // }, [paymentDetails.amount, paymentDetails.intentId]);
 
   return (
     <section

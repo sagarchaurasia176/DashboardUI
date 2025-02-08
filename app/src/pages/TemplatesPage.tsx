@@ -1,11 +1,12 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
-import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useToast } from "../shadcn/hooks/use-toast";
 import { currencyConvert } from "../utils/currency-convert";
 import { BACKEND_URL } from "../../lib/vars";
+import { useGlobalContext } from "../../ThemeContext";
 
 interface Template {
   productId: string;
@@ -15,11 +16,9 @@ interface Template {
   description: string;
   previewSite: string;
 }
-interface PaymentPageProps {
-  setClientSecret: React.Dispatch<React.SetStateAction<string | undefined>>;
-}
 
-const Templates = ({ setClientSecret }: PaymentPageProps) => {
+const Templates = () => {
+  const { setClientSecret, user, setProduct } = useGlobalContext();
   const navigate = useNavigate();
   const [templates, setTemplates] = useState<Template[]>([
     {
@@ -85,35 +84,37 @@ const Templates = ({ setClientSecret }: PaymentPageProps) => {
   }, []);
 
   const handlePay = async (productId: string) => {
-    const user = localStorage.getItem("user");
-    if (!user) {
-      console.log("No user");
-      toast({
-        variant: "destructive",
-        title: "Auth failed",
-        description: "Sign In to buy templates",
-      });
-      return;
-    } else {
+    try {
       const paymentResponse = await axios({
         method: "POST",
-        url: `${BACKEND_URL}/api/v1/payment/checkout`,
-        data: {
-          items: [{ id: productId }],
-        },
+        url: `${BACKEND_URL}/api/v1/payment/createPaymentIntent`,
         headers: {
           "Content-Type": "application/json",
         },
+        data: {
+          items: [{ id: productId }],
+        },
+        withCredentials: true,
       });
 
-      if (paymentResponse.status != 200) {
-        console.log("Payment failed");
-      }
       const data = await paymentResponse.data;
       setClientSecret(data.clientSecret);
-      localStorage.setItem("client_secret", data.clientSecret);
-      localStorage.setItem("productId", productId);
+      setProduct(productId);
+      // localStorage.setItem("productId", productId);
+      // TODO make it use other
       navigate(`/checkout`);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 401) {
+          toast({
+            variant: "destructive",
+            title: "Please login to buy the product",
+          });
+          return;
+        } else {
+          console.log("Error: ", error);
+        }
+      }
     }
   };
 

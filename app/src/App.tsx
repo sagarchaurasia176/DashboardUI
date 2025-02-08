@@ -14,22 +14,13 @@ import {
   TemplatesPage,
 } from "./pages/index";
 import { Toaster } from "./shadcn/components/ui/toaster";
+import { useGlobalContext } from "../ThemeContext";
 import "./App.css";
-// test
 
-// call loadStripe outside of a component’s render to avoid recreating the Stripe object on every render.
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const App: React.FC = () => {
-  const [clientSecret, setClientSecret] = useState<string | undefined>("");
-  if (!clientSecret) {
-    const secret = localStorage.getItem("client_secret");
-    if (secret) {
-      setClientSecret(secret);
-    } else {
-      console.log("Client Secret not available");
-    }
-  }
+  const { clientSecret } = useGlobalContext();
   return (
     <>
       <Toaster />
@@ -42,11 +33,8 @@ const App: React.FC = () => {
               <Route path="/installation" element={<InstallationPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/contactus" element={<ContactusPage />} />
-              <Route
-                path="/Templates/Ui"
-                element={<TemplatesPage setClientSecret={setClientSecret} />}
-              />
-              {clientSecret ? (
+              <Route path="/Templates/Ui" element={<TemplatesPage />} />
+              {clientSecret && (
                 <Route
                   path="/*"
                   element={
@@ -63,15 +51,6 @@ const App: React.FC = () => {
                         <Route path="/complete" element={<CompletePage />} />
                       </Routes>
                     </Elements>
-                  }
-                />
-              ) : (
-                <Route
-                  path="/checkout"
-                  element={
-                    <div className="text-white text-center">
-                      Loading payment details...
-                    </div>
                   }
                 />
               )}

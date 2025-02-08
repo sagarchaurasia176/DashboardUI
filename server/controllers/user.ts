@@ -1,32 +1,21 @@
-import User from "../model/UserSchema";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import admin from "firebase-admin";
-import fs from "fs";
-import "dotenv/config";
-
-const serviceAccount = process.env.FIREBASE_APPLICATION_CREDENTIALS;
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount!),
-});
+import { extractUserFromToken } from "../utils/extractUserFromToken";
+import { attachCookiesToResponse } from "../utils/jwt";
+import User from "../model/UserSchema";
 
 // SignUp for custom authentication
 
-export async function signIn(req: Request, res: Response): Promise<void> {
+export async function handleSignIn(req: Request, res: Response): Promise<void> {
   const { idToken } = req.body;
-  if (!idToken) {
-    res.status(400).json({ msg: "No idToken provided" });
-    return;
-  }
   try {
-    const userDetails = await admin.auth().verifyIdToken(idToken);
-    const { email, name, picture } = userDetails;
+    const { email, name, picture } = await extractUserFromToken(idToken);
     const userAlreadyExists = await User.findOne({ email: email });
     if (userAlreadyExists) {
-      res.status(StatusCodes.OK).json(userAlreadyExists);
+      attachCookiesToResponse(res, idToken);
+      res.status(StatusCodes.OK).json({ msg: "Login success" });
       return;
     }
-    // if user is not stored in db
     const user = await User.create({
       name,
       email,
@@ -38,7 +27,8 @@ export async function signIn(req: Request, res: Response): Promise<void> {
         .json({ msg: "Error, failed to save product in db" });
       return;
     }
-    res.status(StatusCodes.CREATED).json(user);
+    attachCookiesToResponse(res, idToken);
+    res.status(StatusCodes.CREATED).json({ msg: "Login Sucess", user });
   } catch (error) {
     console.error("Error: ", error);
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error);

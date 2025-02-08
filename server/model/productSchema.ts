@@ -32,9 +32,8 @@ const productSchema = new Schema({
   },
   downloadURL: {
     type: String,
-    required: [true, "Please provide downloadable link of product"]
-  }
-  
+    required: [true, "Please provide downloadable link of product"],
+  },
 });
 
 const Product = model("Product", productSchema);

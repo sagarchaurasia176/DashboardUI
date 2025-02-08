@@ -10,7 +10,6 @@ export async function validateProductId(
   next: NextFunction
 ): Promise<void> {
   const { productId } = req.query;
-
   if (!productId) {
     res
       .status(StatusCodes.BAD_REQUEST)
@@ -25,7 +24,14 @@ export async function validateProductDetails(
   res: Response,
   next: NextFunction
 ): Promise<void> {
-  const missingFields = validateFields(req, ["name", "price", "description"]);
+  const missingFields = validateFields(req, [
+    "name",
+    "price",
+    "description",
+    "image",
+    "downloadURL",
+    "previewSite",
+  ]);
   if (missingFields.length > 0) {
     res.status(StatusCodes.BAD_REQUEST).json({
       msg: `Please provide required fields: ${missingFields.join(", ")}`,
@@ -47,10 +53,9 @@ export async function validateProductUpdate(
       .json({ msg: "Please provide productId" });
     return;
   }
-
   const allowedUpdates: Array<
-    "name" | "price" | "description" | "previewSite"
-  > = ["name", "price", "description", "previewSite"];
+    "name" | "price" | "image" | "description" | "downloadURL" | "previewSite"
+  > = ["name", "price", "image", "description", "downloadURL", "previewSite"];
   const updateObject = createUpdateObject(req, allowedUpdates);
 
   if (Object.keys(updateObject).length === 0) {

@@ -16,7 +16,16 @@ const orderSchema = new Schema({
   },
   status: {
     type: String,
-    enum: ["succeeded", "processing", "required_payment_method", "default"],
+    enum: [
+      "succeeded",
+      "processing",
+      "requires_payment_method",
+      "default",
+      "canceled",
+      "requires_capture",
+      "requires_confirmation",
+      "requires_action",
+    ],
     required: [true, "Please provide payment status"],
   },
   product: {

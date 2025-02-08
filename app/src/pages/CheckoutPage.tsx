@@ -1,19 +1,20 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import {
   useStripe,
   useElements,
   PaymentElement,
 } from "@stripe/react-stripe-js";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
+// TODO make it dynamic
 import Image from "../assets/template.png";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../../lib/vars";
+import { useGlobalContext } from "../../ThemeContext";
 
 export default function Checkout() {
   const stripe = useStripe();
   const elements = useElements();
-  const navigate = useNavigate();
+  const { clientSecret, product: productId } = useGlobalContext();
 
   const [product, setProduct] = useState({
     name: "",
@@ -27,7 +28,6 @@ export default function Checkout() {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const productId = localStorage.getItem("productId");
         const { data } = await axios.get(
           `${BACKEND_URL}/api/v1/product/getProduct`,
           {
@@ -45,7 +45,6 @@ export default function Checkout() {
   }, []);
 
   const handleSubmit = async (e: FormEvent) => {
-    const domain = window.location.origin;
     e.preventDefault();
 
     if (!stripe || !elements) {
@@ -53,28 +52,27 @@ export default function Checkout() {
     }
     setIsLoading(true);
     try {
-      const { error, paymentIntent } = await stripe.confirmPayment({
+      if (!clientSecret) {
+        // TODO check this
+        return;
+      }
+      const { error: submitError } = await elements.submit();
+      if (submitError) {
+        throw new Error(submitError.message);
+        return;
+      }
+      const { error } = await stripe.confirmPayment({
         // `Elements` instance that was used to create the Payment Element
         elements,
-        // confirmParams: {
-        //     return_url: ``,
-        // },
-        redirect: "if_required",
+        clientSecret,
+        confirmParams: {
+          return_url: `http://localhost:5173/complete`,
+        },
       });
-      // custom redirect logic
+
       if (error) {
         setMessage(error.message);
-        navigate(
-          `/complete?payment_intent=${paymentIntent.id}&payment_intent_client_secret=${paymentIntent.client_secret}&redirect_status=failed`
-        );
-      } else if (paymentIntent?.status === "succeeded") {
-        navigate(
-          `/complete?payment_intent=${paymentIntent.id}&payment_intent_client_secret=${paymentIntent.client_secret}&redirect_status=succeeded`
-        );
-      } else {
-        navigate(
-          `$/complete?payment_intent=${paymentIntent.id}&payment_intent_client_secret=${paymentIntent.client_secret}&redirect_status=${paymentIntent.status}`
-        );
+        throw new Error(error.message);
       }
     } catch (error) {
       setMessage((error as Error).message);
@@ -119,7 +117,7 @@ export default function Checkout() {
         <img
           src={Image}
           alt="logo"
-          className="h-[185 px] w-[300px] border rounded-lg"
+          className="h-[185px] w-[300px] border rounded-lg"
         />
       </div>
 
@@ -133,16 +131,17 @@ export default function Checkout() {
           options={paymentElementOptions}
           className="mt-10"
         />
-
-        <button
-          disabled={isLoading || !stripe || !elements}
-          id="submit"
-          className="bg-blue-600 py-2 w-full rounded-lg mt-2"
-        >
-          <span className="button-text items-center text-white">
-            {isLoading ? <div id="spinner"></div> : "Pay now"}
-          </span>
-        </button>
+        {elements && (
+          <button
+            disabled={isLoading || !stripe || !elements}
+            id="submit"
+            className="bg-blue-600 py-2 w-full rounded-lg mt-2"
+          >
+            <span className="button-text items-center text-white">
+              {isLoading ? <div id="spinner"></div> : "Pay now"}
+            </span>
+          </button>
+        )}
         {message && (
           <div className="text-red-500 text-center" id="payment-message">
             {message}
