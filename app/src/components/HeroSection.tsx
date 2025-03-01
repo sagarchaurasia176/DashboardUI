@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { subHeader } from "../apis/HeroData";
+import { subHeader } from "../utils/HeroData";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 

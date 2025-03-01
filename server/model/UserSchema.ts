@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-// TODO can use validator package
 
 const userSchema = new Schema({
   name: {

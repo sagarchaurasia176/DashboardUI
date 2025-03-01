@@ -6,20 +6,14 @@ import {
   getProduct,
   getAllProducts,
 } from "../controllers/product";
-
-// data
-import {
-  validateProductId,
-  validateProductDetails,
-  validateProductUpdate,
-} from "../middlewares/productMiddleware";
+import { validateProductId } from "../middlewares/productMiddleware";
 
 const router = Router();
 
-router.route("/getProduct").get(validateProductId, getProduct);
-router.route("/updateProduct").patch(validateProductUpdate, updateProduct);
-router.route("/deleteProduct").delete(validateProductId, deleteProduct);
-router.route("/createProduct").post(validateProductDetails, createProduct);
+router.route("/createProduct").post(createProduct);
 router.route("/getAllProducts").get(getAllProducts);
+router.route("/getProduct").get(validateProductId, getProduct);
+router.route("/updateProduct").patch(validateProductId, updateProduct);
+router.route("/deleteProduct").delete(validateProductId, deleteProduct);
 
 export default router;

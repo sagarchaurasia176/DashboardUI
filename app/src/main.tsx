@@ -7,12 +7,10 @@ import App from "./App";
 
 const root = document.getElementById("root") as HTMLElement;
 createRoot(root).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Toaster />
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
-  </StrictMode>
+  <BrowserRouter>
+    <Toaster />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </BrowserRouter>
 );

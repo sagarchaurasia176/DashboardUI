@@ -1,5 +1,5 @@
 import { GrBarChart } from "react-icons/gr";
-import { FaChartArea} from "react-icons/fa";
+import { FaChartArea } from "react-icons/fa";
 import { RiDonutChartFill } from "react-icons/ri";
 import { FaChartLine } from "react-icons/fa6";
 import { FaChartPie } from "react-icons/fa";
@@ -17,6 +17,8 @@ import {
   FaRegHandPointer,
 } from "react-icons/fa";
 
+// payment status icons
+
 export {
   GrBarChart,
   FaChartArea,
@@ -32,5 +34,5 @@ export {
   FaRegWindowMinimize,
   FaRegCreditCard,
   FaRegHandPointer,
-  FaWatchmanMonitoring
+  FaWatchmanMonitoring,
 };

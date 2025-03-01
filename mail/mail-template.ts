@@ -1,4 +1,4 @@
-import { EmailData } from "../types/email";
+import { EmailData } from "./types";
 
 export const mailTemplate = (emailData: EmailData) => {
   const { user, payment } = emailData;

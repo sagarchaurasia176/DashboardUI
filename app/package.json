@@ -13,7 +13,10 @@
     "chromatic": "npx chromatic --project-token=chpt_388d970bc6f47d4"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@gsap/react": "^2.1.1",
+    "@mui/material": "^6.4.6",
     "@radix-ui/react-toast": "^1.2.4",
     "@radix-ui/themes": "^3.1.6",
     "@storybook/addon-viewport": "^8.4.7",

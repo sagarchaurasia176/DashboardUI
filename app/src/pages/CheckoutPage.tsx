@@ -5,8 +5,6 @@ import {
   PaymentElement,
 } from "@stripe/react-stripe-js";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
-// TODO make it dynamic
-import Image from "../assets/template.png";
 import axios from "axios";
 import { BACKEND_URL } from "../../lib/vars";
 import { useGlobalContext } from "../../ThemeContext";
@@ -29,12 +27,7 @@ export default function Checkout() {
     const fetchProductDetails = async () => {
       try {
         const { data } = await axios.get(
-          `${BACKEND_URL}/api/v1/product/getProduct`,
-          {
-            params: {
-              productId: productId,
-            },
-          }
+          `${BACKEND_URL}/api/v1/product/getProduct?productId=${productId}`
         );
         setProduct(data);
       } catch (error) {
@@ -53,7 +46,6 @@ export default function Checkout() {
     setIsLoading(true);
     try {
       if (!clientSecret) {
-        // TODO check this
         return;
       }
       const { error: submitError } = await elements.submit();
@@ -66,7 +58,7 @@ export default function Checkout() {
         elements,
         clientSecret,
         confirmParams: {
-          return_url: `http://localhost:5173/complete`,
+          return_url: `${window.location.origin}/complete`,
         },
       });
 
@@ -115,7 +107,7 @@ export default function Checkout() {
           <p className="text-sm">{product.description}</p>
         </div>
         <img
-          src={Image}
+          src={product.image}
           alt="logo"
           className="h-[185px] w-[300px] border rounded-lg"
         />
