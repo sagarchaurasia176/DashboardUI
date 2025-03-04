@@ -9,7 +9,7 @@ import { paymentRoutes, productRoutes, userRoutes } from "./routes/index";
 import cookieParser from "cookie-parser";
 import path from "path";
 import { handleStripeWebhook } from "./controllers/payment";
-
+import helmet from "helmet";
 // app - express()
 const app = express();
 app.use(helmet());
@@ -21,6 +21,8 @@ app.use(
     },
   })
 );
+
+
 
 
 // rate limiter
