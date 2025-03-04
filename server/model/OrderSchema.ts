@@ -4,6 +4,7 @@ import { Schema, model } from "mongoose";
 const orderSchema = new Schema({
   amount: {
     type: Number,
+    required: [true, "Please provide amount"],
   },
   user: {
     type: mongoose.Types.ObjectId,
@@ -13,6 +14,7 @@ const orderSchema = new Schema({
   paymentIntentId: {
     type: String,
     required: [true, "Please provide payment intent id"],
+    unique: true,
   },
   status: {
     type: String,
@@ -46,13 +48,15 @@ const orderSchema = new Schema({
   // },
 });
 
-orderSchema.pre("save", function (next) {
-  if (this.isNew) {
-    const date = new Date();
-    this.createdAt = date.toLocaleString();
-  }
-  next();
-});
+// logic to convert epochmilliseconds from stripe object to date
+
+// orderSchema.pre("save", function (next) {
+//   if (this.isNew) {
+//     const date = new Date();
+//     this.createdAt = date.toLocaleString();
+//   }
+//   next();
+// });
 
 const Order = model("Order", orderSchema);
 

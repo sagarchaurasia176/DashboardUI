@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction, ErrorRequestHandler } from "express";
 import { StatusCodes } from "http-status-codes";
 import { extractUserFromToken } from "../utils/extractUserFromToken";
 import { attachCookiesToResponse } from "../utils/jwt";
@@ -6,31 +6,25 @@ import User from "../model/UserSchema";
 
 // SignUp for custom authentication
 
-export async function handleSignIn(req: Request, res: Response): Promise<void> {
-  const { idToken } = req.body;
+export async function handleSignIn(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
   try {
+    const { idToken } = req.body;
     const { email, name, picture } = await extractUserFromToken(idToken);
-    const userAlreadyExists = await User.findOne({ email: email });
-    if (userAlreadyExists) {
-      attachCookiesToResponse(res, idToken);
-      res.status(StatusCodes.OK).json({ msg: "Login success" });
-      return;
-    }
-    const user = await User.create({
-      name,
-      email,
-      picture,
-    });
+
+    let user = await User.findOne({ email: email });
+
+    // if user does not exist, create a new user
     if (!user) {
-      res
-        .status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json({ msg: "Error, failed to save product in db" });
-      return;
+      user = await User.create({ name, email, picture });
     }
+
     attachCookiesToResponse(res, idToken);
-    res.status(StatusCodes.CREATED).json({ msg: "Login Sucess", user });
+    res.status(StatusCodes.OK).json({ msg: "Login Sucess", user });
   } catch (error) {
-    console.error("Error: ", error);
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error);
+    next(error);
   }
 }

@@ -3,20 +3,23 @@ import { StatusCodes } from "http-status-codes";
 import { validateFields } from "../utils/validateFields";
 import { createUpdateObject } from "../utils/createUpdateObject";
 
-// TODO all three users, product and order can be consolidated with a single utility function
 export async function validateUserId(
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> {
-  const { userId } = req.body;
-  if (!userId) {
-    res
-      .status(StatusCodes.BAD_REQUEST)
-      .json({ msg: "Please provide productId" });
-    return;
+  try {
+    const { userId } = req.body;
+    if (!userId) {
+      res
+        .status(StatusCodes.BAD_REQUEST)
+        .json({ msg: "Please provide productId" });
+      return;
+    }
+    next();
+  } catch (error) {
+    next(error);
   }
-  next();
 }
 
 export async function validateUserDetails(
@@ -24,14 +27,18 @@ export async function validateUserDetails(
   res: Response,
   next: NextFunction
 ): Promise<void> {
-  const missingFields = validateFields(req, ["name", "email"]);
-  if (missingFields.length > 0) {
-    res.status(StatusCodes.BAD_REQUEST).json({
-      msg: `Please provide required fields: ${missingFields.join(", ")}`,
-    });
-    return;
+  try {
+    const missingFields = validateFields(req, ["name", "email"]);
+    if (missingFields.length > 0) {
+      res.status(StatusCodes.BAD_REQUEST).json({
+        msg: `Please provide required fields: ${missingFields.join(", ")}`,
+      });
+      return;
+    }
+    next();
+  } catch (error) {
+    next(error);
   }
-  next();
 }
 
 export async function validateUserUpdate(
@@ -39,20 +46,26 @@ export async function validateUserUpdate(
   res: Response,
   next: NextFunction
 ): Promise<void> {
-  const { userID } = req.body;
-  if (!userID) {
-    res.status(StatusCodes.BAD_REQUEST).json({ msg: "Please provide userID" });
-  }
+  try {
+    const { userID } = req.body;
+    if (!userID) {
+      res
+        .status(StatusCodes.BAD_REQUEST)
+        .json({ msg: "Please provide userID" });
+    }
 
-  const allowedUpdates: Array<"name" | "email"> = ["name", "email"];
-  const updateObject = createUpdateObject(req, allowedUpdates);
+    const allowedUpdates: Array<"name" | "email"> = ["name", "email"];
+    const updateObject = createUpdateObject(req, allowedUpdates);
 
-  if (Object.keys(updateObject).length === 0) {
-    res
-      .status(StatusCodes.BAD_REQUEST)
-      .json({ msg: "No valid fields for update" });
-    return;
+    if (Object.keys(updateObject).length === 0) {
+      res
+        .status(StatusCodes.BAD_REQUEST)
+        .json({ msg: "No valid fields for update" });
+      return;
+    }
+    req.body.updateObject = updateObject;
+    next();
+  } catch (error) {
+    next(error);
   }
-  req.body.updateObject = updateObject;
-  next();
 }

@@ -1,4 +1,4 @@
-import { HeaderComponents } from "../apis/HeroData";
+import { HeaderComponents } from "../utils/HeroData";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SidebarContext } from "../context/SidebarContext";
@@ -39,7 +39,9 @@ const ComponentsNav = () => {
             className="hover:text-gray-300 font-semibold flex items-center gap-1 sm:gap-2 p-1.5 sm:p-2 
               rounded-lg hover:bg-purple-700 transition-transform transform duration-200"
           >
-            <span className="text-base hidden md:block lg:block md:text-xl">{Val.icon}</span>
+            <span className="text-base hidden md:block lg:block md:text-xl">
+              {Val.icon}
+            </span>
             <span className="hidden md:block sm:text-sm md:text-base">
               {Val.title}
             </span>

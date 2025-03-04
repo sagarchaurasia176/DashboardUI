@@ -23,7 +23,7 @@ const GoogleAuth = () => {
 
       loaderToast.dismiss(load);
       setLoad(false);
-      const responseUser = await axios(`${BACKEND_URL}/api/v1/user/signIn`, {
+      await axios(`${BACKEND_URL}/api/v1/user/signIn`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

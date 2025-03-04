@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { HeaderComponents, subHeader } from "../apis/HeroData";
+import { HeaderComponents, subHeader } from "../utils/HeroData";
 import GoogleAuth from "../auth/GoogleAuth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { motion, AnimatePresence } from "framer-motion";

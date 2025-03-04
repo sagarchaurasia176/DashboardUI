@@ -1,9 +1,6 @@
-// Import required Firebase functions and types
 import { initializeApp } from "firebase/app";
-import { getAnalytics, Analytics } from "firebase/analytics";
-import { getAuth, Auth } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
-// Define Firebase configuration using environment variables
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -14,11 +11,7 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// TODO check later
-auth.languageCode = "hi";
 
-// Export initialized Firebase services
 export { app, auth };

@@ -7,6 +7,8 @@ import { useToast } from "../shadcn/hooks/use-toast";
 import { currencyConvert } from "../utils/currency-convert";
 import { BACKEND_URL } from "../../lib/vars";
 import { useGlobalContext } from "../../ThemeContext";
+import Skeleton from "@mui/material/Skeleton";
+import { Typography } from "@mui/material";
 
 interface Template {
   productId: string;
@@ -35,10 +37,6 @@ const Templates = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    try {
-    } catch (error) {
-      console.log(error);
-    }
     const fetchTemplates = async () => {
       try {
         const { data } = await axios.get(
@@ -85,23 +83,22 @@ const Templates = () => {
 
   const handlePay = async (productId: string) => {
     try {
-      const paymentResponse = await axios({
-        method: "POST",
-        url: `${BACKEND_URL}/api/v1/payment/createPaymentIntent`,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: {
-          items: [{ id: productId }],
-        },
-        withCredentials: true,
-      });
+      const paymentResponse = await axios.post(
+        `${BACKEND_URL}/api/v1/payment/createPaymentIntent`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: {
+            items: [{ id: productId }],
+          },
+          withCredentials: true,
+        }
+      );
 
       const data = await paymentResponse.data;
       setClientSecret(data.clientSecret);
       setProduct(productId);
-      // localStorage.setItem("productId", productId);
-      // TODO make it use other
       navigate(`/checkout`);
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -121,9 +118,11 @@ const Templates = () => {
   return (
     <div className="bg-slate-950 w-full min-h-screen overflow-hidden">
       <Navbar />
-      {/* TODO skeleton */}
-      {isLoading && <div>Loading ...</div>}
-      {templates.length === 0 && <div>Loading </div>}
+      {isLoading && (
+        <Typography variant="h1">
+          <Skeleton />
+        </Typography>
+      )}
       {templates.map((template, index) => {
         const { productId, name, price, image, description, previewSite } =
           template;
@@ -170,12 +169,10 @@ const Templates = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    // TODO type check here
                     onClick={() => handlePay(productId)}
                     className="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 rounded-lg font-semibold 
                 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
                   >
-                    {/* TODO make this dynamic */}
                     Buy now &#8377;{price}
                   </motion.button>
 

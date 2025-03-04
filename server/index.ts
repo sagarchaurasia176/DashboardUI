@@ -9,7 +9,6 @@ import { paymentRoutes, productRoutes, userRoutes } from "./routes/index";
 import cookieParser from "cookie-parser";
 import path from "path";
 import { handleStripeWebhook } from "./controllers/payment";
-import helmet from "helmet";
 
 // app - express()
 const app = express();
@@ -50,13 +49,20 @@ app.use(
   express.raw({ type: "application/json" }),
   handleStripeWebhook
 );
+// app.get("/api/v1/payment/events", sendEvents);
+
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
+
 app.use(express.static(path.join(__dirname, "../app/dist")));
+
 //route handlers
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/product", productRoutes);
 app.use("/api/v1/payment", paymentRoutes);
+
+//error handler middleware
+app.use(errorHandler);
 
 const start = async () => {
   await connectDB(process.env.MONGODB_URI!);

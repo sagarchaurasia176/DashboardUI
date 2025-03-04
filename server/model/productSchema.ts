@@ -6,6 +6,7 @@ const productSchema = new Schema({
     required: [true, "Please provide product name"],
     minlength: [5, "Please provide an appropriate product name"],
     maxlength: [60, "Product name cannot exceed 30 characters"],
+    unique: true,
   },
   price: {
     type: Number,
@@ -17,18 +18,16 @@ const productSchema = new Schema({
     required: [true, "Please provide description of product"],
     minlength: [5, "Please provide appropriate amount of description"],
     maxlength: [100, "Product description cannot exceed 100 characters"],
+    unique: true,
   },
   image: {
-    // TODO
     type: String,
     required: [true, "Please provide image of product"],
   },
-  // might remove later
   previewSite: {
     type: String,
-    // TODO
-    // deploy and change it
-    default: "https://courses-db-one.vercel.app",
+    required: [true, "Please provide preview site of product"],
+    unique: true,
   },
   downloadURL: {
     type: String,
