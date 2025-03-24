@@ -1,0 +1,66 @@
+services:
+  app:
+    image: manish2274/db-ui_app:1.0
+    container_name: app
+    env_file:
+      - ./.env_app
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - dashboard_ui
+    volumes:
+      - /etc/letsencrypt/live/domain.live/privkey.pem:/etc/letsencrypt/live/domain.live/privkey.pem
+      - /etc/letsencrypt/live/domain.live/fullchain.pem:/etc/letsencrypt/live/domain.live/fullchain.pem
+  server:
+    image: manish2274/db-ui_backend:1.0
+    container_name: server
+    env_file:
+      - ./.env_backend
+    ports:
+      - "4000:4000"
+    networks:
+      - dashboard_ui
+    volumes:
+      - /home/user/dashboard-ui/dashboard-ui-fc449-firebase-adminsdk-2xo0h-807ee2f80c.json:/home/root/dashboard-ui/dashboard-ui-fc449-firebase-adminsdk-2xo0h-807ee2f80c.json
+      - /etc/letsencrypt/live/domain.live/privkey.pem:/etc/letsencrypt/live/domain.live/privkey.pem
+      - /etc/letsencrypt/live/domain.live/fullchain.pem:/etc/letsencrypt/live/domain.live/fullchain.pem
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - dashboard_ui
+
+  rabbitmq:
+    image: rabbitmq
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - dashboard_ui
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  mail:
+    image: manish2274/db-ui_mail:1.0
+    container_name: mail_worker
+    env_file:
+      - ./.env_mail
+    ports:
+      - "3000:80"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - dashboard_ui
+
+networks:
+  dashboard_ui:
