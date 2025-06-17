@@ -1,10 +1,11 @@
 {
-  "name": "mail",
+  "name": "mail_service",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./dist/emailConsumer.js",
+    "start": "node ./dist/index.js",
+    "build": "tsc -b",
     "dev": "nodemon --watch \"*.ts\" --ext ts --exec ts-node ./index.ts"
   },
   "keywords": [],

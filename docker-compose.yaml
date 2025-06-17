@@ -10,8 +10,9 @@ services:
     networks:
       - dashboard_ui
     volumes:
-      - /etc/letsencrypt/live/domain.live/privkey.pem:/etc/letsencrypt/live/domain.live/privkey.pem
-      - /etc/letsencrypt/live/domain.live/fullchain.pem:/etc/letsencrypt/live/domain.live/fullchain.pem
+      - /etc/letsencrypt/live/dashcraft.manishlal.live/privkey.pem:/etc/letsencrypt/live/dashcraft.manishlal.live/privkey.pem
+      - /etc/letsencrypt/live/dashcraft.manishlal.live/fullchain.pem:/etc/letsencrypt/live/dashcraft.manishlal.live/fullchain.pem
+
   server:
     image: manish2274/db-ui_backend:1.0
     container_name: server
@@ -22,17 +23,9 @@ services:
     networks:
       - dashboard_ui
     volumes:
-      - /home/user/dashboard-ui/dashboard-ui-fc449-firebase-adminsdk-2xo0h-807ee2f80c.json:/home/root/dashboard-ui/dashboard-ui-fc449-firebase-adminsdk-2xo0h-807ee2f80c.json
-      - /etc/letsencrypt/live/domain.live/privkey.pem:/etc/letsencrypt/live/domain.live/privkey.pem
-      - /etc/letsencrypt/live/domain.live/fullchain.pem:/etc/letsencrypt/live/domain.live/fullchain.pem
-
-  mongo:
-    image: mongo
-    container_name: mongo
-    ports:
-      - "27017:27017"
-    networks:
-      - dashboard_ui
+      - /home/manish/dashboard-ui/dashboard-ui-fc449-firebase-adminsdk-2xo0h-807ee2f80c.json:/home/root/dashboard-ui/dashboard-ui-fc449-firebase-adminsdk-2xo0h-807ee2f80c.json
+      - /etc/letsencrypt/live/dashcraft.manishlal.live/privkey.pem:/etc/letsencrypt/live/dashcraft.manishlal.live/privkey.pem
+      - /etc/letsencrypt/live/dashcraft.manishlal.live/fullchain.pem:/etc/letsencrypt/live/dashcraft.manishlal.live/fullchain.pem
 
   rabbitmq:
     image: rabbitmq

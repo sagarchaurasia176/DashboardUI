@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
         </h2>
       </div>
       <header
-        className={`sticky top-0 z-50 shadow-lg w-full transition-all  p-3 lg:p-4 duration-300 ${
+        className={`sticky top-0 z-50 shadow-lg w-full transition-all p-3 lg:p-4 duration-300 ${
           isScrolled ? "navbar-blur" : "bg-slate-900"
         } text-gray-100`}
       >
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
         </AnimatePresence>
 
         {/* Navbar */}
-        <div className="flex items-center justify-between p-1  ">
+        <div className="flex items-center justify-between p-1">
           {/* Logo */}
           <Link
             to="/"
@@ -108,7 +108,7 @@ const Navbar: React.FC = () => {
             )}
             <button
               aria-label="Book Demo"
-              className="hidden md:flex  items-center rounded-xl p-4   font-bold bg-slate-400 text-black  transition-all"
+              className="hidden md:flex items-center rounded-xl p-4 font-bold bg-slate-400 text-black transition-all"
               onClick={() =>
                 (window.location.href = "https://cal.com/DashboardUi")
               }
